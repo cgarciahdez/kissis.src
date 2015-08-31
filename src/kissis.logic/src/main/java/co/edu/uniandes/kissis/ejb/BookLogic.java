@@ -1,4 +1,4 @@
-package co.edu.uniandes.basicrestlogic.ejb;
+package co.edu.uniandes.kissis.ejb;
 
 import co.edu.uniandes.basicrestlogic.dtos.BookDTO;
 import java.util.ArrayList;

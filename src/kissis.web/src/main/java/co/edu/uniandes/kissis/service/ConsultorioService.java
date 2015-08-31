@@ -1,7 +1,7 @@
 package co.edu.uniandes.kissis.service;
 
-import co.edu.uniandes.basicrestlogic.dtos.BookDTO;
-import co.edu.uniandes.kissis.ejb.IBookLogic;
+import co.edu.uniandes.kissis.dtos.ConsultorioDTO;
+import co.edu.uniandes.kissis.ejb.IConsultorioLogic;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -19,16 +19,16 @@ import javax.ws.rs.core.MediaType;
 /**
  * Clase que contiene lo relacionado con el servicio REST
  */
-@Path("/books")
+@Path("/consult")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class BookService {
+public class ConsultorioService {
     
     @Context 
     private HttpServletResponse response;
     
     @Inject
-    private IBookLogic bookLogic;
+    private IConsultorioLogic consultorioLogic;
     
     /**
      * Metodo POST para la creación de un libro
@@ -36,8 +36,8 @@ public class BookService {
      * @return 
      */
     @POST
-    public BookDTO createBook(BookDTO dto) {
-        return bookLogic.createBook(dto);
+    public ConsultorioDTO createConsultorio(ConsultorioDTO dto) {
+        return consultorioLogic.createConsultorio(dto);
     }
 
     /**
@@ -45,8 +45,8 @@ public class BookService {
      * @return 
      */
     @GET
-    public List<BookDTO> getBooks() {
-        return bookLogic.getBooks();
+    public List<ConsultorioDTO> getConsultorios() {
+        return consultorioLogic.getConsultorios();
     }
     
     /**
@@ -55,8 +55,8 @@ public class BookService {
      */
     @PUT
     @Path("{id: \\d+}")
-    public BookDTO updateBook(@PathParam("id") Long id, BookDTO dto) {
-        return bookLogic.updateBook(id,dto);
+    public ConsultorioDTO updateConsultorio(@PathParam("id") Long id, ConsultorioDTO dto) {
+        return consultorioLogic.updateConsultorio(id,dto);
     }
 
     /**
@@ -64,7 +64,7 @@ public class BookService {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteBook(@PathParam("id") Long id) {
-        bookLogic.deleteBook(id);
+    public void deleteConsultorio(@PathParam("id") Long id) {
+        consultorioLogic.deleteConsultorio(id);
     }
 }
