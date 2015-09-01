@@ -30,7 +30,7 @@ public class DoctorLogic implements IDoctorLogic {
      * @param dto
      * @return 
      */
-    public DoctorDTO createConsultorio(DoctorDTO dto) {
+    public DoctorDTO createDoctor(DoctorDTO dto) {
         doctor.add(dto);
         return dto;
     }
