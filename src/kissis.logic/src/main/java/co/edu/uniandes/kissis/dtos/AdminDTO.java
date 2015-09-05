@@ -1,7 +1,6 @@
 package co.edu.uniandes.kissis.dtos;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import sun.util.calendar.LocalGregorianCalendar;
 
 /**
  * Clase que contiene el DTO 

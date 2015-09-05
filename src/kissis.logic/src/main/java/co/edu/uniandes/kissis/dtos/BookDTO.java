@@ -1,4 +1,4 @@
-package co.edu.uniandes.basicrestlogic.dtos;
+package co.edu.uniandes.kissis.dtos;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

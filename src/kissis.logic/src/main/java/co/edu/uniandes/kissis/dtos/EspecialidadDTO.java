@@ -5,10 +5,12 @@
  */
 package co.edu.uniandes.kissis.dtos;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
- *
- * @author df.cubillos10
+ * Clase que contiene el DTO 
  */
+@XmlRootElement
 public class EspecialidadDTO {
     private static final String PEDIATRIA = "PEDIATRIA";
     

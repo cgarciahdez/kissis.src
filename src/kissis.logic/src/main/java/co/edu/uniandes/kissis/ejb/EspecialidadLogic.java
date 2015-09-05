@@ -13,6 +13,7 @@ import javax.ejb.Stateless;
  *
  * @author df.cubillos10
  */
+@Stateless
 public class EspecialidadLogic implements IEspecialidadLogic {
 
     /**

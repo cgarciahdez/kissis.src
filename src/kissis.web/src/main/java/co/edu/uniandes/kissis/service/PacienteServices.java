@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author am.consuegra10
  */
-@Path("/consult")
+@Path("/paciente")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PacienteServices

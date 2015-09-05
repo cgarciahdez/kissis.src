@@ -24,7 +24,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author df.cubillos10
  */
-@Path("/consult")
+@Path("/especialidad")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class EspecialidadService {
@@ -68,7 +68,7 @@ public class EspecialidadService {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteConsultorio(@PathParam("nombre") String nombre) {
+    public void deleteEspecialidad(@PathParam("nombre") String nombre) {
         especialidadLogic.deleteEspecialidad(nombre);
     } 
 }

@@ -1,6 +1,6 @@
 package co.edu.uniandes.kissis.service;
 
-import co.edu.uniandes.basicrestlogic.dtos.BookDTO;
+import co.edu.uniandes.kissis.dtos.BookDTO;
 import co.edu.uniandes.kissis.ejb.IBookLogic;
 import java.util.List;
 import javax.inject.Inject;

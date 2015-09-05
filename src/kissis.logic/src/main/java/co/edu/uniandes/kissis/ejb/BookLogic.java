@@ -1,6 +1,6 @@
 package co.edu.uniandes.kissis.ejb;
 
-import co.edu.uniandes.basicrestlogic.dtos.BookDTO;
+import co.edu.uniandes.kissis.dtos.BookDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;

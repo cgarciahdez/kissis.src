@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Clase que contiene lo relacionado con el servicio REST
  */
-@Path("/consult")
+@Path("/doctor")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class DoctorServices {
