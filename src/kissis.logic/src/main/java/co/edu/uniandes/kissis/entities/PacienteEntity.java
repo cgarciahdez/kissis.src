@@ -1,16 +1,21 @@
-package co.edu.uniandes.kissis.dtos;
+package co.edu.uniandes.kissis.entities;
 
+import java.io.Serializable;
 import java.util.Date;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
 
 /**
  *
- * @author am.consuegra10
+ * @author amcon_000
  */
-@XmlRootElement
-public class PacienteDTO 
+@Entity
+public class PacienteEntity implements Serializable
 {
-    //Atributos de la clase
+    @Id
+    @GeneratedValue(generator = "Paciente")
     private Long id;
     
     private String nombre;
@@ -27,7 +32,13 @@ public class PacienteDTO
     
     private String genero;
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNac;
+    
+    public String getNombre() 
+    {
+        return nombre;
+    }
     
     /**
      * @generated
@@ -43,11 +54,6 @@ public class PacienteDTO
     public void setId(Long id)
     {
         this.id = id;
-    }
-    
-    public String getNombre() 
-    {
-        return nombre;
     }
 
     public void setNombre(String nombre) 
@@ -124,6 +130,5 @@ public class PacienteDTO
     {
         this.fechaNac = fechaNac;
     }
-    
     
 }

@@ -1,4 +1,4 @@
-package co.edu.uniandes.kissis.ejb;
+package co.edu.uniandes.kissis.api;
 
 import co.edu.uniandes.kissis.dtos.PacienteDTO;
 import java.util.List;
@@ -10,7 +10,8 @@ import java.util.List;
 public interface IPacienteLogic 
 {
     public List<PacienteDTO> getPacientes();
+    public PacienteDTO gePaciente(Long id);
     public PacienteDTO createPaciente(PacienteDTO dto);
-    public PacienteDTO updatePaciente(String pTipoId, String pId, PacienteDTO dto);
-    public void deletePaciente(String pTipoId, String pId);
+    public PacienteDTO updatePaciente(PacienteDTO dto);
+    public void deletePaciente(Long id);
 }

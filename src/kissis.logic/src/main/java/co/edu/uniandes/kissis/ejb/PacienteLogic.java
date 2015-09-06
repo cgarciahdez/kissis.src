@@ -1,9 +1,14 @@
 package co.edu.uniandes.kissis.ejb;
 
+import co.edu.uniandes.kissis.api.IPacienteLogic;
+import co.edu.uniandes.kissis.converters.PacienteConverter;
 import co.edu.uniandes.kissis.dtos.PacienteDTO;
+import co.edu.uniandes.kissis.entities.PacienteEntity;
+import co.edu.uniandes.kissis.persistence.PacientePersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
@@ -12,69 +17,33 @@ import javax.ejb.Stateless;
 @Stateless
 public class PacienteLogic implements IPacienteLogic
 {
-    /**
-     * Lista que se usara para el manejo de la información del servicio
-     */
-    private final static List<PacienteDTO> pacientes = new ArrayList<PacienteDTO>();
-    /**
-     * Metodo para obtener todos los pacientes
-     * @return pacientes
-     */
+    @Inject private PacientePersistence persistence;
+    
     public List<PacienteDTO> getPacientes() 
     {
-        return pacientes;
+        return PacienteConverter.listEntity2DTO(persistence.findAll());
     }
 
-    /**
-     * Metodo para crear un paciente
-     * @param dto
-     * @return paciente creado
-     */
-    public PacienteDTO createPaciente(PacienteDTO dto) 
+    public PacienteDTO gePaciente(Long id)
     {
-        pacientes.add(dto);
-        return dto;
+        return PacienteConverter.basicEntity2DTO(persistence.find(id));
     }
 
-    /**
-     * Metodo para actualizar un paciente
-     * @param dto
-     * @return 
-     */
-    public PacienteDTO updatePaciente(String pTipoId, String pId, PacienteDTO dto) 
+    public PacienteDTO createPaciente(PacienteDTO dto)
     {
-        for (int i = 0; i < pacientes.size(); i++) 
-        {
-            PacienteDTO actual = pacientes.get(i);
-            
-            if (actual.getTipoId().equals(pTipoId) && actual.getId().equals(pId)) 
-            {
-                actual.setNombre(dto.getNombre());
-                actual.setApellido(dto.getApellido());
-                actual.setTipoId(dto.getTipoId());
-                actual.setId(dto.getId());
-                actual.setEps(dto.getEps());
-                actual.setIdEps(dto.getIdEps());
-                actual.setGenero(dto.getGenero());
-            }
-        }
-        return dto;
+        PacienteEntity entity = PacienteConverter.basicDTO2Entity(dto);
+        persistence.create(entity);
+        return PacienteConverter.basicEntity2DTO(entity);
     }
 
-    /**
-     * Metodo utilizado para eliminar un paciente
-     * @param 
-     */
-    public void deletePaciente(String pTipoId, String pId) 
+    public PacienteDTO updatePaciente(PacienteDTO dto)
     {
-        for (int i = 0; i < pacientes.size(); i++)
-        {
-            PacienteDTO actual = pacientes.get(i);
-            
-            if (actual.getTipoId().equals(pTipoId) && actual.getId().equals(pId))
-            {
-                pacientes.remove(i);
-            }
-        }
+        PacienteEntity entity = persistence.update(PacienteConverter.basicDTO2Entity(dto));
+        return PacienteConverter.basicEntity2DTO(entity);
+    }
+
+    public void deletePaciente(Long id)
+    {
+        persistence.delete(id);
     }
 }
