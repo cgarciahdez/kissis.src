@@ -10,7 +10,7 @@ import java.util.List;
 public interface IPacienteLogic 
 {
     public List<PacienteDTO> getPacientes();
-    public PacienteDTO gePaciente(Long id);
+    public PacienteDTO getPaciente(Long id);
     public PacienteDTO createPaciente(PacienteDTO dto);
     public PacienteDTO updatePaciente(PacienteDTO dto);
     public void deletePaciente(Long id);

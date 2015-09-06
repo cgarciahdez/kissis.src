@@ -24,7 +24,7 @@ public class PacienteLogic implements IPacienteLogic
         return PacienteConverter.listEntity2DTO(persistence.findAll());
     }
 
-    public PacienteDTO gePaciente(Long id)
+    public PacienteDTO getPaciente(Long id)
     {
         return PacienteConverter.basicEntity2DTO(persistence.find(id));
     }
