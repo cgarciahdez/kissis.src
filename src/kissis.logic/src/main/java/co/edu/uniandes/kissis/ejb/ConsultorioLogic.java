@@ -1,9 +1,14 @@
 package co.edu.uniandes.kissis.ejb;
 
+import co.edu.uniandes.kissis.api.IConsultorioLogic;
+import co.edu.uniandes.kissis.converters.ConsultorioConverter;
 import co.edu.uniandes.kissis.dtos.ConsultorioDTO;
+import co.edu.uniandes.kissis.entities.ConsultorioEntity;
+import co.edu.uniandes.kissis.persistence.ConsultorioPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  * Clase EJB para el desarrollo de la lógica del negocio y conexión de los
@@ -11,58 +16,28 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class ConsultorioLogic implements IConsultorioLogic {
+ @Inject private ConsultorioPersistence persistence;
 
-    /**
-     * Lista que se usara para el manejo de la información del servicio
-     */
-    private final static List<ConsultorioDTO> consultorio = new ArrayList<ConsultorioDTO>();
-
-    /**
-     * Metodo para obtener todos los consultorios
-     * @return
-     */
     public List<ConsultorioDTO> getConsultorios() {
-        return consultorio;
+        return ConsultorioConverter.listEntity2DTO(persistence.findAll());
     }
 
-    /**
-     * Metodo para crear un consultorio
-     * @param dto
-     * @return 
-     */
+    public ConsultorioDTO getConsultorio(Long id) {
+        return ConsultorioConverter.basicEntity2DTO(persistence.find(id));
+    }
+
     public ConsultorioDTO createConsultorio(ConsultorioDTO dto) {
-        consultorio.add(dto);
-        return dto;
+        ConsultorioEntity entity = ConsultorioConverter.basicDTO2Entity(dto);
+        persistence.create(entity);
+        return ConsultorioConverter.basicEntity2DTO(entity);
     }
 
-    /**
-     * Metodo para actualizar un elemento
-     * @param dto
-     * @return 
-     */
-    public ConsultorioDTO updateConsultorio(Long id, ConsultorioDTO dto) {
-        for (int i = 0; i < consultorio.size(); i++) {
-            if (consultorio.get(i).getId().equals(id)) {
-                consultorio.get(i).setId(id);
-                consultorio.get(i).setEspecialidad(dto.getEspecialidad());
-                consultorio.get(i).setImage(dto.getImage());
-                consultorio.get(i).setTipo(dto.getTipo());
-                consultorio.get(i).setTamanio(dto.getTamanio());
-                consultorio.get(i).setExtension(dto.getExtension());
-            }
-        }
-        return dto;
+    public ConsultorioDTO updateConsultorio(ConsultorioDTO dto) {
+        ConsultorioEntity entity = persistence.update(ConsultorioConverter.basicDTO2Entity(dto));
+        return ConsultorioConverter.basicEntity2DTO(entity);
     }
 
-    /**
-     * Metodo utilizado para eliminar un elemento
-     * @param id
-     */
     public void deleteConsultorio(Long id) {
-        for (int i = 0; i < consultorio.size(); i++) {
-            if (consultorio.get(i).getId().equals(id)){
-                consultorio.remove(i);
-            }
-        }
+        persistence.delete(id);
     }
 }

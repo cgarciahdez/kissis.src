@@ -5,23 +5,9 @@ import co.edu.uniandes.kissis.entities.ConsultorioEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @generated
- */
 public abstract class ConsultorioConverter {
 
-    /**
-     * @generated
-     */
-    private ConsultorioConverter() {
-    }
-
-    /**
-     * @param entity
-     * @return
-     * @generated
-     */
-    public static ConsultorioDTO refEntity2DTO(ConsultorioEntity entity) {
+   public static ConsultorioDTO basicEntity2DTO(ConsultorioEntity entity) {
         if (entity != null) {
             ConsultorioDTO dto = new ConsultorioDTO();
             dto.setId(entity.getId());
@@ -37,45 +23,7 @@ public abstract class ConsultorioConverter {
         }
     }
 
-    /**
-     * @param dto
-     * @return
-     * @generated
-     */
-    public static ConsultorioEntity refDTO2Entity(ConsultorioDTO dto) {
-        if (dto != null) {
-            ConsultorioEntity entity = new ConsultorioEntity();
-            entity.setId(dto.getId());
-
-            return entity;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private static ConsultorioDTO basicEntity2DTO(ConsultorioEntity entity) {
-        if (entity != null) {
-            ConsultorioDTO dto = new ConsultorioDTO();
-            dto.setId(entity.getId());
-            dto.setEspecialidad(entity.getEspecialidad());
-            dto.setTipo(entity.getTipo());
-            dto.setImage(entity.getImage());
-            dto.setTamanio(entity.getTamanio());
-            dto.setExtension(entity.getExtension());
-
-            return dto;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private static ConsultorioEntity basicDTO2Entity(ConsultorioDTO dto) {
+    public static ConsultorioEntity basicDTO2Entity(ConsultorioDTO dto) {
         if (dto != null) {
             ConsultorioEntity entity = new ConsultorioEntity();
             entity.setId(entity.getId());
@@ -91,34 +39,6 @@ public abstract class ConsultorioConverter {
         }
     }
 
-    /**
-     * @generated
-     */
-    public static ConsultorioDTO fullEntity2DTO(ConsultorioEntity entity) {
-        if (entity != null) {
-            ConsultorioDTO dto = basicEntity2DTO(entity);
-            return dto;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @generated
-     */
-    public static ConsultorioEntity fullDTO2Entity(ConsultorioDTO dto) {
-        if (dto != null) {
-            ConsultorioEntity entity = basicDTO2Entity(dto);
-            return entity;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @generated
-     */
-
     public static List<ConsultorioDTO> listEntity2DTO(List<ConsultorioEntity> entities) {
         List<ConsultorioDTO> dtos = new ArrayList<ConsultorioDTO>();
         if (entities != null) {
@@ -129,9 +49,6 @@ public abstract class ConsultorioConverter {
         return dtos;
     }
 
-    /**
-     * @generated
-     */
     public static List<ConsultorioEntity> listDTO2Entity(List<ConsultorioDTO> dtos) {
         List<ConsultorioEntity> entities = new ArrayList<ConsultorioEntity>();
         if (dtos != null) {
@@ -143,3 +60,6 @@ public abstract class ConsultorioConverter {
     }
 
 }
+
+
+
