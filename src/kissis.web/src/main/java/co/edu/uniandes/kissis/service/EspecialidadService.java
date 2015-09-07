@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.kissis.service;
 
+import co.edu.uniandes.kissis.api.IEspecialidadLogic;
 import co.edu.uniandes.kissis.dtos.EspecialidadDTO;
-import co.edu.uniandes.kissis.ejb.IEspecialidadLogic;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +20,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+
 /**
  *
  * @author df.cubillos10
@@ -35,17 +36,17 @@ public class EspecialidadService {
     private IEspecialidadLogic especialidadLogic;
     
     /**
-     * Metodo POST para la creación de una especialidad
+     * Metodo POST para la creación de un libro
      * @param dto
      * @return 
      */
     @POST
-    public EspecialidadDTO createConsultorio(EspecialidadDTO dto) {
+    public EspecialidadDTO createEspecialidad(EspecialidadDTO dto) {
         return especialidadLogic.createEspecialidad(dto);
     }
 
     /**
-     * Metodo GET para obtener las especialidades
+     * Metodo GET para obtener los libros
      * @return 
      */
     @GET
@@ -59,8 +60,8 @@ public class EspecialidadService {
      */
     @PUT
     @Path("{id: \\d+}")
-    public EspecialidadDTO updateEspecialidad(@PathParam("nombre") String nombre, EspecialidadDTO dto) {
-        return especialidadLogic.updateEspecialidad(nombre,dto);
+    public EspecialidadDTO updateEspecialidad(@PathParam("id") Long id, EspecialidadDTO dto) {
+        return especialidadLogic.updateEspecialidad(dto);
     }
 
     /**
@@ -68,7 +69,7 @@ public class EspecialidadService {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteEspecialidad(@PathParam("nombre") String nombre) {
-        especialidadLogic.deleteEspecialidad(nombre);
-    } 
+    public void deleteEspecialidad(@PathParam("id") Long id) {
+        especialidadLogic.deleteEspecialidad(id);
+    }
 }

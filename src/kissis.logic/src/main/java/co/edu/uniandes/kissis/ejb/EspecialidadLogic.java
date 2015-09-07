@@ -4,65 +4,43 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.kissis.ejb;
+import co.edu.uniandes.kissis.api.IEspecialidadLogic;
+import co.edu.uniandes.kissis.converters.EspecialidadConverter;
 import co.edu.uniandes.kissis.dtos.EspecialidadDTO;
+import co.edu.uniandes.kissis.entities.EspecialidadEntity;
+import co.edu.uniandes.kissis.persistence.EspecialidadPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
-
+import javax.inject.Inject;
 /**
  *
  * @author df.cubillos10
  */
 @Stateless
 public class EspecialidadLogic implements IEspecialidadLogic {
+ @Inject private EspecialidadPersistence persistence;
 
-    /**
-     * Lista que se usara para el manejo de la información del servicio
-     */
-    private final static List<EspecialidadDTO> especialidad = new ArrayList<EspecialidadDTO>();
-
-    /**
-     * Metodo para obtener todos los consultorios
-     * @return
-     */
     public List<EspecialidadDTO> getEspecialidades() {
-        return especialidad;
+        return EspecialidadConverter.listEntity2DTO(persistence.findAll());
     }
 
-    /**
-     * Metodo para crear un consultorio
-     * @param dto
-     * @return 
-     */
+    public EspecialidadDTO getEspecialidad(Long id) {
+        return EspecialidadConverter.basicEntity2DTO(persistence.find(id));
+    }
+
     public EspecialidadDTO createEspecialidad(EspecialidadDTO dto) {
-        especialidad.add(dto);
-        return dto;
+        EspecialidadEntity entity = EspecialidadConverter.basicDTO2Entity(dto);
+        persistence.create(entity);
+        return EspecialidadConverter.basicEntity2DTO(entity);
     }
 
-    /**
-     * Metodo para actualizar un elemento
-     * @param dto
-     * @return 
-     */
-    public EspecialidadDTO updateEspecialidad(String nombre, EspecialidadDTO dto) {
-        for (int i = 0; i < especialidad.size(); i++) {
-            if (especialidad.get(i).getNombre().equals(nombre)) {
-                especialidad.get(i).setNombre(nombre);
-                especialidad.get(i).setDescripcion(dto.getDescripcion());
-            }
-        }
-        return dto;
+    public EspecialidadDTO updateEspecialidad(EspecialidadDTO dto) {
+        EspecialidadEntity entity = persistence.update(EspecialidadConverter.basicDTO2Entity(dto));
+        return EspecialidadConverter.basicEntity2DTO(entity);
     }
 
-    /**
-     * Metodo utilizado para eliminar un elemento
-     * @param nombre
-     */
-    public void deleteEspecialidad(String nombre) {
-        for (int i = 0; i < especialidad.size(); i++) {
-            if (especialidad.get(i).getNombre().equals(nombre)){
-                especialidad.remove(i);
-            }
-        }
+    public void deleteEspecialidad(Long id) {
+        persistence.delete(id);
     }
 }
