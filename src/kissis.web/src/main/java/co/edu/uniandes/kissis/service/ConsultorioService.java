@@ -1,7 +1,7 @@
 package co.edu.uniandes.kissis.service;
 
+import co.edu.uniandes.kissis.api.IConsultorioLogic;
 import co.edu.uniandes.kissis.dtos.ConsultorioDTO;
-import co.edu.uniandes.kissis.ejb.IConsultorioLogic;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -56,7 +56,7 @@ public class ConsultorioService {
     @PUT
     @Path("{id: \\d+}")
     public ConsultorioDTO updateConsultorio(@PathParam("id") Long id, ConsultorioDTO dto) {
-        return consultorioLogic.updateConsultorio(id,dto);
+        return consultorioLogic.updateConsultorio(dto);
     }
 
     /**
