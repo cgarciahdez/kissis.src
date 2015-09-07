@@ -1,10 +1,15 @@
 package co.edu.uniandes.kissis.ejb;
 
+import co.edu.uniandes.kissis.api.IAdminLogic;
+import co.edu.uniandes.kissis.converters.AdminConverter;
+import co.edu.uniandes.kissis.dtos.AdminDTO;
+import co.edu.uniandes.kissis.entities.AdminEntity;
+import co.edu.uniandes.kissis.persistence.AdminPersistence;
 import co.edu.uniandes.kissis.dtos.AdminDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
-
+import javax.inject.Inject;
 /**
  * Clase EJB para el desarrollo de la lógica del negocio y conexión de los
  * servicios con la capa de datos
@@ -12,57 +17,44 @@ import javax.ejb.Stateless;
 @Stateless
 public class AdminLogic implements IAdminLogic {
 
+    
+     @Inject private AdminPersistence persistence;
+    
     /**
-     * Lista que se usara para el manejo de la información del servicio
-     */
-    private final static List<AdminDTO> admin = new ArrayList<AdminDTO>();
-
-    /**
-     * Metodo para obtener todos los libros
-     * @return
+     * @generated
      */
     public List<AdminDTO> getAdmins() {
-        return admin;
+        return AdminConverter.listEntity2DTO(persistence.findAll());
     }
 
     /**
-     * Metodo para crear un libro
-     * @param dto
-     * @return 
+     * @generated
+     */
+    public AdminDTO getAdmin(Long id) {
+        return AdminConverter.fullEntity2DTO(persistence.find(id));
+    }
+
+    /**
+     * @generated
      */
     public AdminDTO createAdmin(AdminDTO dto) {
-        admin.add(dto);
-        return dto;
-    }
-    /**
-     * Metodo para actualizar un elemento
-     * @param dto
-     * @return 
-     */
-    public AdminDTO updateAdmin(Long id, AdminDTO dto) {
-        for (int i = 0; i < admin.size(); i++) {
-            if (admin.get(i).getId().equals(id)) {
-                admin.get(i).setId(id);
-                admin.get(i).setNombre(dto.getName());
-                admin.get(i).setApellido(dto.getApellido());
-                admin.get(i).setImage(dto.getImage());
-                admin.get(i).setTipoDoc(dto.getTipoDoc());
-                admin.get(i).setnumeroCedula(dto.getnumeroCedula());
-                admin.get(i).setTipoAdmin(dto.getTipoAdmin());
-            }
-        }
-        return dto;
+        AdminEntity entity = AdminConverter.fullDTO2Entity(dto);
+        persistence.create(entity);
+        return AdminConverter.fullEntity2DTO(entity);
     }
 
     /**
-     * Metodo utilizado para eliminar un elemento
-     * @param id
+     * @generated
+     */
+    public AdminDTO updateAdmin(AdminDTO dto) {
+        AdminEntity entity = persistence.update(AdminConverter.fullDTO2Entity(dto));
+        return AdminConverter.fullEntity2DTO(entity);
+    }
+
+    /**
+     * @generated
      */
     public void deleteAdmin(Long id) {
-        for (int i = 0; i < admin.size(); i++) {
-            if (admin.get(i).getId().equals(id)){
-                admin.remove(i);
-            }
-        }
+        persistence.delete(id);
     }
 }

@@ -1,15 +1,19 @@
-package co.edu.uniandes.kissis.dtos;
+package co.edu.uniandes.kissis.entities;
 
+import java.io.Serializable;
 import java.util.Date;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
 
 /**
- * Clase que contiene el DTO 
+ * @generated
  */
-@XmlRootElement
-public class AdminDTO {
-    
-    /** Atributos de la clase */
+@Entity
+public class AdminEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(generator = "Admin")
     private Long id;
     private String nombre;
     private String apellido;
@@ -18,15 +22,12 @@ public class AdminDTO {
     private int CC;
     private String genero;
     private Date fechaN;
-  
-        
-    /** Metodos set y get de los atributos */    
     
-    public Long getId() {
+    public Long getId(){
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id){
         this.id = id;
     }
 
@@ -37,8 +38,8 @@ public class AdminDTO {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public String getApellido() {
+
+     public String getApellido() {
         return apellido;
     }
 
@@ -53,7 +54,7 @@ public class AdminDTO {
     public void setImage(String imagen) {
         this.imagen = imagen;
     }
-
+    
     public String getTipoCC() {
         return tipoCC;
     }
@@ -70,23 +71,20 @@ public class AdminDTO {
         this.CC = CC;
     }
     
-    public String getGenero() {
+     public String getGenero() {
         return genero;
     }
 
-    public void setGenero(String Genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
     
-    public Date getfechaN() {
+    public Date getFechaN() {
         return fechaN;
     }
 
     public void setFechaN(Date fechaN) {
         this.fechaN = fechaN;
     }
-    
-    
-   
-}
 
+}
