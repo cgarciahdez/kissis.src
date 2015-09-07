@@ -35,7 +35,7 @@ public class DoctorLogic implements IDoctorLogic
     }
 
     @Override
-    public DoctorDTO updateDoctor(Long id, DoctorDTO dto) 
+    public DoctorDTO updateDoctor(DoctorDTO dto) 
     {
         DoctorEntity entity = persistence.update(DoctorConverter.basicDTO2Entity(dto));
         return DoctorConverter.basicEntity2DTO(entity);

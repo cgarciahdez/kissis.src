@@ -8,6 +8,6 @@ public interface IDoctorLogic
     public List<DoctorDTO> getDoctores();
     public DoctorDTO getDoctor(Long id);
     public DoctorDTO createDoctor(DoctorDTO dto);
-    public DoctorDTO updateDoctor (Long id, DoctorDTO dto);
+    public DoctorDTO updateDoctor (DoctorDTO dto);
     public void deleteDoctor(Long id);
 }
