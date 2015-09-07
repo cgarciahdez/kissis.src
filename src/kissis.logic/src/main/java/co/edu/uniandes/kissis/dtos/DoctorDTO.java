@@ -1,5 +1,6 @@
 package co.edu.uniandes.kissis.dtos;
 
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -10,59 +11,100 @@ public class DoctorDTO {
     
     /** Atributos de la clase */
     private Long id;
-    private String especialidad;
+    
     private String nombre;
+    
     private String apellido;
-    private int experiencia;
-    private boolean ocupado;
+    
+    private String tipoId;
+
+    private String idDato;
+
+    private String especialidad;
+    
+    private String genero;
+    
+    private Date fechaNac;
         
     /** Metodos set y get de los atributos */    
     
-    public Long getId() {
+    public Long getId() 
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) 
+    {
         this.id = id;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(String esp) {
-        this.especialidad = esp;
-    }
-
-    public String getNombre() {
+    public String getNombre() 
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre)
+    {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
+    public String getApellido() 
+    {
         return apellido;
     }
 
-    public void setApellido(String apellido) {
+    public void setApellido(String apellido)
+    {
         this.apellido = apellido;
     }
-
-    public int getExperiencia() {
-        return experiencia;
+    
+    public String getTipoId() 
+    {
+        return tipoId;
     }
 
-    public void setExperiencia(int exp) {
-        this.experiencia = exp;
+    public void setTipoId(String tipoID)
+    {
+        this.tipoId = tipoID;
+    }
+    
+    public String getIdDato() 
+    {
+        return idDato;
     }
 
-    public boolean getOcupado() {
-        return ocupado;
+    public void setIdDato(String idDato)
+    {
+        this.idDato = idDato;
+    }
+    
+    public String getEspecialidad()
+    {
+        return especialidad;
     }
 
-    public void setOcupado(boolean pOcupado) {
-        this.ocupado = pOcupado;
+    public void setEspecialidad(String esp)
+    {
+        this.especialidad = esp;
+    }
+
+    public String getGenero() 
+    {
+        return genero;
+    }
+
+    public void setGenero(String genero) 
+    {
+        this.genero = genero;
+    }
+
+    public Date getFechaNac() 
+    {
+        return fechaNac;
+    }
+
+    public void setFechaNac(Date fechaNac) 
+    {
+        this.fechaNac = fechaNac;
     }
 }

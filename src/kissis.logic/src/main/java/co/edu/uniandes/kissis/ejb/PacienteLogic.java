@@ -5,7 +5,6 @@ import co.edu.uniandes.kissis.converters.PacienteConverter;
 import co.edu.uniandes.kissis.dtos.PacienteDTO;
 import co.edu.uniandes.kissis.entities.PacienteEntity;
 import co.edu.uniandes.kissis.persistence.PacientePersistence;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

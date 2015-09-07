@@ -1,6 +1,6 @@
 package co.edu.uniandes.kissis.persistence;
 
-import co.edu.uniandes.kissis.entities.PacienteEntity;
+import co.edu.uniandes.kissis.entities.DoctorEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -12,36 +12,36 @@ import javax.persistence.Query;
  * @author amcon_000
  */
 @Stateless
-public class PacientePersistence
+public class DoctorPersistence 
 {
-    @PersistenceContext(unitName = "PacientePU")
+    @PersistenceContext(unitName = "DoctorPU")
     protected EntityManager em;
 
-    public PacienteEntity create(PacienteEntity entity)
+    public DoctorEntity create(DoctorEntity entity)
     {
         em.persist(entity);
         return entity;
     }
 
-    public PacienteEntity update(PacienteEntity entity)
+    public DoctorEntity update(DoctorEntity entity)
     {
         return em.merge(entity);
     }
 
     public void delete(Long id)
     {
-        PacienteEntity entity = em.find(PacienteEntity.class, id);
+        DoctorEntity entity = em.find(DoctorEntity.class, id);
         em.remove(entity);
     }
 
-    public PacienteEntity find(Long id)
+    public DoctorEntity find(Long id)
     {
-        return em.find(PacienteEntity.class, id);
+        return em.find(DoctorEntity.class, id);
     }
 
-    public List<PacienteEntity> findAll()
+    public List<DoctorEntity> findAll()
     {
-        Query q = em.createQuery("select u from PacienteEntity u");
+        Query q = em.createQuery("select u from DoctorEntity u");
         return q.getResultList();
     }
 }

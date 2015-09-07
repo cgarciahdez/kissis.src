@@ -1,68 +1,51 @@
 package co.edu.uniandes.kissis.ejb;
 
+import co.edu.uniandes.kissis.api.IDoctorLogic;
+import co.edu.uniandes.kissis.converters.DoctorConverter;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
-import java.util.ArrayList;
+import co.edu.uniandes.kissis.entities.DoctorEntity;
+import co.edu.uniandes.kissis.persistence.DoctorPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
-/**
- * Clase EJB para el desarrollo de la lógica del negocio y conexión de los
- * servicios con la capa de datos
- */
 @Stateless
-public class DoctorLogic implements IDoctorLogic {
-
-    /**
-     * Lista que se usara para el manejo de la información del servicio
-     */
-    private final static List<DoctorDTO> doctor = new ArrayList<DoctorDTO>();
-
-    /**
-     * Metodo para obtener todos los consultorios
-     * @return
-     */
-    public List<DoctorDTO> getDoctores() {
-        return doctor;
+public class DoctorLogic implements IDoctorLogic 
+{
+    @Inject private DoctorPersistence persistence;
+    
+    @Override
+    public List<DoctorDTO> getDoctores() 
+    {
+        return DoctorConverter.listEntity2DTO(persistence.findAll());
     }
 
-    /**
-     * Metodo para crear un consultorio
-     * @param dto
-     * @return 
-     */
-    public DoctorDTO createDoctor(DoctorDTO dto) {
-        doctor.add(dto);
-        return dto;
+    @Override
+    public DoctorDTO getDoctor(Long id) 
+    {
+        return DoctorConverter.basicEntity2DTO(persistence.find(id));
     }
 
-    /**
-     * Metodo para actualizar un elemento
-     * @param dto
-     * @return 
-     */
-    public DoctorDTO updateDoctor(Long id, DoctorDTO dto) {
-        for (int i = 0; i < doctor.size(); i++) {
-            if (doctor.get(i).getId().equals(id)) {
-                doctor.get(i).setId(id);
-                doctor.get(i).setEspecialidad(dto.getEspecialidad());
-                doctor.get(i).setNombre(dto.getNombre());
-                doctor.get(i).setApellido(dto.getApellido());
-                doctor.get(i).setExperiencia(dto.getExperiencia());
-                doctor.get(i).setOcupado(dto.getOcupado());
-            }
-        }
-        return dto;
+    @Override
+    public DoctorDTO createDoctor(DoctorDTO dto) 
+    {
+        DoctorEntity entity = DoctorConverter.basicDTO2Entity(dto);
+        persistence.create(entity);
+        return DoctorConverter.basicEntity2DTO(entity);
     }
 
-    /**
-     * Metodo utilizado para eliminar un elemento
-     * @param id
-     */
-    public void deleteDoctor(Long id) {
-        for (int i = 0; i < doctor.size(); i++) {
-            if (doctor.get(i).getId().equals(id)){
-                doctor.remove(i);
-            }
-        }
+    @Override
+    public DoctorDTO updateDoctor(Long id, DoctorDTO dto) 
+    {
+        DoctorEntity entity = persistence.update(DoctorConverter.basicDTO2Entity(dto));
+        return DoctorConverter.basicEntity2DTO(entity);
     }
+
+    @Override
+    public void deleteDoctor(Long id) 
+    {
+        persistence.delete(id);
+    }
+    
+    
 }
