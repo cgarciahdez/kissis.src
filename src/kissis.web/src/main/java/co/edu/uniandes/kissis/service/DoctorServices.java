@@ -1,10 +1,10 @@
 package co.edu.uniandes.kissis.service;
 
+import co.edu.uniandes.kissis.api.IDoctorLogic;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
-import co.edu.uniandes.kissis.ejb.IDoctorLogic;
+import co.edu.uniandes.kissis.providers.StatusCreated;
 import java.util.List;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -13,7 +13,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -22,49 +21,44 @@ import javax.ws.rs.core.MediaType;
 @Path("/doctor")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class DoctorServices {
-    
-    @Context 
-    private HttpServletResponse response;
+public class DoctorServices 
+{
     
     @Inject
     private IDoctorLogic doctorLogic;
-    
-    /**
-     * Metodo POST para la creación de un libro
-     * @param dto
-     * @return 
-     */
+
     @POST
-    public DoctorDTO createDoctor(DoctorDTO dto) {
+    @StatusCreated
+    public DoctorDTO createPaciente(DoctorDTO dto)
+    {
         return doctorLogic.createDoctor(dto);
     }
 
-    /**
-     * Metodo GET para obtener los libros
-     * @return 
-     */
     @GET
-    public List<DoctorDTO> getDoctores() {
+    public List<DoctorDTO> getDoctores()
+    {
         return doctorLogic.getDoctores();
     }
-    
-    /**
-     * Metodo PUT utilizado principalmente para actualizar
-     * @return 
-     */
-    @PUT
+
+    @GET
     @Path("{id: \\d+}")
-    public DoctorDTO updateDoctor(@PathParam("id") Long id, DoctorDTO dto) {
-        return doctorLogic.updateDoctor(id,dto);
+    public DoctorDTO getDoctor(@PathParam("id") Long id)
+    {
+        return doctorLogic.getDoctor(id);
     }
 
-    /**
-     * Metodo DELETE usado para eliminar un elemento
-     */
+    @PUT
+    @Path("{id: \\d+}")
+    public DoctorDTO updateDoctor(@PathParam("id") Long id, DoctorDTO dto)
+    {
+        dto.setId(id);
+        return doctorLogic.updateDoctor(dto);
+    }
+
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteDoctor(@PathParam("id") Long id) {
+    public void deleteBook(@PathParam("id") Long id)
+    {
         doctorLogic.deleteDoctor(id);
     }
 }
