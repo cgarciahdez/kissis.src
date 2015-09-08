@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html lang="es" ng-app="app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Citas Santander - Agendar Cita</title>
+    <link rel="stylesheet" href="mountain/styles.css" type="text/css" />
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="css/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>
+    <script src="js/example.js"></script>
+    <script src="js/miJavaScript.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/theme.min.css" type="text/css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" style="height:50px">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                        <a class="navbar-brand" href="home.html"><img src="SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Inicio</a></li>
+                    <li><a href="doctores.html">Doctores</a></li>
+                    <li><a href="serviciosPaciente.html">Servicios</a></li>
+                    <li><a href="contactenos.html">Contáctanos</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><img src="imagenesPaginas/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Alberto Consuegra <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="perfilPaciente.html"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-remove"></span> Cerrar Sesion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+     
+     
+
+    <div id="main">
+    <div id="content">
+    <div ng-controller="DatepickerDemoCtrl">
+                <!--<pre>Selected date is: <em >{{dt | date:'fullDate' }}</em></pre>!-->
+                <div class="row">
+                    <h1 style="color:#90DA11">Agende su cita:</h1>
+                </div>
+
+                <div clas="row">
+                    <div class="col-md-6">
+                        <div style="display:inline-block; min-height:290px;">
+                             <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container" id="dia" ng-show="variable">
+                            <form>
+                                <table class="table table-bordered" style="width:20%">
+                                    <thead>
+                                        <tr>
+                                            <th>Lunes 3 de septiembre</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>8:00 am-9:00 am</td>
+                                            <td>
+                                                <input type="checkbox">
+
+                                            </td>
+                                        </tr>
+                                            <td>10:00 am-11:00 am</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11:00 am-12:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12:00 pm-1:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                            <td>3:00 pm-4:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <input type="submit" value="Agendar" onclick="alert(´Su cita se ha agendado con éxito´)"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div><!-- end content -->
+        
+    <div class="col-md-3 sidebar">
+            <h4 style="text-align:right">Mi Menu</h4>
+                <table>
+                    <tr>
+                        <a href="perfilPaciente.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+                  
+                    <tr>
+                        <a href="editarInformacionPaciente.html"><input type="submit" value="Modificar Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+                    
+                    <tr>
+                        <a href="agendarCita1.html"><input type="submit" value="Agendar Cita" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+                  
+                    <tr>
+                        <a href="misCitas.html"><input type="submit" value="Mis Citas" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+               
+                    <tr>
+                        <a href="#"><input type="submit" value="Otro" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+                  
+                    <tr>
+                        <a href="#"><input type="submit" value="Otro" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+                     
+                </table>
+        </div><!-- end sidebar -->
+        
+
+      <div class="clear"></div>
+        
+    </div><!-- end main -->
+    
+    </div><!-- end container-inner -->
+    
+</div><!-- end container -->
+
+
+
+</body>
+</html>
