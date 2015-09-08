@@ -301,45 +301,28 @@
         </div>
         <!-- end content -->
 </div>
-        <div id="sidebar">
-            <div class="col-md-3 sidebar">
-                <h4 style="text-align:right">Mi Menu</h4>
+        <div class="col-md-3 sidebar"> 
+          <h4 style="text-align:right">Mi Menu</h4>
                 <table>
                     <tr>
-                    <a href="perfilAdministrador.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                        <a href="perfilDoctor.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
                     </tr>
-
+                    
                     <tr>
-                    <a href="agregarMedico.html"><input type="submit" value="Agregar Medico" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                        <a href="editarInformacionDoctor.html"><input type="submit" value="Modificar Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
                     </tr>
-
+                    
                     <tr>
-                    <a href="agregarConsultorio.html"><input type="submit" value="Agregar Consultorio" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Seleccionar Horarios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
                     </tr>
-
-                    <tr>
-                    <a href="ManejadorConsultorios.html"><input type="submit" value="Consultorios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-                    </tr>
-
-                    <tr>
-                    <a href=""><input type="submit" value="Medicos" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-                    </tr>
-
-                    <tr>
-                    <a href="CambiarContraseña.html"><input type="submit" value="Cambiar Contraseña" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-                    </tr>
-
+                    
                 </table>
-            </div><!-- end sidebar -->
+        </div><!-- end sidebar -->
 
         </div><!-- end main -->
 
 
 
         <div class="clear"><br></div>
-
-        <div id="footer">
-            <p>&copy; YourSite 2011. Design by <a href="http://www.electrictowelrail.org.uk" target="_blank">Electric Towel Rail</a>  | <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> | <a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p>
-        </div><!-- end footer -->
     
 
