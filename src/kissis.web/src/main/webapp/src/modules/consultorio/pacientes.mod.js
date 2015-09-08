@@ -1,7 +1,7 @@
 
 (function (ng) {
-    var mod = ng.module('consultorioModule', ['ui.bootstrap']);
+    var mod = ng.module('pacientesModule', ['ui.bootstrap']);
 
-    mod.constant('consultorioContext', 'webresources/consult');
+    mod.constant('pacientesContext', 'webresources/consult');
 
 })(window.angular);
