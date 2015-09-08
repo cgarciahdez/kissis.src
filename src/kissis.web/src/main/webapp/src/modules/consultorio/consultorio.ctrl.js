@@ -9,7 +9,7 @@
             this.readOnly = false;
             this.editMode = false;
             this.verPerfil = false;
-            this.verConsultorios = false;
+            this.verConsultorios = true;
 
             var self = this;
             this.createRecord = function () {

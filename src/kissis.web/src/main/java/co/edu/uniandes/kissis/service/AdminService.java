@@ -1,7 +1,7 @@
 package co.edu.uniandes.kissis.service;
 
+import co.edu.uniandes.kissis.api.IAdminLogic;
 import co.edu.uniandes.kissis.dtos.AdminDTO;
-import co.edu.uniandes.kissis.ejb.IAdminLogic;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -56,7 +56,7 @@ public class AdminService {
     @PUT
     @Path("{id: \\d+}")
     public AdminDTO updateAdmin(@PathParam("id") Long id, AdminDTO dto) {
-        return adminLogic.updateAdmin(id,dto);
+        return adminLogic.updateAdmin(dto);
     }
 
     /**

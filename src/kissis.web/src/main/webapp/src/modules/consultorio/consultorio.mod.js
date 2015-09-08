@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module('consultorioModule', ['ui.bootstrap']);
+    var mod = ng.module('consultorioModule', []);
 
     mod.constant('consultorioContext', 'webresources/consult');
 

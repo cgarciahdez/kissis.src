@@ -12,6 +12,21 @@
                     controller: 'consultorioCtrl',
                     controllerAs: 'ctrl'
                 })
+                .when('/admin', {
+                    templateUrl: 'src/modules/admin/admin.tpl.html',
+                    controller: 'adminCtrl',
+                    controllerAs: 'ctrl'
+                })
+                .when('/especialidad', {
+                    templateUrl: 'src/modules/especialidad/especialidad.tpl.html',
+                    controller: 'especialidadCtrl',
+                    controllerAs: 'ctrl'
+                })
+                .when('/paciente', {
+                    templateUrl: 'src/modules/paciente/paciente.tpl.html',
+                    controller: 'pacienteCtrl',
+                    controllerAs: 'ctrl'
+                })
                 .otherwise('/consult');
         }]);
 })(window.angular);
