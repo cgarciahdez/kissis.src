@@ -1,7 +1,7 @@
 (function (ng) {
-    var mod = ng.module('consultorioModule');
+    var mod = ng.module('doctorModule');
 
-    mod.controller('consultorioCtrl', ['$scope', 'consultorioService', function ($scope, svc) {
+    mod.controller('doctorCtrl', ['$scope', 'doctorService', function ($scope, svc) {
             $scope.currentRecord = {};
             $scope.records = [];
 
@@ -9,13 +9,13 @@
             this.readOnly = false;
             this.editMode = false;
             this.verPerfil = false;
-            this.verConsultorios = false;
+            this.verHorarios = false;
 
             var self = this;
             this.createRecord = function () {
                 self.editMode = true;
                 self.verPerfil = false;
-                self.verConsultorios = false;
+                self.verHorarios = false;
                 $scope.currentRecord = {};
             };
 
@@ -24,7 +24,7 @@
                     $scope.currentRecord = response.data;
                     self.editMode = true;
                     self.verPerfil = false;
-                    self.verConsultorios = false;
+                    self.verHorarios = false;
                     return response;
                 });
             };
@@ -35,7 +35,7 @@
                     $scope.currentRecord = {};
                     self.editMode = false;
                     self.verPerfil = false;
-                    self.verConsultorios = true;
+                    self.verHorarios = true;
                     return response;
                 });
             };
@@ -45,7 +45,7 @@
                     $scope.currentRecord = response.data;
                     self.editMode = false;
                     self.verPerfil = true;
-                    self.verConsultorios = false;
+                    self.verHorarios = false;
                     return response;
                 });
             };
