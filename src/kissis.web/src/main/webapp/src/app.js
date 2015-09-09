@@ -27,6 +27,11 @@
                     controller: 'pacienteCtrl',
                     controllerAs: 'ctrl'
                 })
+                .when('/doctor', {
+                    templateUrl: 'src/modules/paciente/doctor.tpl.html',
+                    controller: 'doctorCtrl',
+                    controllerAs: 'ctrl'
+                })
                 .otherwise('/consult');
         }]);
 })(window.angular);

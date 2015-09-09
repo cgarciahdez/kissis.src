@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
 
 /**
  * @generated
@@ -21,6 +22,7 @@ public class AdminEntity implements Serializable {
     private String tipoCC;
     private int CC;
     private String genero;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaN;
     
     public Long getId(){

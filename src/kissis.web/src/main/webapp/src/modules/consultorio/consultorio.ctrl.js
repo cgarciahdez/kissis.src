@@ -28,6 +28,17 @@
                     return response;
                 });
             };
+            
+            this.fetchRecord = function (record) {
+                debugger;
+                return svc.fetchRecord(record.id).then(function (response) {
+                    $scope.currentRecord = response.data;
+                    self.editMode = false;
+                    self.verPerfil = true;
+                    self.verConsultorios = false;
+                    return response;
+                });
+            };
 
             this.fetchRecords = function () {
                 return svc.fetchRecords().then(function (response) {
@@ -40,15 +51,7 @@
                 });
             };
 
-            this.fetchRecord = function (record) {
-                return svc.fetchRecord(record.id).then(function (response) {
-                    $scope.currentRecord = response.data;
-                    self.editMode = false;
-                    self.verPerfil = true;
-                    self.verConsultorios = false;
-                    return response;
-                });
-            };
+            
 
             this.saveRecord = function () {
                 return svc.saveRecord($scope.currentRecord).then(function () {
