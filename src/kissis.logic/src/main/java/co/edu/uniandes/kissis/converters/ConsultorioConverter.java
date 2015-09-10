@@ -26,12 +26,12 @@ public abstract class ConsultorioConverter {
     public static ConsultorioEntity basicDTO2Entity(ConsultorioDTO dto) {
         if (dto != null) {
             ConsultorioEntity entity = new ConsultorioEntity();
-            entity.setId(entity.getId());
-            entity.setEspecialidad(entity.getEspecialidad());
-            entity.setTipo(entity.getTipo());
-            entity.setImage(entity.getImage());
-            entity.setTamanio(entity.getTamanio());
-            entity.setExtension(entity.getExtension());
+            entity.setId(dto.getId());
+            entity.setEspecialidad(dto.getEspecialidad());
+            entity.setTipo(dto.getTipo());
+            entity.setImage(dto.getImage());
+            entity.setTamanio(dto.getTamanio());
+            entity.setExtension(dto.getExtension());
 
             return entity;
         } else {

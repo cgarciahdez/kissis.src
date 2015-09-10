@@ -15,7 +15,8 @@ import javax.inject.Inject;
  */
 @Stateless
 public class ConsultorioLogic implements IConsultorioLogic {
- @Inject private ConsultorioPersistence persistence;
+    
+    @Inject private ConsultorioPersistence persistence;
 
     public List<ConsultorioDTO> getConsultorios() {
         return ConsultorioConverter.listEntity2DTO(persistence.findAll());
