@@ -6,17 +6,26 @@
             $scope.records = [];
 
             //Variables para el controlador
-            this.readOnly = false;
+            this.readOnly = true;
             this.editMode = false;
             this.verPerfil = false;
-            this.verHorarios = false;
-            this.createMode = false;
-
+            this.createMode = true;
             var self = this;
+            
+            this.mostrarDoctores = function ()
+            {
+               self.createMode = false;
+               self.readOnly = true;
+               self.editMode = false;
+               self.verPerfil = false;
+            };
+            
+            
             this.createRecord = function () {
                 self.editMode = true;
-                self.verPerfil = false;
-                self.verHorarios = false;
+                self.verPerfil = true;
+                self.createMode = true;
+                self.readOnly = true;
                 $scope.currentRecord = {};
             };
 
@@ -25,7 +34,7 @@
                     $scope.currentRecord = response.data;
                     self.editMode = true;
                     self.verPerfil = false;
-                    self.verHorarios = false;
+                    self.createMode = true;
                     return response;
                 });
             };
@@ -36,7 +45,6 @@
                     $scope.currentRecord = {};
                     self.editMode = false;
                     self.verPerfil = false;
-                    self.verHorarios = true;
                     return response;
                 });
             };
@@ -46,7 +54,6 @@
                     $scope.currentRecord = response.data;
                     self.editMode = false;
                     self.verPerfil = true;
-                    self.verHorarios = false;
                     return response;
                 });
             };
