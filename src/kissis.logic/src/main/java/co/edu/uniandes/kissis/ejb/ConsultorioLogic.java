@@ -5,7 +5,6 @@ import co.edu.uniandes.kissis.converters.ConsultorioConverter;
 import co.edu.uniandes.kissis.dtos.ConsultorioDTO;
 import co.edu.uniandes.kissis.entities.ConsultorioEntity;
 import co.edu.uniandes.kissis.persistence.ConsultorioPersistence;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

@@ -54,6 +54,7 @@
             
 
             this.saveRecord = function () {
+                debugger;
                 return svc.saveRecord($scope.currentRecord).then(function () {
                     self.fetchRecords();
                 });

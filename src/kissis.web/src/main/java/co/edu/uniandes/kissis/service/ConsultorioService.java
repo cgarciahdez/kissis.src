@@ -2,6 +2,7 @@ package co.edu.uniandes.kissis.service;
 
 import co.edu.uniandes.kissis.api.IConsultorioLogic;
 import co.edu.uniandes.kissis.dtos.ConsultorioDTO;
+import co.edu.uniandes.kissis.providers.StatusCreated;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -30,12 +31,9 @@ public class ConsultorioService {
     @Inject
     private IConsultorioLogic consultorioLogic;
     
-    /**
-     * Metodo POST para la creación de un libro
-     * @param dto
-     * @return 
-     */
+
     @POST
+    @StatusCreated
     public ConsultorioDTO createConsultorio(ConsultorioDTO dto) {
         return consultorioLogic.createConsultorio(dto);
     }
@@ -47,6 +45,12 @@ public class ConsultorioService {
     @GET
     public List<ConsultorioDTO> getConsultorios() {
         return consultorioLogic.getConsultorios();
+    }
+    
+    @GET
+    @Path("{id: \\d+}")
+    public ConsultorioDTO getBook(@PathParam("id") Long id) {
+        return consultorioLogic.getConsultorio(id);
     }
     
     /**
