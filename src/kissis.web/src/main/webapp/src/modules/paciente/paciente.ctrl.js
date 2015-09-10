@@ -8,7 +8,7 @@
             //Variables para el controlador
             this.readOnly = false;
             this.editMode = false;
-            this.verPerfil = false;
+            this.verPerfilPaciente = true;
             this.verCitas = false;
             this.agregarCita = false;
 
@@ -16,17 +16,17 @@
             
             this.perfil = function () {
                 self.editMode = false;
-                self.verPerfil = true;
+                self.verPerfilPaciente = true;
                 self.verCitas = false;
-                this.agregarCita = false;
+                self.agregarCita = false;
                 $scope.currentRecord = {};
             };
             
             this.createRecord = function () {
                 self.editMode = true;
-                self.verPerfil = false;
+                self.verPerfilPaciente = false;
                 self.verCitas = false;
-                this.agregarCita = false;
+                self.agregarCita = false;
                 $scope.currentRecord = {};
             };
 
@@ -34,7 +34,7 @@
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = true;
-                    self.verPerfil = false;
+                    self.verPerfilPaciente = false;
                     self.verCitas = false;
                     this.agregarCita = false;
                     return response;
@@ -46,7 +46,7 @@
                     $scope.records = response.data;
                     $scope.currentRecord = {};
                     self.editMode = false;
-                    self.verPerfil = false;
+                    self.verPerfilPaciente = false;
                     self.verCitas = true;
                     this.agregarCita = false;
                     return response;
@@ -57,9 +57,9 @@
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = false;
-                    self.verPerfil = false;
+                    self.verPerfilPaciente = false;
                     self.verCitas = false;
-                    this.agregarCita = true;
+                    self.agregarCita = true;
                     return response;
                 });
             };

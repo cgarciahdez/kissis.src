@@ -10,6 +10,7 @@
             this.editMode = false;
             this.verPerfil = false;
             this.verHorarios = false;
+            this.createMode = false;
 
             var self = this;
             this.createRecord = function () {
