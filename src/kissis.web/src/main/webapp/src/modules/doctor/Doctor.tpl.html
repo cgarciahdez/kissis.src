@@ -205,7 +205,7 @@
                 <div class="row" style="text-align:justify;padding-bottom:20px;padding-left:20px">
                     <a href="ingresarHorariosSemana.html" class="boton">Ingresar Horarios Semana</a>
                 </div>
-                <div clas="row">
+                <div class="row">
                     <div class="col-md-6">
                         <div style="display:inline-block; min-height:290px;">
                             <datepicker datepicker-mode="year" ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
@@ -301,6 +301,83 @@
         </div>
         <!-- end content -->
 </div>
+        
+<div ng-show="ctrl.createMode">
+
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <h2>Agregar Medico</h2>
+            <form novalidate name="form" id="book-form" role="form" ng-submit="form.$valid && ctrl.saveRecord()">
+                <fieldset>
+                    <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+
+                    <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div>
+                    <div class="col-md-5"><input type="text" name="nombreDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.nombre" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Apellido:</b></div>
+                    <div class="col-md-5"><input type="text" name="apellidoDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.apellido" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Tipo de Documento:</b></div>
+                    <div class="col-md-5"> 
+                        <select name="documento" id="documento" style="height:25px"  class="form-control"  ng-model="currentRecord.tipoDocumento" required>
+                            <option value=""></option>
+                            <option value="Cedula exranjeria">Cedula de extranjeria</option>
+                            <option value ="Cedula ciudadania">Cedula de ciudadania</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>No documento:</b></div>
+                    <div class="col-md-5"><input type="text" name="documentoDctor" value="ConsultorioID" style="height:25px" class="form-control"  ng-model="currentRecord.NoDocumento" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
+                    <div class="col-md-5"> 
+                        <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.especialidad" required>
+                            <option value=""></option>
+                            <option value="Medicina General">Medicina General</option>
+                            <option value ="Audiologia">Audiología</option>
+                            <option value = "Dermatologia">Dermatología</option>
+                            <option value="Ginecologia">Ginecología</option>
+                            <option value="Oftalmologia">Oftamología</option>
+                            <option value="Reumatologia">Reumatología</option>
+                            <option value="Urologia">Urología</option>
+                            <option value="Pediatria">Pediatría</option>
+                            <option value="Ecografia">Ecografía</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Género:</b></div>
+                    <div class="col-md-5"> <select name="" id="TipoConsultorio" style="height:25px" class="form-control"  ng-model="currentRecord.genero" required>
+                            <option value="Consultas">Masculino</option>
+                            <option value="Sala de Cirugia">Femenino</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Fecha de Nacimiento:</b></div>
+                    <div class="col-md-5"><input type="date" name="dia" readonly value="1995-02-16" class="form-control"  ng-model="currentRecord.fechaNacimiento" required></div>
+                    <br>
+                </fieldset>
+
+            </form>
+
+            <button ng-click="ctrl.saveRecord();" id="save-book" type="submit" form="book-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+            <button ng-click="form.$setPristine();
+                        ctrl.fetchRecords();" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">cancel</button>
+
+        </div>
+
+    </div>
+</div>
+        
         <div class="col-md-3 sidebar"> 
           <h4 style="text-align:right">Mi Menu</h4>
                 <table>
@@ -314,6 +391,14 @@
                     
                     <tr>
                         <a href="ingresarHorariosAtencion.html"><input type="submit" value="Seleccionar Horarios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+                    
+                    <tr>
+                        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Crear doctor" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    </tr>
+                    
+                    <tr>
+                        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Ver doctores" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
                     </tr>
                     
                 </table>
