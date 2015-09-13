@@ -31,10 +31,10 @@
     <div class="clear"><br></div>
     <div class="clear"><br></div>
 
-   <div class="container" style="width:1018px">
+    <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
             <h2>Mi Perfil</h2>
-            <img src ="imagenesPaginas\fotoDePerfil.jpg" alt="Foto de perfil" border = "3" style="width:168px;height:105px;">
+            <img src ="imagenesPaginas/fotoDePerfil.jpg" alt="Foto de perfil"  style="width:168px;height:105px;">
             <br>
             <br>
             <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div><div class="col-md-5">Alberto</div>
@@ -59,7 +59,6 @@
             <br>
             <a href="editarInformacionDoctor.html"><input type="submit" value="Editar Mi Perfil" style="float:right;font-family: Tahoma,Geneva,sans-serif"/></a>
 
-
             <button ng-click="ctrl.editRecord(currentRecord)" class="btn btn-default">Editar</button>
             <button ng-click="ctr.deleteRecord(currentRecord)" class="btn btn-default">Eliminar</button>
 
@@ -73,11 +72,11 @@
     <div class="clear"><br></div>
     <div class="clear"><br></div>
 
-     <div class="container" style="width:1018px">
+    <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
             <h2>Editar Mi Perfil</h2>
-            
-            <img src ="imagenesPaginas\fotoDePerfil.jpg" alt="Foto de perfil" border = "3" style="width:168px;height:105px;">
+
+            <img src ="imagenesPaginas/fotoDePerfil.jpg" alt="Foto de perfil" style="width:168px;height:105px;">
             <a style="color:blue" title="Editar foto de perfil" href ="editarInformacionPaciente.html">Editar foto de perfil</a>
             <br>
             <br>
@@ -91,10 +90,10 @@
             <br>
             <div class="col-md-4" style="padding:0px"><b>Tipo de Identificación:</b></div>
             <div class="col-md-5"> <select name="TipoID" id="TipoID" style="height:25px">
-           <option>Cedula</option>
-            <option>Cedula de extrangeria</option>
-            <option>Pasaporte</option>
-            </select>
+                    <option>Cedula</option>
+                    <option>Cedula de extrangeria</option>
+                    <option>Pasaporte</option>
+                </select>
             </div>
             <br>
             <br>
@@ -104,26 +103,26 @@
             <br>
             <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
             <div class="col-md-5"> <select name="Especialidad" id="Especialidad" style="height:25px">
-            <option>Medicina General</option>
-            <option>Audiología</option>
-            <option>Dermatología</option>
-            <option>Ginecología</option>
-            <option>Oftamología</option>
-            <option>Reumatología</option>
-            <option>Urología</option>
-            <option>Pediatría</option>
-            <option>Ecografía</option>
-            </select>
+                    <option>Medicina General</option>
+                    <option>Audiología</option>
+                    <option>Dermatología</option>
+                    <option>Ginecología</option>
+                    <option>Oftamología</option>
+                    <option>Reumatología</option>
+                    <option>Urología</option>
+                    <option>Pediatría</option>
+                    <option>Ecografía</option>
+                </select>
             </div>
             <br>
             <br>
             <div class="col-md-4" style="padding:0px"><b>Género (F/M):</b></div>
             <div class="col-md-5"> <select name="Genero" id="Genero" style="height:25px">
-            <option>Masculino</option>
-            <option>Femenino</option>
-       
-        
-            </select>
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+
+
+                </select>
             </div>
             <br>
             <br>
@@ -133,23 +132,35 @@
             <br>
             <a href="perfilDoctor.html"><input type="submit" value="Guardar" onclick="alert('Información actualizada')" style="float:right;font-family:Tahoma,Geneva,sans-serif"/></a>
             <a href="perfilDoctor.html"><input type="submit" value="Volver" style="float:left;font-family:Tahoma,Geneva,sans-serif"/></a>
-                    
 
-             <button ng-click="ctrl.saveRecord();" id="save-book" type="submit" form="book-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+
+
             <button ng-click="form.$setPristine();
                         ctrl.fetchRecords();" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">cancel</button>
 
 
         </div><!-- end content -->
-            
-           
-    <div ng-show="ctrl.verHorarios">
-        <div class="clear"><br></div>
-        <div class="clear"><br></div>
-        <div class="clear"><br></div>
+    </div>
+</div>
 
-        <div class="container" style="width:1018px">
+
+
+
+<div class="list-group" ng-repeat="record in records">
+    <a ng-click="ctrl.fetchRecord(record);" href="#" class="list-group-item">Doctor {{record.id}}</a>
+</div>
+
+
+
+<div ng-show="ctrl.createMode">
+
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
+<<<<<<< HEAD
             <style>
                 .full button span {
                     background-color: limegreen;
@@ -210,97 +221,99 @@
                         <div style="display:inline-block; min-height:290px;">
                             <datepicker datepicker-mode="year" ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="container" id="dia" ng-show="variable">
-                            <form>
-                                <table class="table table-bordered" style="width:20%">
-                                    <thead>
-                                        <tr>
-                                            <th>{{nomDia}}</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>7:00 am-8:00 am </td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8:00 am-9:00 am</td>
-                                            <td>
-                                                <input type="checkbox">
+=======
+            <h2>Agregar Medico</h2>
+            <form novalidate name="form" id="book-form" role="form" ng-submit="form.$valid && ctrl.saveRecord()">
+                <fieldset>
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9:00 am-10:00 am</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10:00 am-11:00 am</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>11:00 am-12:00 pm</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>12:00 pm-1:00 pm</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1:00 pm-2:00 pm</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2:00 pm-3:00 pm</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3:00 pm-4:00 pm</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5:00 pm-6:00 pm</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6:00 pm-7:00 pm</td>
-                                            <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <input type="submit" value="Enviar">
-                            </form>
-                        </div>
+
+                    <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div>
+                    <div class="col-md-5"><input type="text" name="nombreDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.nombre" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Apellido:</b></div>
+                    <div class="col-md-5"><input type="text" name="apellidoDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.apellido" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Tipo de Documento:</b></div>
+                    <div class="col-md-5"> 
+                        <select name="documento" id="documento" style="height:25px"  class="form-control"  ng-model="currentRecord.tipoId" required>
+                            <option value=""></option>
+                            <option value="Cedula exranjeria">Cedula de extranjeria</option>
+                            <option value ="Cedula ciudadania">Cedula de ciudadania</option>
+                        </select>
+>>>>>>> 259dcbf54fd3b4f39b9ee1cd1a3cdd7f48e7adc8
                     </div>
-                </div>
-            </div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>No documento:</b></div>
+                    <div class="col-md-5"><input type="text" name="documentoDoctor" value="" style="height:25px" class="form-control"  ng-model="currentRecord.idDato" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
+                    <div class="col-md-5"> 
+                        <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.especialidad" required>
+                            <option value=""></option>
+                            <option value="Medicina General">Medicina General</option>
+                            <option value ="Audiologia">Audiologia</option>
+                            <option value = "Dermatologia">Dermatologia</option>
+                            <option value="Ginecologia">Ginecologia</option>
+                            <option value="Oftalmologia">Oftamologia</option>
+                            <option value="Reumatologia">Reumatologia</option>
+                            <option value="Urologia">Urologia</option>
+                            <option value="Pediatria">Pediatria</option>
+                            <option value="Ecografia">Ecografia</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Genero:</b></div>
+                    <div class="col-md-5"> <select name="" id="Genero" style="height:25px" class="form-control"  ng-model="currentRecord.genero" required>
+                            <option value="Consultas">Masculino</option>
+                            <option value="Sala de Cirugia">Femenino</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+
+                </fieldset>
+
+
+            </form>
+
+            <button ng-click="ctrl.saveRecord();" id="save-book" type="submit" form="book-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar Medico</button>
+            <button ng-click="form.$setPristine();
+                            ctrl.fetchRecords();" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">cancel</button>
 
         </div>
-        <!-- end content -->
+
+    </div>
 </div>
+
+<div ng-show="ctrl.readOnly">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <h2>Doctores actuales</h2>
+
+            <br>
+            <br>
+
+
+            <div class="list-group" ng-repeat="record in records">
+                <a ng-click="ctrl.fetchRecord(record);" href="#" class="list-group-item">Doctor {{record.nombre + record.apellido}} Cedula {{record.idDato}}</a>
+                <button ng-click="ctrl.deleteRecord(record);" id="delete-book" type="submit" form="book-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Borrar medico</button> 
+            </div>
+            
+            <br>
+            
+        </div>
+    </div>
+</div>
+<<<<<<< HEAD
         
 <div ng-show="ctrl.createMode">
 
@@ -410,4 +423,37 @@
 
         <div class="clear"><br></div>
     
+=======
+
+
+
+<div class="col-md-3 sidebar"> 
+    <h4 style="text-align:right">Mi Menu</h4>
+    <table>
+        <tr>
+        <a href="perfilDoctor.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a href="editarInformacionDoctor.html"><input type="submit" value="Modificar Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Seleccionar Horarios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Crear doctor" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+        <tr>
+        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Ver doctores" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+    </table>
+</div><!-- end sidebar -->
+
+</div><!-- end main -->
+
+<div class="clear"><br></div>
+
+>>>>>>> 259dcbf54fd3b4f39b9ee1cd1a3cdd7f48e7adc8
 

@@ -26,18 +26,14 @@
     </nav>
 </div>
 
-<div ng-show="ctrl.perfil">
+<div ng-show="ctrl.verPerfil">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
     <div class="clear"><br></div>
 
     <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
-            <h2>Consultorio #</h2>
-            <a ng-href="{{currentRecord.image}}" target="_blank"><img class="img-responsive" style="height: 270px;width:420px" ng-src="{{currentRecord.image}}" alt="{{currentRecord.image}}"></a>
-
-            <br>
-            <br>
+            <h2>Especialidad:</h2>
             <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div><div class="col-md-5">{{currentRecord.nombre}}</div>
             <br>
             <br>
@@ -54,6 +50,52 @@
     </div>
 </div>
 
+<div ng-show="ctrl.editMode">
+
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <h2>Agregar Especialidad</h2>
+            <form novalidate name="form" id="book-form" role="form" ng-submit="form.$valid && ctrl.saveRecord()">
+                <fieldset>
+                    <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
+                    <div class="col-md-5"> 
+                        <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.nombre" required>
+                            <option value=""></option>
+                            <option value="Medicina General">Medicina General</option>
+                            <option value ="Audiologia">Audiología</option>
+                            <option value = "Dermatologia">Dermatología</option>
+                            <option value="Ginecologia">Ginecología</option>
+                            <option value="Oftalmologia">Oftamología</option>
+                            <option value="Reumatologia">Reumatología</option>
+                            <option value="Urologia">Urología</option>
+                            <option value="Pediatria">Pediatría</option>
+                            <option value="Ecografia">Ecografía</option>
+                        </select>
+                    </div>
+                    <br><div class="col-md-4" style="padding:0px"><b>Descripción:</b></div>
+                    <div class="col-md-5"><input type="text" name="descripcion" value="descripcion" style="height:25px" class="form-control"  ng-model="currentRecord.descripcion" required></div>
+                    <br>
+                    <br>
+                </fieldset>
+
+            </form>
+
+            <button ng-click="ctrl.saveRecord();" id="save-book" type="submit" form="book-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+            <button ng-click="form.$setPristine();
+                        ctrl.fetchRecords();" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">cancel</button>
+
+        </div>
+
+    </div>
+</div>
 
 <div ng-show="ctrl.verConsultorios">
         <div class="clear"><br></div>
@@ -64,11 +106,7 @@
             <div class="col-md-9" style="border-right: 1px solid #90DA11">
                 <h2>Especialidades</h2>
 
-                <br>
-
-                <img src ="ModernRoom.png" alt="Foto de perfil" style="width:420px;height:270px;">
-                <br>
-                <br>
+                
 
 
                 <div class="list-group" ng-repeat="record in records">
@@ -95,11 +133,11 @@
                     </tr>
 
                     <tr>
-                    <a href="agregarConsultorio.html"><input type="submit" value="Agregar Consultorio" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    <a ng-click="ctrl.createRecord()">><input type="submit" value="Agregar Especialidad" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
                     </tr>
 
                     <tr>
-                    <a href="ManejadorConsultorios.html"><input type="submit" value="Consultorios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                    <a ng-click="ctrl.fetchRecords()"><input type="submit" value="Especialidades" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
                     </tr>
 
                     <tr>

@@ -6,9 +6,9 @@
             $scope.records = [];
 
             //Variables para el controlador
-            this.readOnly = false;
+           
             this.editMode = false;
-            this.verPerfil = false;
+            this.verPerfil = true;
             this.verConsultorios = false;
 
             var self = this;

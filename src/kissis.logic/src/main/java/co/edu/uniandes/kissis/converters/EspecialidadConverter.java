@@ -29,9 +29,9 @@ public abstract class EspecialidadConverter {
     public static  EspecialidadEntity basicDTO2Entity( EspecialidadDTO dto) {
         if (dto != null) {
              EspecialidadEntity entity = new  EspecialidadEntity();
-            entity.setId(entity.getId());
-            entity.setNombre(entity.getNombre());
-            entity.setDescripcion(entity.getDescripcion());
+            entity.setId(dto.getId());
+            entity.setNombre(dto.getNombre());
+            entity.setDescripcion(dto.getDescripcion());
            
 
             return entity;
