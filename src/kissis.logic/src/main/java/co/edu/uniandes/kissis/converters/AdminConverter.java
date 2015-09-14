@@ -10,121 +10,42 @@ import java.util.List;
  */
 public abstract class AdminConverter {
 
-    /**
-     * @generated
-     */
-    private AdminConverter() {
-    }
-
-    /**
-     * @param entity
-     * @return
-     * @generated
-     */
-    public static AdminDTO refEntity2DTO(AdminEntity entity) {
+    public static AdminDTO basicEntity2DTO(AdminEntity entity) {
         if (entity != null) {
             AdminDTO dto = new AdminDTO();
             dto.setId(entity.getId());
             dto.setNombre(entity.getNombre());
             dto.setApellido(entity.getApellido());
-            dto.setTipoCC(entity.getTipoCC());
-            dto.setCC(entity.getCC());
-            dto.setImage(entity.getImage());
+            dto.setTipoC(entity.getTipoC());
+            dto.setNcedula(entity.getNcedula());
+            dto.setImagen(entity.getImagen());
             dto.setGenero(entity.getGenero());
-            dto.setFechaN(entity.getFechaN());
-
-            return dto;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @param dto
-     * @return
-     * @generated
-     */
-    public static AdminEntity refDTO2Entity(AdminDTO dto) {
-        if (dto != null) {
-            AdminEntity entity = new AdminEntity();
-            entity.setId(dto.getId());
-
-            return entity;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private static AdminDTO basicEntity2DTO(AdminEntity entity) {
-        if (entity != null) {
-            AdminDTO dto = new AdminDTO();
-            dto.setId(entity.getId());
-            dto.setNombre(entity.getNombre());
-            dto.setApellido(entity.getApellido());
-            dto.setTipoCC(entity.getTipoCC());
-            dto.setCC(entity.getCC());
-            dto.setImage(entity.getImage());
-            dto.setGenero(entity.getGenero());
-            dto.setFechaN(entity.getFechaN());
+            dto.setFechaN(entity.getFechan());
             
-           
             return dto;
         } else {
             return null;
         }
     }
-
-    /**
-     * @generated
-     */
-    private static AdminEntity basicDTO2Entity(AdminDTO dto) {
+    
+     
+     public static AdminEntity basicDTO2Entity(AdminDTO dto) {
         if (dto != null) {
             AdminEntity entity = new AdminEntity();
             entity.setId(dto.getId());
             entity.setNombre(dto.getNombre());
             entity.setApellido(dto.getApellido());
-            dto.setTipoCC(entity.getTipoCC());
-            dto.setCC(entity.getCC());
-            dto.setImage(entity.getImage());
-            dto.setGenero(entity.getGenero());
-            dto.setFechaN(entity.getFechaN());
+            entity.setTipoC(entity.getTipoC());
+            entity.setNcedula(entity.getNcedula());
+            entity.setImage(entity.getImagen());
+            entity.setGenero(entity.getGenero());
+            entity.setFechan(entity.getFechan());
             
             return entity;
         } else {
             return null;
         }
     }
-
-    /**
-     * @generated
-     */
-    public static AdminDTO fullEntity2DTO(AdminEntity entity) {
-        if (entity != null) {
-           AdminDTO dto = basicEntity2DTO(entity);
-            return dto;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @generated
-     */
-    public static AdminEntity fullDTO2Entity(AdminDTO dto) {
-        if (dto != null) {
-            AdminEntity entity = basicDTO2Entity(dto);
-            return entity;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @generated
-     */
 
     public static List<AdminDTO> listEntity2DTO(List<AdminEntity> entities) {
         List<AdminDTO> dtos = new ArrayList<AdminDTO>();

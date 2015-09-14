@@ -19,11 +19,11 @@ public class AdminEntity implements Serializable {
     private String nombre;
     private String apellido;
     private String imagen;
-    private String tipoCC;
-    private int CC;
+    private String tipoc;
+    private int ncedula;
     private String genero;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fechaN;
+    private Date fechan;
     
     public Long getId(){
         return id;
@@ -49,7 +49,7 @@ public class AdminEntity implements Serializable {
         this.apellido = apellido;
     }
 
-    public String getImage() {
+    public String getImagen() {
         return imagen;
     }
 
@@ -57,20 +57,20 @@ public class AdminEntity implements Serializable {
         this.imagen = imagen;
     }
     
-    public String getTipoCC() {
-        return tipoCC;
+    public String getTipoC() {
+        return tipoc;
     }
 
-    public void setTipoCC(String tipoDocumento) {
-        this.tipoCC = tipoDocumento;
+    public void setTipoC(String tipoc) {
+        this.tipoc = tipoc;
     }
      
-    public int getCC() {
-        return CC;
+    public int getNcedula() {
+        return ncedula;
     }
 
-    public void setCC( int CC) {
-        this.CC = CC;
+    public void setNcedula(int ncedula) {
+        this.ncedula = ncedula;
     }
     
      public String getGenero() {
@@ -81,12 +81,12 @@ public class AdminEntity implements Serializable {
         this.genero = genero;
     }
     
-    public Date getFechaN() {
-        return fechaN;
+    public Date getFechan() {
+        return fechan;
     }
 
-    public void setFechaN(Date fechaN) {
-        this.fechaN = fechaN;
+    public void setFechan(Date fechan) {
+        this.fechan = fechan;
     }
 
 }

@@ -12,9 +12,9 @@ import javax.persistence.Query;
  * @author amcon_000
  */
 @Stateless
-public class AdminPersistence 
-{
-    @PersistenceContext(unitName = "ConsultorioPU")
+public class AdminPersistence {
+    
+    @PersistenceContext(unitName = "kissisPU")
     protected EntityManager em;
 
     public AdminEntity create(AdminEntity entity)
@@ -41,7 +41,7 @@ public class AdminPersistence
 
     public List<AdminEntity> findAll()
     {
-        Query q = em.createQuery("select u from DoctorEntity u");
+        Query q = em.createQuery("select u from AdminEntity u");
         return q.getResultList();
     }
 }
