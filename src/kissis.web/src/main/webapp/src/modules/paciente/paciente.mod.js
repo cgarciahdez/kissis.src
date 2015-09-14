@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module('pacienteModule', ['ui.bootstrap']);
+    var mod = ng.module('pacienteModule', []);
 
     mod.constant('pacienteContext', 'webresources/paciente');
 

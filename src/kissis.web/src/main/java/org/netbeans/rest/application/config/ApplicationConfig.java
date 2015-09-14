@@ -36,7 +36,7 @@ public class ApplicationConfig extends Application {
         resources.add(co.edu.uniandes.kissis.service.ConsultorioService.class);
         resources.add(co.edu.uniandes.kissis.service.DoctorServices.class);
         resources.add(co.edu.uniandes.kissis.service.EspecialidadService.class);
-        resources.add(co.edu.uniandes.kissis.service.PacienteServices.class);
+        resources.add(co.edu.uniandes.kissis.service.PacienteService.class);
     }
     
 }

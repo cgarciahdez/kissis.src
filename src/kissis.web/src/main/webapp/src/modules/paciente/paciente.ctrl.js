@@ -74,8 +74,6 @@
                     self.fetchRecords();
                 });
             };
-
-            this.fetchRecords();
         }]);
 })(window.angular);
 
