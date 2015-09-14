@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/paciente")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class PacienteServices
+public class PacienteService
 {
     @Inject
     private IPacienteLogic pacienteLogic;
