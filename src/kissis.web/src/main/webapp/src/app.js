@@ -2,6 +2,10 @@
 
     var mainApp = ng.module('mainApp', [
         'consultorioModule',
+        'adminModule',
+        'doctorModule',
+        'pacienteModule',
+        'especialidadModule',
         'ngRoute'
     ]);
 
@@ -28,7 +32,7 @@
                     controllerAs: 'ctrl'
                 })
                 .when('/doctor', {
-                    templateUrl: 'src/modules/paciente/doctor.tpl.html',
+                    templateUrl: 'src/modules/doctor/doctor.tpl.html',
                     controller: 'doctorCtrl',
                     controllerAs: 'ctrl'
                 })

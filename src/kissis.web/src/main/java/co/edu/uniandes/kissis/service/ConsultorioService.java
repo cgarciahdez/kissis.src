@@ -36,6 +36,15 @@ public class ConsultorioService {
     @StatusCreated
     public ConsultorioDTO createConsultorio(ConsultorioDTO dto) {
         return consultorioLogic.createConsultorio(dto);
+        
+        
+        
+        
+        
+       
+        
+        
+        
     }
 
     /**
