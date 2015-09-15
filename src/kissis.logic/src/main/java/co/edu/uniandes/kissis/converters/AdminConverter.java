@@ -35,11 +35,11 @@ public abstract class AdminConverter {
             entity.setId(dto.getId());
             entity.setNombre(dto.getNombre());
             entity.setApellido(dto.getApellido());
-            entity.setTipoC(entity.getTipoC());
-            entity.setNcedula(entity.getNcedula());
-            entity.setImage(entity.getImagen());
-            entity.setGenero(entity.getGenero());
-            entity.setFechan(entity.getFechan());
+            entity.setTipoC(dto.getTipoC());
+            entity.setNcedula(dto.getNcedula());
+            entity.setImage(dto.getImagen());
+            entity.setGenero(dto.getGenero());
+            entity.setFechan(dto.getFechaN());
             
             return entity;
         } else {
