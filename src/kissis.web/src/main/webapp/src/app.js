@@ -36,6 +36,6 @@
                     controller: 'doctorCtrl',
                     controllerAs: 'ctrl'
                 })
-                .otherwise('/consult');
+                .otherwise('/#');
         }]);
 })(window.angular);
