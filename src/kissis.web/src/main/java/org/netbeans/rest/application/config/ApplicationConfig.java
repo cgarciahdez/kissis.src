@@ -32,7 +32,6 @@ public class ApplicationConfig extends Application {
         resources.add(co.edu.uniandes.kissis.providers.CreatedFilter.class);
         resources.add(co.edu.uniandes.kissis.providers.EJBExceptionMapper.class);
         resources.add(co.edu.uniandes.kissis.service.AdminService.class);
-        resources.add(co.edu.uniandes.kissis.service.BookService.class);
         resources.add(co.edu.uniandes.kissis.service.ConsultorioService.class);
         resources.add(co.edu.uniandes.kissis.service.DoctorServices.class);
         resources.add(co.edu.uniandes.kissis.service.EspecialidadService.class);
