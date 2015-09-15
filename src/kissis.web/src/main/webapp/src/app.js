@@ -11,31 +11,31 @@
 
     mainApp.config(['$routeProvider', function ($routeProvider) {
             $routeProvider
-                .when('/consult', {
+                .when('/consultorios', {
                     templateUrl: 'src/modules/consultorio/consultorio.tpl.html',
                     controller: 'consultorioCtrl',
                     controllerAs: 'ctrl'
                 })
-                .when('/admin', {
+                .when('/admins', {
                     templateUrl: 'src/modules/admin/admin.tpl.html',
                     controller: 'adminCtrl',
                     controllerAs: 'ctrl'
                 })
-                .when('/especialidad', {
+                .when('/especialidades', {
                     templateUrl: 'src/modules/especialidad/especialidad.tpl.html',
                     controller: 'especialidadCtrl',
                     controllerAs: 'ctrl'
                 })
-                .when('/paciente', {
+                .when('/pacientes', {
                     templateUrl: 'src/modules/paciente/paciente.tpl.html',
                     controller: 'pacienteCtrl',
                     controllerAs: 'ctrl'
                 })
-                .when('/doctor', {
+                .when('/doctores', {
                     templateUrl: 'src/modules/doctor/doctor.tpl.html',
                     controller: 'doctorCtrl',
                     controllerAs: 'ctrl'
                 })
-                .otherwise('/consult');
+                .otherwise('/#');
         }]);
 })(window.angular);
