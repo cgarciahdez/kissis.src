@@ -66,24 +66,13 @@
                     <br>
                     <br>
                     <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
-                    <div class="col-md-5"> 
-                        <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.nombre" required>
-                            <option value=""></option>
-                            <option value="Medicina General">Medicina General</option>
-                            <option value ="Audiologia">Audiología</option>
-                            <option value = "Dermatologia">Dermatología</option>
-                            <option value="Ginecologia">Ginecología</option>
-                            <option value="Oftalmologia">Oftamología</option>
-                            <option value="Reumatologia">Reumatología</option>
-                            <option value="Urologia">Urología</option>
-                            <option value="Pediatria">Pediatría</option>
-                            <option value="Ecografia">Ecografía</option>
-                        </select>
-                    </div>
+                    <div class="col-md-5"><input type="text" name="especialidad" value="especialidad" style="height:25px" class="form-control"  ng-model="currentRecord.nombre" required></div>
+                    <br>   
                     <br><div class="col-md-4" style="padding:0px"><b>Descripción:</b></div>
                     <div class="col-md-5"><input type="text" name="descripcion" value="descripcion" style="height:25px" class="form-control"  ng-model="currentRecord.descripcion" required></div>
                     <br>
                     <br>
+                    
                 </fieldset>
 
             </form>
