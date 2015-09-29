@@ -1,7 +1,8 @@
 (function (ng) {
     var mod = ng.module('pacienteModule');
 
-    mod.controller('pacienteCtrl', ['$scope', 'pacienteService', function ($scope, svc) {
+    mod.controller('pacienteCtrl', ['$scope', 'pacienteService', 
+        function ($scope, svc) {
             $scope.currentRecord = {};
             $scope.records = [];
 
@@ -19,7 +20,6 @@
                 self.verPerfilPaciente = true;
                 self.verCitas = false;
                 self.agregarCita = false;
-                $scope.currentRecord = {};
             };
             
             this.createRecord = function () {
@@ -63,6 +63,12 @@
                     return response;
                 });
             };
+            
+            this.cargarPerfil = function () {
+                return svc.fetchRecord(1).then(function (response) {
+                    $scope.currentRecord = response.data;
+                });
+            };
 
             this.saveRecord = function () {
                 return svc.saveRecord($scope.currentRecord).then(function () {
@@ -74,6 +80,7 @@
                     self.fetchRecords();
                 });
             };
+            this.cargarPerfil();
         }]);
 })(window.angular);
 
