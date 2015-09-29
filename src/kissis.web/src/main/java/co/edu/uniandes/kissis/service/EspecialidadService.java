@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author df.cubillos10
  */
-@Path("/especialidad")
+@Path("/especialidades")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class EspecialidadService {
