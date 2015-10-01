@@ -22,6 +22,7 @@ Servicios/especialidades
 |    DELETE    |    /especialidades/id    |    Borra instancia   de Especialidad en el servidor (DELETE).                              |    @PathParam id: Identificador   de la especialidad.    |                                             |                                                                 |
 
 Servicio /consultorio
+
 |     Método     |     URI                |     Acción                                                                                                                                                               |     Parámetros                                      |     Cuerpo                               |     Retorno                                                   |
 |----------------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|------------------------------------------|---------------------------------------------------------------|
 |    GET         |    /Consultorios       |    Retorna todos los objetos JSON de Consultorios (RETRIEVE).   Trae dentro de cada objeto individual su especialidad asociada.                                          |                                                     |                                          |    Colección de objetos JSON Consultorio.                     |
@@ -43,3 +44,10 @@ servicios/doctores
 |    PUT       |    /doctores/id/citas    |    Actualiza una   instancia de la entidad CITA(UPDATE).  Se   modifican horarios de la cita.                                                                |    @PathParam id: Identificador del   registro    |    Objeto JSON de CITA                 |    Objeto JSON de CITA actualizado                     |
 |    DELETE    |    /doctores/id          |    Borra instancia de  DOCTOR en el servidor (DELETE). No borra la   cita asociada al doctor.                                                                |    @PathParam id: Identificador del   doctor.     |                                        |                                                        |
 |    DELETE    |    /doctores/id/citas    |    Borra instancia de  CITA en el servidor (DELETE).                                                                                                         |    @PathParam id: Identificador del   doctor.     |                                        |                                                        |
+
+
+Servicios/citas
+
+| Metodo | URL    | Acción                                                                                                                            | Parámetros | Cuerpo | Retorno                         |
+|--------|--------|-----------------------------------------------------------------------------------------------------------------------------------|------------|--------|---------------------------------|
+| GET    | /citas | Retorna todos los objetos JSON de   Cita que no están reservados. Trae el nombre de los doctores, consultorios, y   especialidad. |            |        | Colección de objetos JSON Cita. |
