@@ -51,3 +51,59 @@ Servicios/citas
 | Metodo | URL    | Acción                                                                                                                            | Parámetros | Cuerpo | Retorno                         |
 |--------|--------|-----------------------------------------------------------------------------------------------------------------------------------|------------|--------|---------------------------------|
 | GET    | /citas | Retorna todos los objetos JSON de   Cita que no están reservados. Trae el nombre de los doctores, consultorios, y   especialidad. |            |        | Colección de objetos JSON Cita. |
+
+
+<p><em>Analisis de logistica, persistencia y relaciones para el desarrollo de la app.Web de la Clinica Santander</em></p>
+<p><em>&nbsp;</em></p>
+<p>Modulos:(Horarios, citas, doctores, especialidades y consultorios)</p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>Condiciones de tiempo </strong></p>
+<p>&nbsp;</p>
+<ol>
+<li>El horario de las cita debe ser de 8am a 6pm.</li>
+</ol>
+<p>&nbsp;</p>
+<ol start="2">
+<li>Las citas corresponden a dias del calendario de Lunes a Viernes.</li>
+</ol>
+<p>&nbsp;</p>
+<ol start="3">
+<li>Cada dia puede tener en total 8 citas que duran 1 hora cada una.</li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>Condiciones de Infraestructura</strong></p>
+<p>&nbsp;</p>
+<ol>
+<li>Los consultorios deben tener asignada una especilidad.</li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>Relaciones de persistencia</strong></p>
+<p>&nbsp;</p>
+<ol>
+<li>Una cita puede tener muchos horarios y un horario una cita. Citas-horarios: @ManyToOne.</li>
+<li>Un doctor tiene muchas citas y una cita un medico.Doctor-citas: @ManyToOne</li>
+<li>Un consultorio puede tener varias citas y una cita un consultorio. Consultorio-citas: @ManyToOne</li>
+<li>Un doctor puede tener a lo menos una especialidad y la especilidad puede tener muchos doctores. Doctor-Especilidad: @ManyToMany</li>
+</ol>
+<p><strong>&nbsp;</strong></p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>Agregaci&oacute;n individual</strong></p>
+<p><strong>Agregaci&oacute;n compartida</strong></p>
+<ol>
+<li>Doctor y especialidad.</li>
+<li>Consultorio y especialidad.</li>
+<li>Cita y horarios.</li>
+</ol>
+<p><strong>Relaciones inexistentes</strong></p>
+<ol>
+<li>horarios y especilidades.</li>
+<li>Citas y especilidades.</li>
+<li>Horarios y consultorio.</li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>Desciciones por tomar</strong></p>
+<p>Los horarios ser&aacute;n un atributo de las citas?</p>
+<p>Las citas podrian tener un arreglo de 8 horarios?</p>
+<p>Como se agregar&aacute;n las citas?</p>
+<p>Como se agregar&aacute;n los horario?</p>
+
