@@ -12,6 +12,35 @@ import java.util.List;
  */
 public abstract class DoctorConverter 
 {
+    public static DoctorDTO refEntity2DTO(DoctorEntity entity) {
+        if (entity != null) {
+            DoctorDTO dto = new DoctorDTO();
+            dto.setId(entity.getId());
+            dto.setNombre(entity.getNombre());
+            dto.setApellido(entity.getApellido());
+            dto.setTipoId(entity.getTipoId());
+            dto.setIdDato(entity.getIdDato());
+            dto.setEspecialidad(entity.getEspecialidad());
+            dto.setGenero(entity.getGenero());
+            dto.setFechaNac(entity.getFechaNac());
+
+            return dto;
+        } else {
+            return null;
+        }
+    }
+
+    
+    public static DoctorEntity refDTO2Entity(DoctorDTO dto) {
+        if (dto != null) {
+            DoctorEntity entity = new DoctorEntity();
+            dto.setId(entity.getId());
+
+            return entity;
+        } else {
+            return null;
+        }
+    }
     /**
      * @generated
      */

@@ -1,4 +1,4 @@
-package co.edu.uniandes.kissis.converters;
+package co.edu.uniandes.kissis.dtos;
 
 import co.edu.uniandes.kissis.dtos.ConsultorioDTO;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
@@ -10,7 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CitaDTO {
     private Long id;
     private Date horaInicio;
-    private Date horaFin;
     private DoctorDTO doctor;
     private PacienteDTO paciente;
     private ConsultorioDTO consultorio;
@@ -31,13 +30,6 @@ public class CitaDTO {
         this.horaInicio = horaInicio;
     }
 
-    public Date getHoraFin() {
-        return horaFin;
-    }
-
-    public void setHoraFin(Date horaFin) {
-        this.horaFin = horaFin;
-    }
 
     public DoctorDTO getDoctor() {
         return doctor;
