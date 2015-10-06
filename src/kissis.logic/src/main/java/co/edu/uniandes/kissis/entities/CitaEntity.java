@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 //@NamedQueries({
@@ -26,6 +28,7 @@ public class CitaEntity implements Serializable{
     @Id
     @GeneratedValue(generator = "Cita")
     private Long id;
+    @Temporal(TemporalType.TIME)
     private Date horaInicio;
     private DoctorEntity doctor;
     private PacienteEntity paciente;
