@@ -6,6 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ConsultorioConverter {
+    
+    public static ConsultorioDTO refEntity2DTO(ConsultorioEntity entity) {
+        if (entity != null) {
+            ConsultorioDTO dto = new ConsultorioDTO();
+            dto.setId(entity.getId());
+            dto.setEspecialidad(entity.getEspecialidad());
+            dto.setTipo(entity.getTipo());
+            dto.setImage(entity.getImage());
+            dto.setTamanio(entity.getTamanio());
+            dto.setExtension(entity.getExtension());
+
+            return dto;
+        } else {
+            return null;
+        }
+    }
+
+    
+    public static ConsultorioEntity refDTO2Entity(ConsultorioDTO dto) {
+        if (dto != null) {
+            ConsultorioEntity entity = new ConsultorioEntity();
+            dto.setId(entity.getId());
+
+            return entity;
+        } else {
+            return null;
+        }
+    }
 
    public static ConsultorioDTO basicEntity2DTO(ConsultorioEntity entity) {
         if (entity != null) {
