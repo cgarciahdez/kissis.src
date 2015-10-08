@@ -1,6 +1,7 @@
 package co.edu.uniandes.kissis.dtos;
 
 import java.util.Date;
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -28,6 +29,8 @@ public class PacienteDTO
     private String genero;
     
     private Date fechaNac;
+    
+    private List<CitaDTO> citas;
     
     /**
      * @generated
@@ -124,6 +127,12 @@ public class PacienteDTO
     {
         this.fechaNac = fechaNac;
     }
-    
-    
+
+    public List<CitaDTO> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(List<CitaDTO> citas) {
+        this.citas = citas;
+    }
 }
