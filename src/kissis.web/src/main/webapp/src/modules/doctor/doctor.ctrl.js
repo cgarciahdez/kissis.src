@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module('doctorModule');
 
-    mod.controller('doctorCtrl', ['$scope', 'doctorService', function ($scope, svc) {
+    mod.controller('doctorCtrl', ['$scope', 'doctorService', 'citaService', function ($scope, svc) {
             $scope.currentRecord = {};
             $scope.records = [];
 

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -30,9 +31,21 @@ public class CitaEntity implements Serializable{
     private Long id;
     @Temporal(TemporalType.TIME)
     private Date hora;
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
+    
+    @ManyToOne
     private DoctorEntity doctor;
     private PacienteEntity paciente;
     private ConsultorioEntity consultorio;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 
 
     public Long getId() {

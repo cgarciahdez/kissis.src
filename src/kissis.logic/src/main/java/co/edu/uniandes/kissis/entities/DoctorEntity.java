@@ -2,9 +2,12 @@ package co.edu.uniandes.kissis.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 /**
  *
@@ -31,6 +34,9 @@ public class DoctorEntity implements Serializable
     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNac;
+    
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<CitaEntity> citas;
         
     public Long getId() 
     {

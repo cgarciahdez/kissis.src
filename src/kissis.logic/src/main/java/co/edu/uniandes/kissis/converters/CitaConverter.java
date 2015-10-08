@@ -8,6 +8,7 @@ import java.util.List;
 
 public abstract class CitaConverter {
  
+    
     /**
      * Convierte una instancia de CitaEntity a CitaDTO
      * Convierte Únicamente los atributos propios de la entidad y no tiene en 
@@ -21,6 +22,7 @@ public abstract class CitaConverter {
             CitaDTO dto = new CitaDTO();
             dto.setId(entity.getId());
             dto.setHora(entity.getHora());
+            dto.setFecha(entity.getFecha());
             dto.setDoctor(DoctorConverter.refEntity2DTO(entity.getDoctor()));
             dto.setPaciente(PacienteConverter.refEntity2DTO(entity.getPaciente()));
             dto.setConsultorio(ConsultorioConverter.refEntity2DTO(entity.getConsultorio()));
@@ -47,6 +49,7 @@ public abstract class CitaConverter {
 
             entity.setId(dto.getId());
             entity.setHora(dto.getHora());
+            entity.setFecha(dto.getFecha());
             entity.setDoctor(DoctorConverter.refDTO2Entity(dto.getDoctor()));
             entity.setPaciente(PacienteConverter.refDTO2Entity(dto.getPaciente()));
             entity.setConsultorio(ConsultorioConverter.refDTO2Entity(dto.getConsultorio()));

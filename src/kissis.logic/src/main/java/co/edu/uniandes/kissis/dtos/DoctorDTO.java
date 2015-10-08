@@ -25,6 +25,8 @@ public class DoctorDTO {
     private String genero;
     
     private Date fechaNac;
+    
+  
         
     /** Metodos set y get de los atributos */    
     
