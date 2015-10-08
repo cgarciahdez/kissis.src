@@ -9,10 +9,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement 
 public class CitaDTO {
     private Long id;
-    private Date horaInicio;
+    private Date hora;
+    private Date fecha;
     private DoctorDTO doctor;
     private PacienteDTO paciente;
     private ConsultorioDTO consultorio;
+
+    public Date getHora() {
+        return hora;
+    }
+
+    public void setHora(Date hora) {
+        this.hora = hora;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 
     public ConsultorioDTO getConsultorio() {
         return consultorio;
@@ -20,14 +37,6 @@ public class CitaDTO {
 
     public void setConsultorio(ConsultorioDTO consultorio) {
         this.consultorio = consultorio;
-    }
-
-    public Date getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(Date horaInicio) {
-        this.horaInicio = horaInicio;
     }
 
 

@@ -29,7 +29,7 @@ public class CitaEntity implements Serializable{
     @GeneratedValue(generator = "Cita")
     private Long id;
     @Temporal(TemporalType.TIME)
-    private Date horaInicio;
+    private Date hora;
     private DoctorEntity doctor;
     private PacienteEntity paciente;
     private ConsultorioEntity consultorio;
@@ -43,12 +43,12 @@ public class CitaEntity implements Serializable{
         this.id = id;
     }
 
-    public Date getHoraInicio() {
-        return horaInicio;
+    public Date getHora() {
+        return hora;
     }
 
-    public void setHoraInicio(Date horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setHora(Date horaInicio) {
+        this.hora = horaInicio;
     }
 
     public DoctorEntity getDoctor() {
