@@ -67,7 +67,7 @@ angular.module('ui.bootstrap.demo').controller('DatepickerDemoCtrl', function($s
   }, {
     date: afterTomorrow,
     status: 'partially'
-  }, ];
+  } ];
 
   $scope.getDayClass = function(date, mode) {
     if (mode === 'day') {
