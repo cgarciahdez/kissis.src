@@ -12,6 +12,38 @@ import java.util.List;
  */
 public abstract class PacienteConverter
 {
+    
+    public static PacienteDTO refEntity2DTO(PacienteEntity entity) {
+        if (entity != null) {
+            PacienteDTO dto = new PacienteDTO();
+            dto.setId(entity.getId());
+            dto.setNombre(entity.getNombre());
+            dto.setApellido(entity.getApellido());
+            dto.setTipoId(entity.getTipoId());
+            dto.setIdDato(entity.getIdDato());
+            dto.setEps(entity.getEps());
+            dto.setIdEps(entity.getIdEps());
+            dto.setGenero(entity.getGenero());
+            dto.setFechaNac(entity.getFechaNac());
+
+            return dto;
+        } else {
+            return null;
+        }
+    }
+
+    
+    public static PacienteEntity refDTO2Entity(PacienteDTO dto) {
+        if (dto != null) {
+            PacienteEntity entity = new PacienteEntity();
+            dto.setId(entity.getId());
+
+            return entity;
+        } else {
+            return null;
+        }
+    }
+    
     /**
      * @generated
      */
