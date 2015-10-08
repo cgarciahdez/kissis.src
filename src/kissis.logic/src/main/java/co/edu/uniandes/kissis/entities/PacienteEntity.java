@@ -35,7 +35,7 @@ public class PacienteEntity implements Serializable
     
     private String genero;
     
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNac;
     
     @OneToMany(mappedBy = "paciente")

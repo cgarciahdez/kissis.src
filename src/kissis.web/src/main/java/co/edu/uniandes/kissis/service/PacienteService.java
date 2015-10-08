@@ -1,6 +1,7 @@
 package co.edu.uniandes.kissis.service;
 
 import co.edu.uniandes.kissis.api.IPacienteLogic;
+import co.edu.uniandes.kissis.dtos.CitaDTO;
 import co.edu.uniandes.kissis.dtos.PacienteDTO;
 import co.edu.uniandes.kissis.providers.StatusCreated;
 import java.util.List;
@@ -60,5 +61,19 @@ public class PacienteService
     public void deleteBook(@PathParam("id") Long id)
     {
         pacienteLogic.deletePaciente(id);
+    }
+    
+    @GET
+    @Path("{pacienteId: \\d+}/citas")
+    public List<CitaDTO> getCitas(@PathParam("pacienteId") Long pacienteId)
+    {
+        return pacienteLogic.getCitas(pacienteId);
+    }
+    
+    @DELETE
+    @Path("{pacienteId: \\d+}/citas/{citaId: \\d+}")
+    public void deleteCita(@PathParam("pacienteId") Long pacienteId,@PathParam("citaId") Long cidaId)
+    {
+        pacienteLogic.removeCita(cidaId, pacienteId);
     }
 }
