@@ -25,7 +25,164 @@
         </div>
     </nav>
 </div>
+<div ng-show="ctrl.seleccionarHorarios">
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <style>
+                .full button span {
+                    background-color: limegreen;
+                    border-radius: 32px;
+                    color: black;
+                }
+                
+                .partially button span {
+                    background-color: orange;
+                    border-radius: 32px;
+                    color: black;
+                }
+                
+                .btn ,.btn-default{
+                    color: #90DA11;
+                    background-color: white;
+                    border-color: #e3e3e3;
+                }
+                span{
+                 color:#90DA11;   
+                }
+                
+                i, strong{
+                    color:black;
+                }
+                
+                .btn-default[disabled]{
+                    background-color: #d1d4ca;
+                    border-color: #e3e3e3;
+                    color:black;
+                }
+                .btn-default[disabled]>span{
+                 color:#a0b57b;   
+                }
+                
+                th.text-center, div.well th{
+                    background-color: #f2f2f2;
+                    color:black;
+                }
+                
+                
+            </style>
+            <div>
+                <!--<pre>Selected date is: <em >{{dt | date:'fullDate' }}</em></pre>!-->
+                <div class="row">
+                    <h1 style="color:#90DA11">Ingresar horarios de atención</h1>
+                </div>
+                <div class="row" style="text-align:justify;padding:20px">
+                    <p>Porfavor ingrese sus horarios haciendo click en el día correspondiente, seleccionando las horas que tendrá disponibles
+                    ese día, y haciendo click en el botón enviar. Si el horario es el mismo para todas las semanas del mes 
+                    y no desea hacer este proceso día por día, puede hacer click en el siguiente botón e ingresar su horario semanal:</p>
+                </div>
+                <div class="row" style="text-align:justify;padding-bottom:20px;padding-left:20px">
+                    <a href="ingresarHorariosSemana.html" class="boton">Ingresar Horarios Semana</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="display:inline-block; min-height:290px;">
+                            <datepicker datepicker-mode="year" ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container" id="dia" ng-show="variable">
+                            <form>
+                                <table class="table table-bordered" style="width:20%">
+                                    <thead>
+                                        <tr>
+                                            <th>{{nomDia}}</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>7:00 am-8:00 am </td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8:00 am-9:00 am</td>
+                                            <td>
+                                                <input type="checkbox">
 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9:00 am-10:00 am</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10:00 am-11:00 am</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11:00 am-12:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12:00 pm-1:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1:00 pm-2:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2:00 pm-3:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3:00 pm-4:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5:00 pm-6:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6:00 pm-7:00 pm</td>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <input type="submit" value="Enviar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end content -->
+
+        
+
+    </div>
+</div>
 <div ng-show="ctrl.verPerfil">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
@@ -265,7 +422,7 @@
         </tr>
 
         <tr>
-        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Seleccionar Horarios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        <a ng-click="ctrl.verHorarios()"><input type="submit" value="Seleccionar Horarios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
         </tr>
 
         <tr>
