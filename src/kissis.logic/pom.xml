@@ -9,8 +9,8 @@
         <dependency>
             <groupId>org.glassfish.main.extras</groupId>
             <artifactId>glassfish-embedded-all</artifactId>
-            <version>4.0</version> 
-            <scope>test</scope> 
+            <version>3.1.2</version> 
+            <scope>provided</scope> 
         </dependency>
         
         <!-- JUnit -->
@@ -48,7 +48,7 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
         </dependency>
-     <!-- Podam -->
+        <!-- Podam -->
         <dependency>
             <groupId>uk.co.jemos.podam</groupId>
             <artifactId>podam</artifactId>
@@ -100,8 +100,7 @@
                         <goals>
                             <goal>prepare-agent-integration</goal>
                         </goals>
-                    </execution>
-                    <!--                     Ensures that the code coverage report for integration tests after integration tests have been run. -->
+                    </execution>                                 
                     <execution>
                         <id>post-integration-test</id>
                         <phase>post-integration-test</phase>
@@ -116,7 +115,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>

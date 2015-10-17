@@ -2,10 +2,13 @@ package co.edu.uniandes.kissis.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -32,8 +35,11 @@ public class PacienteEntity implements Serializable
     
     private String genero;
     
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNac;
+    
+    @OneToMany(mappedBy = "paciente")
+    private List<CitaEntity> citas; 
     
     public String getNombre() 
     {
@@ -130,5 +136,12 @@ public class PacienteEntity implements Serializable
     {
         this.fechaNac = fechaNac;
     }
-    
+
+    public List<CitaEntity> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(List<CitaEntity> citas) {
+        this.citas = citas;
+    }
 }
