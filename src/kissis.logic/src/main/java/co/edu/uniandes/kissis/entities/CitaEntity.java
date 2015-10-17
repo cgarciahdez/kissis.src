@@ -14,11 +14,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-//@NamedQueries({
-//    @NamedQuery(
-//            name = "AuthorEntity.findByEditorial", 
-//            query = "SELECT DISTINCT a FROM AuthorEntity a join a.books b where b.editorial.id = :editorial_id")
-//})
 public class CitaEntity implements Serializable{
 
     /**

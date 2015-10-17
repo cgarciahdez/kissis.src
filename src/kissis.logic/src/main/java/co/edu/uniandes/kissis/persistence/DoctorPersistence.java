@@ -14,7 +14,7 @@ import javax.persistence.Query;
 @Stateless
 public class DoctorPersistence 
 {
-    @PersistenceContext(unitName = "ConsultorioPU")
+    @PersistenceContext(unitName = "kissisPU")
     protected EntityManager em;
 
     public DoctorEntity create(DoctorEntity entity)

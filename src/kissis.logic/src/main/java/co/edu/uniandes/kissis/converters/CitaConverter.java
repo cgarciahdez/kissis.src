@@ -41,10 +41,6 @@ public abstract class CitaConverter {
      */
     public static CitaEntity basicDTO2Entity(CitaDTO dto) {
         if (dto != null) {
-//            private Date horaInicio;
-//    private DoctorEntity doctor;
-//    private PacienteEntity paciente;
-//    private ConsultorioEntity consultorio;
             CitaEntity entity = new CitaEntity();
 
             entity.setId(dto.getId());

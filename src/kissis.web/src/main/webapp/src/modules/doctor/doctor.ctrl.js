@@ -5,10 +5,10 @@
             $scope.currentRecord = {};
             $scope.records = [];
             
-            var horas = [{"horaInicio":"7:00"},{"horaInicio":"8:00"},{"horaInicio":"9:00"},
-            {"horaInicio":"10:00"},{"horaInicio":"11:00"},{"horaInicio":"12:00"},{"horaInicio":"13:00"},
-            {"horaInicio":"14:00"},{"horaInicio":"15:00"},{"horaInicio":"16:00"},{"horaInicio":"17:00"},
-            {"horaInicio":"18:00"}];
+            var horas = [{"horaInicio":7},{"horaInicio":8},{"horaInicio":9},
+            {"horaInicio":10},{"horaInicio":11},{"horaInicio":12},{"horaInicio":13},
+            {"horaInicio":14},{"horaInicio":15},{"horaInicio":16},{"horaInicio":17},
+            {"horaInicio":18}];
         
             $scope.times=horas;
 
@@ -27,6 +27,19 @@
                self.editMode = false;
                self.verPerfil = false;
                self.seleccionarHorarios = true;
+            };
+            
+            this.getSelected = function()
+            {
+                var t;
+                for (t in $scope.times)
+                {
+                    if (t.selected)
+                    {
+                        var cita = {};
+                        svc
+                    }
+                }
             };
             
             this.mostrarDoctores = function ()

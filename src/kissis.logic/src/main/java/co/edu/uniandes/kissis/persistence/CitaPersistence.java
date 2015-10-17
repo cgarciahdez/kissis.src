@@ -10,7 +10,7 @@ import javax.persistence.Query;
 @Stateless
 public class CitaPersistence {
 
-    @PersistenceContext(unitName = "ConsultorioPU")
+    @PersistenceContext(unitName = "kissisPU")
     protected EntityManager em;
 
     public CitaEntity create(CitaEntity entity) {
@@ -36,9 +36,4 @@ public class CitaPersistence {
         return q.getResultList();
     }
 
-//    public List<CitaEntity> findByEditorial(Long editorialId) {
-//        Query q = em.createNamedQuery("CitaEntity.findByEditorial");
-//        q.setParameter("editorial_id", editorialId);
-//        return q.getResultList();
-//    }
 }
