@@ -1,7 +1,9 @@
 package co.edu.uniandes.kissis.ejb;
 
+import co.edu.uniandes.kissis.api.ICitaLogic;
 import co.edu.uniandes.kissis.api.IDoctorLogic;
 import co.edu.uniandes.kissis.converters.DoctorConverter;
+import co.edu.uniandes.kissis.dtos.CitaDTO;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
 import co.edu.uniandes.kissis.entities.DoctorEntity;
 import co.edu.uniandes.kissis.persistence.DoctorPersistence;
@@ -13,6 +15,9 @@ import javax.inject.Inject;
 public class DoctorLogic implements IDoctorLogic 
 {
     @Inject private DoctorPersistence persistence;
+    
+    @Inject 
+    ICitaLogic citaLogic;
     
     @Override
     public List<DoctorDTO> getDoctores() 
@@ -45,6 +50,14 @@ public class DoctorLogic implements IDoctorLogic
     public void deleteDoctor(Long id) 
     {
         persistence.delete(id);
+    }
+    
+    public void crearCitas (List<CitaDTO> citas)
+    {
+        for (CitaDTO c: citas)
+        {
+            citaLogic.createCita(c);           
+        }
     }
     
     

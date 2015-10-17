@@ -68,7 +68,7 @@ public class ConsultorioService {
      */
     @PUT
     @Path("{id: \\d+}")
-    public ConsultorioDTO updateConsultorio(@PathParam("id") Long id, ConsultorioDTO dto) {
+    public ConsultorioDTO updateConsultorio(ConsultorioDTO dto) {
         return consultorioLogic.updateConsultorio(dto);
     }
 

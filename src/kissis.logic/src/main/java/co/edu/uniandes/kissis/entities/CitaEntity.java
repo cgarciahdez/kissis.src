@@ -7,17 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-//@NamedQueries({
-//    @NamedQuery(
-//            name = "AuthorEntity.findByEditorial", 
-//            query = "SELECT DISTINCT a FROM AuthorEntity a join a.books b where b.editorial.id = :editorial_id")
-//})
 public class CitaEntity implements Serializable{
 
     /**
@@ -30,9 +26,21 @@ public class CitaEntity implements Serializable{
     private Long id;
     @Temporal(TemporalType.TIME)
     private Date hora;
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
+    
+    @ManyToOne
     private DoctorEntity doctor;
     private PacienteEntity paciente;
     private ConsultorioEntity consultorio;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 
 
     public Long getId() {

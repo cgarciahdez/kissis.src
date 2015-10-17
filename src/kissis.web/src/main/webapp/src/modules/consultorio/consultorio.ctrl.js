@@ -30,7 +30,6 @@
             };
             
             this.fetchRecord = function (record) {
-                debugger;
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = false;
@@ -54,7 +53,6 @@
             
 
             this.saveRecord = function () {
-                debugger;
                 return svc.saveRecord($scope.currentRecord).then(function () {
                     self.fetchRecords();
                 });
