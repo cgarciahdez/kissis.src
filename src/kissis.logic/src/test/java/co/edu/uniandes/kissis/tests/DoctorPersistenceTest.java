@@ -198,8 +198,8 @@ public class DoctorPersistenceTest
         Assert.assertEquals(newEntity.getEspecialidad(), resp.getEspecialidad());
         Assert.assertEquals(newEntity.getGenero(), resp.getGenero());
         Assert.assertEquals(newEntity.getIdDato(), resp.getIdDato());
-        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
-        Assert.assertEquals(newEntity.getTipoId(), entity.getTipoId());
+        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
+        Assert.assertEquals(newEntity.getTipoId(), resp.getTipoId());
     }
     
 }

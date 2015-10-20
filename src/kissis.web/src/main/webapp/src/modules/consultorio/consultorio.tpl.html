@@ -26,31 +26,32 @@
     </nav>
 </div>
 
-<div ng-show="ctrl.verPerfil">
-    <div class="clear"><br></div>
-    <div class="clear"><br></div>
-    <div class="clear"><br></div>
+<div class="container" style="width:1018px">
+    <div ng-show="ctrl.verPerfil">
+        <div class="clear"><br></div>
+        <div class="clear"><br></div>
+        <div class="clear"><br></div>
 
-    <div class="container" style="width:1018px">
+
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
             <h2>Consultorio #</h2>
             <a ng-href="{{currentRecord.image}}" target="_blank"><img class="img-responsive" style="height: 270px;width:420px" ng-src="{{currentRecord.image}}" alt="{{currentRecord.image}}"></a>
 
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div><div class="col-md-5">{{currentRecord.especialidad}}</div>
+            <div class="col-md-4" style="padding:0px"><strong>Especialidad:</strong></div><div class="col-md-5">{{currentRecord.especialidad}}</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Id. de Consultorio:</b></div><div class="col-md-5">{{currentRecord.id}}</div>
+            <div class="col-md-4" style="padding:0px"><strong>Id. de Consultorio:</strong></div><div class="col-md-5">{{currentRecord.id}}</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Tipo de Consultorio:</b></div><div class="col-md-5">{{currentRecord.tipo}}</div>
+            <div class="col-md-4" style="padding:0px"><strong>Tipo de Consultorio:</strong></div><div class="col-md-5">{{currentRecord.tipo}}</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Estensión:</b></div><div class="col-md-5">{{currentRecord.extension}}</div>
+            <div class="col-md-4" style="padding:0px"><strong>Estensión:</strong></div><div class="col-md-5">{{currentRecord.extension}}</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Tamaño:</b></div><div class="col-md-5">{{currentRecord.tamanio}}</div>
+            <div class="col-md-4" style="padding:0px"><strong>Tamaño:</strong></div><div class="col-md-5">{{currentRecord.tamanio}}</div>
             <br>
             <br>
 
@@ -60,26 +61,25 @@
 
         </div><!-- end content -->
 
+
     </div>
-</div>
-<div ng-show="ctrl.editMode">
+    <div ng-show="ctrl.editMode">
 
-    <div class="clear"><br></div>
-    <div class="clear"><br></div>
-    <div class="clear"><br></div>
+        <div class="clear"><br></div>
+        <div class="clear"><br></div>
+        <div class="clear"><br></div>
 
-    <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
             <h2>Agregar Consultorio</h2>
             <form novalidate name="form" id="consult-form" role="form" ng-submit="form.$valid && ctrl.saveRecord()">
                 <fieldset>
                     <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 
-                    <div class="col-md-4" style="padding:0px"><b>Ruta imágen:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Ruta imágen:</strong></div>
                     <div class="col-md-5"><input type="text" name="consultorioImage" style="height:25px" class="form-control"  ng-model="currentRecord.image" required></div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Especialidad:</strong></div>
                     <div class="col-md-5"> 
                         <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.especialidad" required>
                             <option value=""></option>
@@ -96,7 +96,7 @@
                     </div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Tipo de Consultorio:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Tipo de Consultorio:</strong></div>
                     <div class="col-md-5"> <select name="tipo" id="tipo" style="height:25px" class="form-control"  ng-model="currentRecord.tipo" required>
                             <option value="Consultas">Consultas</option>
                             <option value="Sala de Cirugia">Sala de Cirugia</option>
@@ -106,11 +106,11 @@
                     </div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Extensión del Consultorio:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Extensión del Consultorio:</strong></div>
                     <div class="col-md-5"><input type="text" name="noIdentificacion" value="2035" style="height:25px"  class="form-control"  ng-model="currentRecord.extension" required></div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Tamaño:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Tamaño:</strong></div>
                     <div class="col-md-5"> <select name="Genero" id="tamanio" style="height:25px" class="form-control"  ng-model="currentRecord.tamanio" required>
                             <option value="Grande">Grande</option>
                             <option value="Mediano">Mediano</option>
@@ -131,14 +131,12 @@
         </div>
 
     </div>
-</div>
 
-<div ng-show="ctrl.verConsultorios">
-    <div class="clear"><br></div>
-    <div class="clear"><br></div>
-    <div class="clear"><br></div>
+    <div ng-show="ctrl.verConsultorios">
+        <div class="clear"><br></div>
+        <div class="clear"><br></div>
+        <div class="clear"><br></div>
 
-    <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
             <h2>Consultorios actuales</h2>
 
@@ -161,40 +159,39 @@
 
         </div>
     </div>
+    <div id="sidebar">
+        <div class="col-md-3 sidebar">
+            <h4 style="text-align:right">Mi Menu</h4>
+            <table>
+                <tr>
+                <a href="perfilAdministrador.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                </tr>
+
+                <tr>
+                <a href="#/doctores"><input type="submit" value="Agregar Medico" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                </tr>
+
+                <tr>
+                <a ng-click="ctrl.createRecord()"><input type="submit" value="Agregar Consultorio" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                </tr>
+
+                <tr>
+                <a ng-click="ctrl.fetchRecords()"><input type="submit" value="Consultorios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                </tr>
+
+                <tr>
+                <a href=""><input type="submit" value="Medicos" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                </tr>
+
+                <tr>
+                <a href="CambiarContraseña.html"><input type="submit" value="Cambiar Contraseña" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                </tr>
+
+            </table>
+        </div><!-- end sidebar -->
+
+    </div><!-- end main -->
 </div>
-<div id="sidebar">
-    <div class="col-md-3 sidebar">
-        <h4 style="text-align:right">Mi Menu</h4>
-        <table>
-            <tr>
-            <a href="perfilAdministrador.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-            </tr>
-
-            <tr>
-            <a href="agregarMedico.html"><input type="submit" value="Agregar Medico" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-            </tr>
-
-            <tr>
-            <a ng-click="ctrl.createRecord()"><input type="submit" value="Agregar Consultorio" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-            </tr>
-
-            <tr>
-            <a ng-click="ctrl.fetchRecords()"><input type="submit" value="Consultorios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-            </tr>
-
-            <tr>
-            <a href=""><input type="submit" value="Medicos" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-            </tr>
-
-            <tr>
-            <a href="CambiarContraseña.html"><input type="submit" value="Cambiar Contraseña" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
-            </tr>
-
-        </table>
-    </div><!-- end sidebar -->
-
-</div><!-- end main -->
-
 
 
 <div class="clear"><br></div>
