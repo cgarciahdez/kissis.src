@@ -19,7 +19,7 @@ import javax.persistence.Query;
 @Stateless
 public class ConsultorioPersistence {
     
-    @PersistenceContext(unitName = "ConsultorioPU")
+    @PersistenceContext(unitName = "kissisPU")
     protected EntityManager em;
 
     public ConsultorioEntity create(ConsultorioEntity entity) {
