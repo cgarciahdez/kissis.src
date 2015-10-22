@@ -21,6 +21,7 @@ import javax.inject.Inject;
 public class EspecialidadLogic implements IEspecialidadLogic {
  @Inject private EspecialidadPersistence persistence;
 
+    @Override
     public List<EspecialidadDTO> getEspecialidades() {
         return EspecialidadConverter.listEntity2DTO(persistence.findAll());
     }
@@ -28,18 +29,19 @@ public class EspecialidadLogic implements IEspecialidadLogic {
     public EspecialidadDTO getEspecialidad(Long id) {
         return EspecialidadConverter.basicEntity2DTO(persistence.find(id));
     }
-
+    
+    @Override
     public EspecialidadDTO createEspecialidad(EspecialidadDTO dto) {
         EspecialidadEntity entity = EspecialidadConverter.basicDTO2Entity(dto);
         persistence.create(entity);
         return EspecialidadConverter.basicEntity2DTO(entity);
     }
-
+    @Override
     public EspecialidadDTO updateEspecialidad(EspecialidadDTO dto) {
         EspecialidadEntity entity = persistence.update(EspecialidadConverter.basicDTO2Entity(dto));
         return EspecialidadConverter.basicEntity2DTO(entity);
     }
-
+    @Override
     public void deleteEspecialidad(Long id) {
         persistence.delete(id);
     }

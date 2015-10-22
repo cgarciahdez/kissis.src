@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class EspecialidadDTO {
-    private static final String PEDIATRIA = "PEDIATRIA";
     private Long id;
     private String nombre;
     private String descripcion;
