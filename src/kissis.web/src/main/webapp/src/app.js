@@ -6,6 +6,7 @@
         'doctorModule',
         'pacienteModule',
         'especialidadModule',
+        'authModule',
         'ngRoute'
     ]);
 
@@ -38,4 +39,19 @@
                 })
                 .otherwise('/#');
         }]);
+    
+      mainApp.config(['authServiceProvider', function (auth) {
+            auth.setValues({
+                apiUrl: 'webresources/users/',
+                successPath: '/catalog',
+                loginPath: '/login',
+                registerPath: '/register',
+                logoutRedirect: '/login',
+                loginURL: 'login',
+                registerURL: 'register',
+                logoutURL: 'logout',
+                nameCookie: 'userCookie'
+            });
+        }]);
+    
 })(window.angular);

@@ -6,7 +6,6 @@
     <name>kissis.web</name>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-<<<<<<< HEAD
     <repositories>
         <repository>
             <id>csw-uniandes</id>
@@ -14,7 +13,6 @@
             <url>http://157.253.236.129:8081/content/repositories/releases/</url>
         </repository>
     </repositories>
-=======
     <properties>  
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
@@ -25,7 +23,6 @@
         <sonar.jacoco.outItReportPath>target/jacoco-it</sonar.jacoco.outItReportPath>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     </properties>
->>>>>>> c986c1385bc06335b958614e72fa676521f61428
     <dependencies>
          <dependency>
             <groupId>co.edu.uniandes.csw</groupId>
