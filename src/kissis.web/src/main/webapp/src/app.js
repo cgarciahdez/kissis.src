@@ -43,7 +43,7 @@
       mainApp.config(['authServiceProvider', function (auth) {
             auth.setValues({
                 apiUrl: 'webresources/users/',
-                successPath: '/catalog',
+                successPath: '/pacientes',
                 loginPath: '/login',
                 registerPath: '/register',
                 logoutRedirect: '/login',
@@ -52,6 +52,7 @@
                 logoutURL: 'logout',
                 nameCookie: 'userCookie'
             });
+            auth.setRoles({'doctor': 'doctor', 'administrador': 'Administrador'});
         }]);
     
 })(window.angular);
