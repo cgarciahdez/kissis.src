@@ -60,7 +60,7 @@ public class EspecialidadService {
      */
     @PUT
     @Path("{id: \\d+}")
-    public EspecialidadDTO updateEspecialidad( EspecialidadDTO dto) {
+    public EspecialidadDTO updateEspecialidad(@PathParam("id") Long id, EspecialidadDTO dto) {
         return especialidadLogic.updateEspecialidad(dto);
     }
 
