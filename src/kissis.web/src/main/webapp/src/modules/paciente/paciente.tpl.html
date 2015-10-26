@@ -28,7 +28,7 @@
 
 <div class="container" style="width:1018px">
 
-<div ng-show="ctrl.verPerfilPaciente">
+<div ng-show="ctrl.verPerfilVar">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
     <div class="clear"><br></div>
@@ -68,7 +68,7 @@
     </div>
 </div>
     
-<div ng-show="ctrl.editMode">
+<div ng-show="ctrl.editarPerfilVar">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
     <div class="clear"><br></div>
@@ -116,6 +116,18 @@
         <button ng-click="ctrl.saveRecord(); ctrl.perfil;" id="save-paciente" type="submit" form="paciente-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
         <button ng-click="form.$setPristine();
             ctrl.perfil;" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">Cancelar</button>
+    </div><!-- end content -->
+</div>
+    
+<div ng-show="ctrl.verCitasVar">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    
+    <div class="col-md-9" style="border-right: 1px solid #90DA11">
+        <h2>Mis Citas</h2>
+        
+        
     </div><!-- end content -->
 </div>
 

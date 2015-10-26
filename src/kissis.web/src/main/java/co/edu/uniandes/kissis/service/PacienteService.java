@@ -58,7 +58,7 @@ public class PacienteService
 
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteBook(@PathParam("id") Long id)
+    public void deletePaciente(@PathParam("id") Long id)
     {
         pacienteLogic.deletePaciente(id);
     }
