@@ -28,7 +28,7 @@
 
 <div class="container" style="width:1018px">
 
-<div ng-show="ctrl.verPerfilPaciente">
+<div ng-show="ctrl.verPerfilVar">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
     <div class="clear"><br></div>
@@ -63,12 +63,12 @@
         <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div><div class="col-md-5"></div>
         <br>
 
-        <button ng-click="ctrl.editRecord(currentRecord)" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
+        <button ng-click="ctrl.editarPerfil" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
 
     </div>
 </div>
     
-<div ng-show="ctrl.editMode">
+<div ng-show="ctrl.editarPerfilVar">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
     <div class="clear"><br></div>
@@ -113,9 +113,50 @@
         <br>
         <br>
 
-        <button ng-click="ctrl.saveRecord(); ctrl.perfil;" id="save-paciente" type="submit" form="paciente-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+        <button ng-click="ctrl.guardarPerfil; ctrl.verPerfil;" id="save-paciente" type="submit" form="paciente-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
         <button ng-click="form.$setPristine();
-            ctrl.perfil;" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">Cancelar</button>
+            ctrl.verPerfil;" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">Cancelar</button>
+    </div><!-- end content -->
+</div>
+    
+<div ng-show="ctrl.verCitasVar">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    
+    <div class="col-md-9" style="border-right: 1px solid #90DA11">
+        <h2>Mis Citas</h2>
+        <p>Estas son todas las citas que tiene agendadas</p>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" ng-repeat="record in records">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse">Especialidad - {{record.id}}</a>
+                    </h4>
+                </div>
+                <div id="collapse" class="panel-collapse collapse container">
+                    <div class="col-md-9">
+                        <table style="width:100%">
+                            <tr>
+                                <td><strong>Fecha:</strong></td>
+                                <td>{{record.fecha}}</td>
+                                <td><strong>Hora:</strong></td>
+                                <td>{{record.hora}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Doctor:</strong></td>
+                                <td>Doctor que atiende</td>
+                                <td><strong>Consultorio:</strong></td>
+                                <td>Identificacion del consultorio</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-3">
+                        <button onclick="" style="margin:8px">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div><!-- end content -->
 </div>
 

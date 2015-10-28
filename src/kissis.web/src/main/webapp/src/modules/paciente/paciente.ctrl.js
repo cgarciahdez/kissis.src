@@ -8,78 +8,57 @@
 
             //Variables para el controlador
             this.readOnly = false;
-            this.editMode = false;
-            this.verPerfilPaciente = true;
-            this.verCitas = false;
-            this.agregarCita = false;
-
-            var self = this;
+            this.editarPerfilVar = false;
+            this.verPerfilVar = true;
+            this.verCitasVar = false;
+            this.agregarCitaVar = false;            
             
-            this.perfil = function () {
-                self.editMode = false;
-                self.verPerfilPaciente = true;
-                self.verCitas = false;
-                self.agregarCita = false;
-            };
-            
-            this.createRecord = function () {
-                self.editMode = true;
-                self.verPerfilPaciente = false;
-                self.verCitas = false;
-                self.agregarCita = false;
-                $scope.currentRecord = {};
+            this.verPerfil = function () {
+                this.editarPerfilVar = false;
+                this.verPerfilVar = true;
+                this.verCitasVar = false;
+                this.agregarCitaVar = false;
             };
 
-            this.editRecord = function (record) {
-                return svc.fetchRecord(record.id).then(function (response) {
-                    $scope.currentRecord = response.data;
-                    self.editMode = true;
-                    self.verPerfilPaciente = false;
-                    self.verCitas = false;
-                    this.agregarCita = false;
+            this.editarPerfil = function () {
+                return svc.fetchPaciente($scope.currentRecord).then(function (response) {
+                    this.editarPerfilVar = true;
+                    this.verPerfilVar = false;
+                    this.verCitasVar = false;
+                    this.agregarCitaVar = false;
                     return response;
                 });
             };
 
-            this.fetchRecords = function () {
-                return svc.fetchRecords().then(function (response) {
+            this.verCitas = function () {
+                return svc.fetchCitas($scope.currentRecord).then(function (response) {
                     $scope.records = response.data;
-                    $scope.currentRecord = {};
-                    self.editMode = false;
-                    self.verPerfilPaciente = false;
-                    self.verCitas = true;
-                    this.agregarCita = false;
-                    return response;
-                });
-            };
-
-            this.createRecord = function (record) {
-                return svc.fetchRecord(record.id).then(function (response) {
-                    $scope.currentRecord = response.data;
-                    self.editMode = false;
-                    self.verPerfilPaciente = false;
-                    self.verCitas = false;
-                    self.agregarCita = true;
+                    this.editarPerfilVar = false;
+                    this.verPerfilVar = false;
+                    this.verCitasVar = true;
+                    this.agregarCitaVar = false;
                     return response;
                 });
             };
             
             this.cargarPerfil = function () {
-                return svc.fetchRecord(1).then(function (response) {
+                return svc.fetchPaciente(1).then(function (response) {
                     $scope.currentRecord = response.data;
                 });
             };
 
-            this.saveRecord = function () {
-                return svc.saveRecord($scope.currentRecord).then(function () {
-                    self.fetchRecords();
+            this.guardarPerfil = function () {
+                return svc.savePaciente($scope.currentRecord).then(function () {
+                    this.cargarPerfil();
                 });
             };
-            this.deleteRecord = function (record) {
-                return svc.deleteRecord(record.id).then(function () {
-                    self.fetchRecords();
+            
+            this.cargarCitas = function () {
+                return svc.fetchCitas($scope.currentRecord).then(function (response) {
+                    $scope.records = response.data;
                 });
             };
+            
             this.cargarPerfil();
         }]);
 })(window.angular);
