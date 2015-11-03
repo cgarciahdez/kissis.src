@@ -3,6 +3,7 @@ package co.edu.uniandes.kissis.dtos;
 import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -30,6 +31,7 @@ public class PacienteDTO
     
     private Date fechaNac;
     
+    @PodamExclude
     private List<CitaDTO> citas;
     
     /**

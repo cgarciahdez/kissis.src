@@ -24,34 +24,40 @@ public class PacienteLogic implements IPacienteLogic
     
     @Inject private CitaPersistence citaPersistence;
     
+    @Override
     public List<PacienteDTO> getPacientes() 
     {
         return PacienteConverter.listEntity2DTO(pacientePersistence.findAll());
     }
-
+    
+    @Override
     public PacienteDTO getPaciente(Long id)
     {
         return PacienteConverter.basicEntity2DTO(pacientePersistence.find(id));
     }
-
+    
+    @Override
     public PacienteDTO createPaciente(PacienteDTO dto)
     {
         PacienteEntity entity = PacienteConverter.basicDTO2Entity(dto);
         pacientePersistence.create(entity);
         return PacienteConverter.basicEntity2DTO(entity);
     }
-
+    
+    @Override
     public PacienteDTO updatePaciente(PacienteDTO dto)
     {
         PacienteEntity entity = pacientePersistence.update(PacienteConverter.basicDTO2Entity(dto));
         return PacienteConverter.basicEntity2DTO(entity);
     }
-
+    
+    @Override
     public void deletePaciente(Long id)
     {
         pacientePersistence.delete(id);
     }
     
+    @Override
     public CitaDTO addCita(Long citaId, Long pacienteId)
     {
         PacienteEntity pacienteEntity = pacientePersistence.find(pacienteId);
@@ -59,7 +65,8 @@ public class PacienteLogic implements IPacienteLogic
         pacienteEntity.getCitas().add(citaEntity);
         return CitaConverter.basicEntity2DTO(citaEntity);
     }
-
+    
+    @Override
     public void removeCita(Long citaId, Long pacienteId)
     {
         PacienteEntity pacienteEntity = pacientePersistence.find(pacienteId);
@@ -67,7 +74,8 @@ public class PacienteLogic implements IPacienteLogic
         cita.setPaciente(null);
         pacienteEntity.getCitas().remove(cita);
     }
-
+    
+    @Override
     public List<CitaDTO> replaceCitas(List<CitaDTO> citas, Long pacienteId)
     {
         PacienteEntity paciente = pacientePersistence.find(pacienteId);
@@ -90,12 +98,14 @@ public class PacienteLogic implements IPacienteLogic
         }
         return citas;
     }
-
+    
+    @Override
     public List<CitaDTO> getCitas(Long pacienteId)
     {
         return CitaConverter.listEntity2DTO(pacientePersistence.find(pacienteId).getCitas());
     }
-
+    
+    @Override
     public CitaDTO getCita(Long pacienteId, Long citaId)
     {
         List<CitaEntity> citas = pacientePersistence.find(pacienteId).getCitas();
