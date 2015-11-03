@@ -28,7 +28,7 @@
 
 <div class="container" style="width:1018px">
 
-<div ng-show="ctrl.verPerfilPaciente">
+<div ng-show="ctrl.verPerfilVar">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
     <div class="clear"><br></div>
@@ -39,36 +39,36 @@
         <a ng-href="{{currentRecord.image}}" target="_blank"><img class="img-responsive" style="width:168px;height:105px;" ng-src="{{currentRecord.image}}" alt="{{currentRecord.image}}"></a>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div><div class="col-md-5">{{currentRecord.nombre}}</div>
+        <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div><div class="col-md-5">{{currentRecord.nombre}}</div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Apellido:</b></div><div class="col-md-5">{{currentRecord.apellido}}</div>
+        <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div><div class="col-md-5">{{currentRecord.apellido}}</div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Tipo de Identificación:</b></div><div class="col-md-5">{{currentRecord.tipoId}}</div>
+        <div class="col-md-4" style="padding:0px"><strong>Tipo de Identificación:</strong></div><div class="col-md-5">{{currentRecord.tipoId}}</div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>No. de Identificación:</b></div><div class="col-md-5">{{currentRecord.datoId}}</div>
+        <div class="col-md-4" style="padding:0px"><strong>No. de Identificación:</strong></div><div class="col-md-5">{{currentRecord.datoId}}</div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>EPS:</b></div><div class="col-md-5">{{currentRecord.eps}}</div>
+        <div class="col-md-4" style="padding:0px"><strong>EPS:</strong></div><div class="col-md-5">{{currentRecord.eps}}</div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Id. EPS:</b></div><div class="col-md-5">{{currentRecord.idEps}}</div>
+        <div class="col-md-4" style="padding:0px"><strong>Id. EPS:</strong></div><div class="col-md-5">{{currentRecord.idEps}}</div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Género:</b></div><div class="col-md-5">{{currentRecord.genero}}</div>
+        <div class="col-md-4" style="padding:0px"><strong>Género:</strong></div><div class="col-md-5">{{currentRecord.genero}}</div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Fecha de Nacimiento:</b></div><div class="col-md-5"></div>
+        <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div><div class="col-md-5"></div>
         <br>
 
-        <button ng-click="ctrl.editRecord(currentRecord)" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
+        <button ng-click="ctrl.editarPerfil" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
 
     </div>
 </div>
     
-<div ng-show="ctrl.editMode">
+<div ng-show="ctrl.editarPerfilVar">
     <div class="clear"><br></div>
     <div class="clear"><br></div>
     <div class="clear"><br></div>
@@ -80,42 +80,83 @@
         <a style="color:blue" title="Editar foto de perfil" href ="editarInformacionPaciente.html">Editar foto de perfil</a>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div>
         <div class="col-md-5"><input type="text" name="nombre" value="{{currentRecord.nombre}}" style="height:25px" class="form-control" ng-model="currentRecord.nombre" required></div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Apellido:</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div>
         <div class="col-md-5"><input type="text" name="apellido" value="{{currentRecord.apellido}}" style="height:25px" class="form-control" ng-model="currentRecord.apellido" required></div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Tipo de Identificación:</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>Tipo de Identificación:</strong></div>
         <div class="col-md-5"><input type="text" name="tipoId" value="{{currentRecord.tipoId}}" style="height:25px" class="form-control" ng-model="currentRecord.tipoId" required></div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>No. de Identificación:</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>No. de Identificación:</strong></div>
         <div class="col-md-5"><input type="text" name="datoId" value="{{currentRecord.datoId}}" style="height:25px" class="form-control" ng-model="currentRecord.datoId" required></div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>EPS:</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>EPS:</strong></div>
         <div class="col-md-5"><input type="text" name="eps" value="{{currentRecord.eps}}" style="height:25px" class="form-control" ng-model="currentRecord.eps" required></div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Id. EPS:</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>Id. EPS:</strong></div>
         <div class="col-md-5"><input type="text" name="idEps" value="{{currentRecord.idEps}}" style="height:25px" class="form-control" ng-model="currentRecord.idEps" required></div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Género (F/M):</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>Género (F/M):</strong></div>
         <div class="col-md-5"><input type="text" name="genero" value="{{currentRecord.genero}}" style="height:25px" class="form-control" ng-model="currentRecord.genero" required></div>
         <br>
         <br>
-        <div class="col-md-4" style="padding:0px"><b>Fecha de Nacimiento:</b></div>
+        <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div>
         <div class="col-md-5"><input type="date" name="fechaNac" readonly value="" class="form-control" required></div>
         <br>
         <br>
 
-        <button ng-click="ctrl.saveRecord(); ctrl.perfil;" id="save-paciente" type="submit" form="paciente-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+        <button ng-click="ctrl.guardarPerfil; ctrl.verPerfil;" id="save-paciente" type="submit" form="paciente-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
         <button ng-click="form.$setPristine();
-            ctrl.perfil;" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">Cancelar</button>
+            ctrl.verPerfil;" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">Cancelar</button>
+    </div><!-- end content -->
+</div>
+    
+<div ng-show="ctrl.verCitasVar">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    
+    <div class="col-md-9" style="border-right: 1px solid #90DA11">
+        <h2>Mis Citas</h2>
+        <p>Estas son todas las citas que tiene agendadas</p>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" ng-repeat="record in records">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse">Especialidad - {{record.id}}</a>
+                    </h4>
+                </div>
+                <div id="collapse" class="panel-collapse collapse container">
+                    <div class="col-md-9">
+                        <table style="width:100%">
+                            <tr>
+                                <td><strong>Fecha:</strong></td>
+                                <td>{{record.fecha}}</td>
+                                <td><strong>Hora:</strong></td>
+                                <td>{{record.hora}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Doctor:</strong></td>
+                                <td>Doctor que atiende</td>
+                                <td><strong>Consultorio:</strong></td>
+                                <td>Identificacion del consultorio</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-3">
+                        <button onclick="" style="margin:8px">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div><!-- end content -->
 </div>
 

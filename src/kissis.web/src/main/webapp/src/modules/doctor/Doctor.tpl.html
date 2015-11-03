@@ -71,14 +71,13 @@
 
             </style>
             <div>
-                <!--<pre>Selected date is: <em >{{dt | date:'fullDate' }}</em></pre>!-->
                 <div class="row">
-                    <h1 style="color:#90DA11">Ingresar horarios de atención</h1>
+                    <h1 style="color:#90DA11">Ingresar horarios de atenciï¿½n</h1>
                 </div>
                 <div class="row" style="text-align:justify;padding:20px">
-                    <p>Porfavor ingrese sus horarios haciendo click en el día correspondiente, seleccionando las horas que tendrá disponibles
-                        ese día, y haciendo click en el botón enviar. Si el horario es el mismo para todas las semanas del mes 
-                        y no desea hacer este proceso día por día, puede hacer click en el siguiente botón e ingresar su horario semanal:</p>
+                    <p>Porfavor ingrese sus horarios haciendo click en el dï¿½a correspondiente, seleccionando las horas que tendrï¿½ disponibles
+                        ese dï¿½a, y haciendo click en el botï¿½n enviar. Si el horario es el mismo para todas las semanas del mes 
+                        y no desea hacer este proceso dï¿½a por dï¿½a, puede hacer click en el siguiente botï¿½n e ingresar su horario semanal:</p>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -103,7 +102,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <input type="submit" value="Enviar">
+                                <input ng-click='ctrl.saveCitas()' type="submit" value="Enviar">
                             </form>
                         </div>
                     </div>
@@ -128,25 +127,25 @@
             <img src ="imagenesPaginas/fotoDePerfil.jpg" alt="Foto de perfil"  style="width:168px;height:105px;">
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div><div class="col-md-5">Alberto</div>
+            <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div><div class="col-md-5">Alberto</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Apellido:</b></div><div class="col-md-5">Consuegra</div>
+            <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div><div class="col-md-5">Consuegra</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Tipo de IdentificaciÃ³n:</b></div><div class="col-md-5">CC</div>
+            <div class="col-md-4" style="padding:0px"><strong>Tipo de IdentificaciÃ³n:</strong></div><div class="col-md-5">CC</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>No. de IdentificaciÃ³</b></div><div class="col-md-5">1143253651</div>
+            <div class="col-md-4" style="padding:0px"><strong>No. de IdentificaciÃ³</strong></div><div class="col-md-5">1143253651</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Especialidad</b></div><div class="col-md-5">OptometrÃ­a</div>
+            <div class="col-md-4" style="padding:0px"><strong>Especialidad</strong></div><div class="col-md-5">OptometrÃ­a</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>GÃ©nero:</b></div><div class="col-md-5">Masculino</div>
+            <div class="col-md-4" style="padding:0px"><strong>GÃ©nero:</strong></div><div class="col-md-5">Masculino</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Fecha de Nacimiento:</b></div><div class="col-md-5">16/02/1995</div>
+            <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div><div class="col-md-5">16/02/1995</div>
             <br>
             <a href="editarInformacionDoctor.html"><input type="submit" value="Editar Mi Perfil" style="float:right;font-family: Tahoma,Geneva,sans-serif"/></a>
 
@@ -171,15 +170,15 @@
             <a style="color:blue" title="Editar foto de perfil" href ="editarInformacionPaciente.html">Editar foto de perfil</a>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div>
+            <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div>
             <div class="col-md-5"><input type="text" name="nombre" value="Alberto" style="height:25px"></div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Apellido:</b></div>
+            <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div>
             <div class="col-md-5"><input type="text" name="apellido" value="Consuegra" style="height:25px"></div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Tipo de IdentificaciÃ³n:</b></div>
+            <div class="col-md-4" style="padding:0px"><strong>Tipo de IdentificaciÃ³n:</strong></div>
             <div class="col-md-5"> <select name="TipoID" id="TipoID" style="height:25px">
                     <option>Cedula</option>
                     <option>Cedula de extrangeria</option>
@@ -188,11 +187,11 @@
             </div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>No. de IdentificaciÃ³n:</b></div>
+            <div class="col-md-4" style="padding:0px"><strong>No. de IdentificaciÃ³n:</strong></div>
             <div class="col-md-5"><input type="text" name="noIdentificacion" value="1143253651" style="height:25px"></div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
+            <div class="col-md-4" style="padding:0px"><strong>Especialidad:</strong></div>
             <div class="col-md-5"> <select name="Especialidad" id="Especialidad" style="height:25px">
                     <option>Medicina General</option>
                     <option>AudiologÃ­a</option>
@@ -207,7 +206,7 @@
             </div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>GÃ©nero (F/M):</b></div>
+            <div class="col-md-4" style="padding:0px"><strong>GÃ©nero (F/M):</strong></div>
             <div class="col-md-5"> <select name="Genero" id="Genero" style="height:25px">
                     <option>Masculino</option>
                     <option>Femenino</option>
@@ -217,7 +216,7 @@
             </div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><b>Fecha de Nacimiento:</b></div>
+            <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div>
             <div class="col-md-5"><input type="date" name="dia" readonly value="1995-02-16"></div>
             <br>
             <br>
@@ -257,15 +256,15 @@
                 <fieldset>
 
 
-                    <div class="col-md-4" style="padding:0px"><b>Nombre:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div>
                     <div class="col-md-5"><input type="text" name="nombreDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.nombre" required></div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Apellido:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div>
                     <div class="col-md-5"><input type="text" name="apellidoDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.apellido" required></div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Tipo de Documento:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Tipo de Documento:</strong></div>
                     <div class="col-md-5"> 
                         <select name="documento" id="documento" style="height:25px"  class="form-control"  ng-model="currentRecord.tipoId" required>
                             <option value=""></option>
@@ -275,11 +274,11 @@
                     </div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>No documento:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>No documento:</strong></div>
                     <div class="col-md-5"><input type="text" name="documentoDoctor" value="" style="height:25px" class="form-control"  ng-model="currentRecord.idDato" required></div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Especialidad:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Especialidad:</strong></div>
                     <div class="col-md-5"> 
                         <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.especialidad" required>
                             <option value=""></option>
@@ -296,7 +295,7 @@
                     </div>
                     <br>
                     <br>
-                    <div class="col-md-4" style="padding:0px"><b>Genero:</b></div>
+                    <div class="col-md-4" style="padding:0px"><strong>Genero:</strong></div>
                     <div class="col-md-5"> <select name="" id="Genero" style="height:25px" class="form-control"  ng-model="currentRecord.genero" required>
                             <option value="Consultas">Masculino</option>
                             <option value="Sala de Cirugia">Femenino</option>
