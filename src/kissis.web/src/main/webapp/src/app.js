@@ -6,6 +6,7 @@
         'doctorModule',
         'pacienteModule',
         'especialidadModule',
+        'citaModule',
         'ngRoute'
     ]);
 
