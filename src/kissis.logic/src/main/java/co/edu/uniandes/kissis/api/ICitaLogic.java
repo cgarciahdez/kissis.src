@@ -5,6 +5,10 @@ import java.util.List;
 
 public interface ICitaLogic {
     
+    public List<CitaDTO> getCitas();
+    public CitaDTO getCita(Long id);
     public CitaDTO createCita(CitaDTO dto);
+    public CitaDTO updateCita(CitaDTO dto);
+    public void deleteCita(Long id);
 
 }
