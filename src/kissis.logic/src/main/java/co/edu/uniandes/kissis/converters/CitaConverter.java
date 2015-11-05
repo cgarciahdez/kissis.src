@@ -3,8 +3,14 @@ package co.edu.uniandes.kissis.converters;
 
 import co.edu.uniandes.kissis.dtos.CitaDTO;
 import co.edu.uniandes.kissis.entities.CitaEntity;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class CitaConverter {
  
@@ -21,8 +27,8 @@ public abstract class CitaConverter {
 
             CitaDTO dto = new CitaDTO();
             dto.setId(entity.getId());
-            dto.setHora(entity.getHora());
-            dto.setFecha(entity.getFecha());
+            dto.setHora(entity.getHora()+ "");
+            dto.setFecha(entity.getFecha().toString());
             dto.setDoctor(DoctorConverter.refEntity2DTO(entity.getDoctor()));
             dto.setPaciente(PacienteConverter.refEntity2DTO(entity.getPaciente()));
             dto.setConsultorio(ConsultorioConverter.refEntity2DTO(entity.getConsultorio()));
@@ -44,8 +50,15 @@ public abstract class CitaConverter {
             CitaEntity entity = new CitaEntity();
 
             entity.setId(dto.getId());
-            entity.setHora(dto.getHora());
-            entity.setFecha(dto.getFecha());
+            entity.setHora(Integer.parseInt(dto.getHora()));
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MMMM-yyyy");
+            try {
+                cal.setTime(sdf.parse(dto.getFecha()));
+            } catch (ParseException ex) {
+                Logger.getLogger(CitaConverter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            entity.setFecha(cal);
             entity.setDoctor(DoctorConverter.refDTO2Entity(dto.getDoctor()));
             entity.setPaciente(PacienteConverter.refDTO2Entity(dto.getPaciente()));
             entity.setConsultorio(ConsultorioConverter.refDTO2Entity(dto.getConsultorio()));

@@ -35,6 +35,7 @@ public class CitaService {
     @POST
     @StatusCreated
     public CitaDTO createCita(CitaDTO dto) {
+        System.out.println("CITAFUUCK!!!!!: "+dto.getId()+" "+dto.getConsultorio().getId());
         return citaLogic.createCita(dto);     
     }
 
@@ -49,7 +50,7 @@ public class CitaService {
     
     @GET
     @Path("{id: \\d+}")
-    public CitaDTO getBook(@PathParam("id") Long id) {
+    public CitaDTO getCita(@PathParam("id") Long id) {
         return citaLogic.getCita(id);
     }
     

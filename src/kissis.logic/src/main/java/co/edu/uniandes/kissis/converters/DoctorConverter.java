@@ -34,7 +34,7 @@ public abstract class DoctorConverter
     public static DoctorEntity refDTO2Entity(DoctorDTO dto) {
         if (dto != null) {
             DoctorEntity entity = new DoctorEntity();
-            dto.setId(entity.getId());
+            entity.setId(dto.getId());
 
             return entity;
         } else {
