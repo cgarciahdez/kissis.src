@@ -36,7 +36,7 @@ public abstract class PacienteConverter
     public static PacienteEntity refDTO2Entity(PacienteDTO dto) {
         if (dto != null) {
             PacienteEntity entity = new PacienteEntity();
-            dto.setId(entity.getId());
+            entity.setId(dto.getId());
 
             return entity;
         } else {

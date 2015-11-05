@@ -27,7 +27,8 @@ public abstract class ConsultorioConverter {
     public static ConsultorioEntity refDTO2Entity(ConsultorioDTO dto) {
         if (dto != null) {
             ConsultorioEntity entity = new ConsultorioEntity();
-            dto.setId(entity.getId());
+            long id = dto.getId();
+            entity.setId(id);
 
             return entity;
         } else {

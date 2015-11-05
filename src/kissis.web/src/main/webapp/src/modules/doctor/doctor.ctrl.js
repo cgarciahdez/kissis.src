@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module('doctorModule');
 
-    mod.controller('doctorCtrl', ['$scope', 'doctorService', 'citaService', function ($scope, svc, citasvc) {
+    mod.controller('doctorCtrl', ['$scope','$filter', 'doctorService', 'citaService', 'consultorioService', function ($scope,$filter, svc, citasvc,consvc) {
             $scope.currentRecord = {};
             $scope.records = [];
 
@@ -31,22 +31,43 @@
 
             this.saveCitas = function ()
             {
-                var t;
-                for (t in $scope.times)
-                {
-                    debugger;
-                    if (t.selected)
+                
+                angular.forEach($scope.times,function(value){
+                if (value.selected)
                     {
-                        debugger;
                         var cita = {};
-                        cita.fecha=$scope.dt;
-                        cita.hora = t.horaInicio;
-                        cita.doctor = 251;
-                        cita.paciente = null;
-                        cita.consultorio = 251;
-                        citasvc.saveRecord(cita);
+                        return svc.fetchRecord(1).then(function(response){
+                            
+                            cita.doctor = response.data;
+                            return consvc.fetchRecord(1).then(function(respons){
+                                cita.consultorio = respons.data;
+                                cita.fecha= $filter('date')($scope.dt, $scope.format);
+                                cita.hora = value.horaInicio;
+                                cita.paciente = null;
+                                citasvc.saveRecord(cita);
+                            });
+                        });
+                        
+                        
+                        
                     }
-                }
+            })
+//                var t;
+//                for (t in $scope.times)
+//                {
+//                    debugger;
+//                    if (t.selected)
+//                    {
+//                        debugger;
+//                        var cita = {};
+//                        cita.fecha=$scope.dt;
+//                        cita.hora = t.horaInicio;
+//                        cita.doctor = 251;
+//                        cita.paciente = null;
+//                        cita.consultorio = 251;
+//                        citasvc.saveRecord(cita);
+//                    }
+//                }
             };
 
             this.mostrarDoctores = function ()

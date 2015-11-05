@@ -35,8 +35,16 @@ public class DoctorEntity implements Serializable
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNac;
     
-    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.PERSIST)
     private List<CitaEntity> citas;
+
+    public List<CitaEntity> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(List<CitaEntity> citas) {
+        this.citas = citas;
+    }
         
     public Long getId() 
     {

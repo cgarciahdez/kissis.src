@@ -3,6 +3,7 @@ package co.edu.uniandes.kissis.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
@@ -38,7 +39,7 @@ public class PacienteEntity implements Serializable
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNac;
     
-    @OneToMany(mappedBy = "paciente")
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.PERSIST)
     private List<CitaEntity> citas; 
     
     public String getNombre() 
