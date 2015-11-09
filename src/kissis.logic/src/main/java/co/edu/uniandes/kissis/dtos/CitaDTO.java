@@ -9,25 +9,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement 
 public class CitaDTO {
     private Long id;
-    private Date hora;
-    private Date fecha;
+    private String hora;
+    private String fecha;
     private DoctorDTO doctor;
     private PacienteDTO paciente;
     private ConsultorioDTO consultorio;
 
-    public Date getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

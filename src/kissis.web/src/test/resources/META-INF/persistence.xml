@@ -3,6 +3,9 @@
   <persistence-unit name="kissisPU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>co.edu.uniandes.kissis.entities.ConsultorioEntity</class>
+    <class>co.edu.uniandes.kissis.entities.CitaEntity</class>
+    <class>co.edu.uniandes.kissis.entities.DoctorEntity</class>
+    <class>co.edu.uniandes.kissis.entities.PacienteEntity</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>NONE</shared-cache-mode>
     <properties>
