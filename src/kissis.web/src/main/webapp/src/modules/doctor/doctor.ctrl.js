@@ -51,23 +51,7 @@
                         
                         
                     }
-            })
-//                var t;
-//                for (t in $scope.times)
-//                {
-//                    debugger;
-//                    if (t.selected)
-//                    {
-//                        debugger;
-//                        var cita = {};
-//                        cita.fecha=$scope.dt;
-//                        cita.hora = t.horaInicio;
-//                        cita.doctor = 251;
-//                        cita.paciente = null;
-//                        cita.consultorio = 251;
-//                        citasvc.saveRecord(cita);
-//                    }
-//                }
+            });
             };
 
             this.mostrarDoctores = function ()
