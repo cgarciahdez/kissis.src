@@ -1,17 +1,30 @@
 <div id="admin-header">
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" style="height:50px">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#admin-navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand">Administrador</a>
+                <a class="navbar-brand" href="home.html"><img src="SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
             </div>
-
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Inicio</a></li>
+                    <li><a href="doctores.html">Doctores</a></li>
+                    <li><a href="serviciosPaciente.html">Servicios</a></li>
+                    <li><a href="contactenos.html">Contactenos</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><img src="imagenesPaginas/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Andres Murillo<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="perfilAdmin.html"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-remove"></span> Cerrar Sesion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>  
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="admin-navbar">
                 <button id="create-admin" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
@@ -19,11 +32,13 @@
                 <button id="save-admin" type="submit" form="admin-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode"><span class="glyphicon glyphicon-save"></span> Save</button>
                 <button id="cancel-admin" type="button" form="admin-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode" ng-click="form.$setPristine(); ctrl.fetchRecords();"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
             </div>
-        </div>
-    </nav>
-</div>
+            
+<div class="container" style="width:1018px">
+   
+  <div class="col-md-9" style="border-right: 1px solid #90DA11">   
+    
 <div ng-hide="ctrl.editMode">
-    <div class="col-sm-12">
+  
         <div ng-repeat="record in records">
             <div class="col-md-4 col-sm-6 col-lg-3 well">
                 <div class="col-md-12">
@@ -46,8 +61,9 @@
             </div>
         </div>
     </div>
-</div>
+
 <div ng-show="ctrl.editMode" class="well">
+    
     <form novalidate name="form" id="admin-form" role="form" ng-submit="form.$valid && ctrl.saveRecord()">
         <fieldset>
            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
@@ -101,4 +117,37 @@
             
         </fieldset>
     </form>
+    
 </div>
+      
+      </div>
+            
+  
+            <div id="sidebar">
+ <div class="col-md-3 sidebar"> 
+    <h4 style="text-align:right">Mi Menu</h4>
+    <table>
+        <tr>
+        <a href="perfilDoctor.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a href="editarInformacionDoctor.html"><input type="submit" value="Modificar Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a ng-click="ctrl.verHorarios()"><input type="submit" value="Seleccionar Horarios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Crear doctor" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+        <tr>
+        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Ver doctores" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+    </table>
+</div><!-- end sidebar -->
+</div>
+
+</div>
+    

@@ -10,6 +10,7 @@
                 return $http.get(context + "/" + id);
             };
             this.saveRecord = function (currentRecord) {
+                debugger;
                 if (currentRecord.id) {
                     return $http.put(context + "/" + currentRecord.id, currentRecord);
                 } else {

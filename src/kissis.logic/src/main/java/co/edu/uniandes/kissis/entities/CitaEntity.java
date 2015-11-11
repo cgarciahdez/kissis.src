@@ -1,6 +1,7 @@
 package co.edu.uniandes.kissis.entities;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -24,21 +25,25 @@ public class CitaEntity implements Serializable{
     @Id
     @GeneratedValue(generator = "Cita")
     private Long id;
-    @Temporal(TemporalType.TIME)
-    private Date hora;
+    private int hora;
+    
     @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private Calendar fecha;
     
     @ManyToOne
     private DoctorEntity doctor;
+    
+    @ManyToOne
     private PacienteEntity paciente;
+    
+    @ManyToOne
     private ConsultorioEntity consultorio;
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(Calendar fecha) {
         this.fecha = fecha;
     }
 
@@ -51,11 +56,11 @@ public class CitaEntity implements Serializable{
         this.id = id;
     }
 
-    public Date getHora() {
+    public int getHora() {
         return hora;
     }
 
-    public void setHora(Date horaInicio) {
+    public void setHora(int horaInicio) {
         this.hora = horaInicio;
     }
 

@@ -6,10 +6,10 @@
             $scope.records = [];
 
             //Variables para el controlador
-           
+            this.readOnly = false;
             this.editMode = false;
-            this.verPerfil = true;
-            this.verConsultorios = false;
+            this.verPerfil = false;
+            this.verConsultorios = true;
 
             var self = this;
             this.createRecord = function () {
@@ -19,11 +19,21 @@
                 $scope.currentRecord = {};
             };
 
-            this.editRecord = function (record) {
+             this.editRecord = function (record) {
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = true;
                     self.verPerfil = false;
+                    self.verConsultorios = false;
+                    return response;
+                });
+            };
+            
+            this.fetchRecord = function (record) {
+                return svc.fetchRecord(record.id).then(function (response) {
+                    $scope.currentRecord = response.data;
+                    self.editMode = false;
+                    self.verPerfil = true;
                     self.verConsultorios = false;
                     return response;
                 });
@@ -40,15 +50,7 @@
                 });
             };
 
-            this.fetchRecord = function (record) {
-                return svc.fetchRecord(record.id).then(function (response) {
-                    $scope.currentRecord = response.data;
-                    self.editMode = false;
-                    self.verPerfil = true;
-                    self.verConsultorios = false;
-                    return response;
-                });
-            };
+            
 
             this.saveRecord = function () {
                 return svc.saveRecord($scope.currentRecord).then(function () {
