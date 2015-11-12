@@ -44,6 +44,7 @@
             };
             
             this.verAgendarCita = function() {
+                debugger;
                 return citasvc.fetchCitasLibres().then(function (response) {
                     $scope.citas = response.data;
                     this.editarPerfilVar = false;

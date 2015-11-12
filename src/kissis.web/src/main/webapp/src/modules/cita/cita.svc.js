@@ -3,7 +3,9 @@
 
     mod.service('citaService', ['$http', 'citaContext', function ($http, context) {
             this.fetchRecords = function () {
-                return $http.get(context);
+                debugger;
+                var ret = $http.get(context);
+                return ret;
             };
             
             this.fetchCitasLibres = function (){
