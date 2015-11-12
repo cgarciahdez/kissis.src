@@ -28,7 +28,8 @@ public abstract class CitaConverter {
             CitaDTO dto = new CitaDTO();
             dto.setId(entity.getId());
             dto.setHora(entity.getHora()+ "");
-            dto.setFecha(entity.getFecha().toString());
+            SimpleDateFormat sf = new SimpleDateFormat("dd/mm/yyyy");
+            dto.setFecha(sf.format(entity.getFecha().getTime()));
             dto.setDoctor(DoctorConverter.refEntity2DTO(entity.getDoctor()));
             dto.setPaciente(PacienteConverter.refEntity2DTO(entity.getPaciente()));
             dto.setConsultorio(ConsultorioConverter.refEntity2DTO(entity.getConsultorio()));

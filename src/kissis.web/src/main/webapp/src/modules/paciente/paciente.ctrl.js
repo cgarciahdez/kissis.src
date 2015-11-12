@@ -1,9 +1,10 @@
 (function (ng) {
     var mod = ng.module('pacienteModule');
 
-    mod.controller('pacienteCtrl', ['$scope', 'pacienteService', 
-        function ($scope, svc) {
+    mod.controller('pacienteCtrl', ['$scope', 'pacienteService', 'citaService',
+        function ($scope, svc, citasvc) {
             $scope.currentRecord = {};
+            $scope.citas = [];
             $scope.records = [];
 
             //Variables para el controlador
@@ -11,21 +12,22 @@
             this.editarPerfilVar = false;
             this.verPerfilVar = true;
             this.verCitasVar = false;
-            this.agregarCitaVar = false;            
+            this.verAgendar = false;
             
             this.verPerfil = function () {
                 this.editarPerfilVar = false;
                 this.verPerfilVar = true;
                 this.verCitasVar = false;
-                this.agregarCitaVar = false;
+                this.verAgendar = false;
             };
 
             this.editarPerfil = function () {
                 return svc.fetchPaciente($scope.currentRecord).then(function (response) {
+                    debugger;
                     this.editarPerfilVar = true;
                     this.verPerfilVar = false;
                     this.verCitasVar = false;
-                    this.agregarCitaVar = false;
+                    this.verAgendar = false;
                     return response;
                 });
             };
@@ -36,9 +38,22 @@
                     this.editarPerfilVar = false;
                     this.verPerfilVar = false;
                     this.verCitasVar = true;
-                    this.agregarCitaVar = false;
+                    this.verAgendar = false;
                     return response;
                 });
+            };
+            
+            this.verAgendarCita = function() {
+                debugger;
+                return citasvc.fetchCitasLibres().then(function (response) {
+                    $scope.citas = response.data;
+                    this.editarPerfilVar = false;
+                    this.verPerfilVar = false;
+                    this.verCitasVar = false;
+                    this.verAgendar = true;
+                    return response;
+                });
+                
             };
             
             this.cargarPerfil = function () {
