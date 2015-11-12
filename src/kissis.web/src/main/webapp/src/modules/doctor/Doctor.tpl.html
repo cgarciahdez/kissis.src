@@ -25,6 +25,56 @@
         </div>
     </nav>
 </div>
+
+<div class="collapse navbar-collapse" id="doctor-navbar">
+    <button id="ver-citas" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-show="ctrl.verCitasVar"><span class="glyphicon glyphicon-plus"></span>Ver Citas</button>
+ 
+            </div>
+            
+
+
+<div ng-show="ctrl.verCitasVar">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    
+    <div class="col-md-9" style="border-right: 1px solid #90DA11">
+        <h2>Mis Citas</h2>
+        <p>Estas son todas las citas que tiene agendadas</p>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" ng-repeat="record in records">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse">Especialidad - {{record.id}}</a>
+                    </h4>
+                </div>
+                <div id="collapse" class="panel-collapse collapse container">
+                    <div class="col-md-9">
+                        <table style="width:100%">
+                            <tr>
+                                <td><strong>Fecha:</strong></td>
+                                <td>{{record.fecha}}</td>
+                                <td><strong>Hora:</strong></td>
+                                <td>{{record.hora}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Doctor:</strong></td>
+                                <td>Doctor que atiende</td>
+                                <td><strong>Consultorio:</strong></td>
+                                <td>Identificacion del consultorio</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-3">
+                        <button onclick="" style="margin:8px">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end content -->
+</div>
+
+
 <div ng-show="ctrl.seleccionarHorarios">
     <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
@@ -156,6 +206,9 @@
 
     </div>
 </div>
+
+
+
 <div ng-show="ctrl.editMode">
 
     <div class="clear"><br></div>
