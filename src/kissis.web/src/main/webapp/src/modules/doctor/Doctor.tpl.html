@@ -71,6 +71,12 @@
 
 
             </style>
+            <script>
+                
+                function alertar(){
+                    alert("Ha agregado sus horarios satisfactoriamente.")
+                }
+            </script>
             <div>
                 <div class="row">
                     <h1 style="color:#90DA11">Ingresar horarios de atenci�n</h1>
@@ -103,7 +109,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <input ng-click='ctrl.saveCitas()' type="submit" value="Enviar">
+                                <input ng-click='ctrl.saveCitas()' onclick="alertar()" type="submit" value="Enviar">
                             </form>
                         </div>
                     </div>

@@ -23,7 +23,6 @@
 
             this.editarPerfil = function () {
                 return svc.fetchPaciente($scope.currentRecord).then(function (response) {
-                    debugger;
                     this.editarPerfilVar = true;
                     this.verPerfilVar = false;
                     this.verCitasVar = false;
@@ -44,7 +43,6 @@
             };
             
             this.verAgendarCita = function() {
-                debugger;
                 return citasvc.fetchCitasLibres().then(function (response) {
                     $scope.citas = response.data;
                     this.editarPerfilVar = false;

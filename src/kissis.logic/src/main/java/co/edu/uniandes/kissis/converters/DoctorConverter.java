@@ -12,6 +12,7 @@ import java.util.List;
  */
 public abstract class DoctorConverter 
 {
+    private DoctorConverter(){};
     public static DoctorDTO refEntity2DTO(DoctorEntity entity) {
         if (entity != null) {
             DoctorDTO dto = new DoctorDTO();

@@ -7,6 +7,8 @@ import java.util.List;
 
 public abstract class ConsultorioConverter {
     
+    private ConsultorioConverter(){};
+    
     public static ConsultorioDTO refEntity2DTO(ConsultorioEntity entity) {
         if (entity != null) {
             ConsultorioDTO dto = new ConsultorioDTO();

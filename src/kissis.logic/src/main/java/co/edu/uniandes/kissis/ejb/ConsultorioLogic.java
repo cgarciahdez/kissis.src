@@ -18,25 +18,32 @@ public class ConsultorioLogic implements IConsultorioLogic {
     
     @Inject private ConsultorioPersistence persistence;
 
+    @Override
     public List<ConsultorioDTO> getConsultorios() {
         return ConsultorioConverter.listEntity2DTO(persistence.findAll());
     }
 
+    @Override
     public ConsultorioDTO getConsultorio(Long id) {
         return ConsultorioConverter.basicEntity2DTO(persistence.find(id));
     }
 
+    @Override
     public ConsultorioDTO createConsultorio(ConsultorioDTO dto) {
         ConsultorioEntity entity = ConsultorioConverter.basicDTO2Entity(dto);
         persistence.create(entity);
         return ConsultorioConverter.basicEntity2DTO(entity);
     }
 
+
+    @Override
     public ConsultorioDTO updateConsultorio(ConsultorioDTO dto) {
         ConsultorioEntity entity = persistence.update(ConsultorioConverter.basicDTO2Entity(dto));
         return ConsultorioConverter.basicEntity2DTO(entity);
     }
 
+    
+    @Override
     public void deleteConsultorio(Long id) {
         persistence.delete(id);
     }

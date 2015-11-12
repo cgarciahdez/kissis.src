@@ -9,7 +9,6 @@ import co.edu.uniandes.kissis.converters.EspecialidadConverter;
 import co.edu.uniandes.kissis.dtos.EspecialidadDTO;
 import co.edu.uniandes.kissis.entities.EspecialidadEntity;
 import co.edu.uniandes.kissis.persistence.EspecialidadPersistence;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -26,6 +25,7 @@ public class EspecialidadLogic implements IEspecialidadLogic {
         return EspecialidadConverter.listEntity2DTO(persistence.findAll());
     }
 
+ @Override
     public EspecialidadDTO getEspecialidad(Long id) {
         return EspecialidadConverter.basicEntity2DTO(persistence.find(id));
     }

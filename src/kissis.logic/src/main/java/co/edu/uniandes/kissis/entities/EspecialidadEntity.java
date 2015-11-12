@@ -9,7 +9,6 @@ package co.edu.uniandes.kissis.entities;
  *
  * @author df.cubillos10
  */
-import java.io.Serializable;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;

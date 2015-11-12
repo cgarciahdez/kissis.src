@@ -5,10 +5,8 @@
  */
 package co.edu.uniandes.kissis.tests;
 
-import co.edu.uniandes.kissis.api.IDoctorLogic;
 import co.edu.uniandes.kissis.converters.DoctorConverter;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
-import co.edu.uniandes.kissis.ejb.DoctorLogic;
 import co.edu.uniandes.kissis.entities.DoctorEntity;
 import co.edu.uniandes.kissis.persistence.DoctorPersistence;
 import java.util.ArrayList;
