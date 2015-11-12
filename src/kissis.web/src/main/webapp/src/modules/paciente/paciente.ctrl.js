@@ -33,11 +33,10 @@
 
             this.verCitas = function () {
                 return svc.fetchCitas($scope.currentRecord).then(function (response) {
-                    $scope.records = response.data;
-                    this.editarPerfilVar = false;
-                    this.verPerfilVar = false;
-                    this.verCitasVar = true;
-                    this.verAgendar = false;
+                    self.editarPerfilVar = false;
+                    self.verPerfilVar = false;
+                    self.verCitasVar = true;
+                    self.verAgendar = false;
                     return response;
                 });
             };
@@ -60,9 +59,9 @@
                 });
             };
 
-            this.guardarPerfil = function () {
-                return svc.savePaciente($scope.currentRecord).then(function () {
-                    this.cargarPerfil();
+            this.guardarPerfil = function (record) {
+                return svc.savePaciente(record).then(function () {
+                   self.verPerfil();
                 });
             };
             
