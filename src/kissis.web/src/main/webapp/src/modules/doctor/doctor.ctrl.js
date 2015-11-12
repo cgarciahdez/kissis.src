@@ -45,6 +45,8 @@
                                 cita.hora = value.horaInicio;
                                 cita.paciente = null;
                                 citasvc.saveRecord(cita);
+                                
+                                
                             });
                         });
                         

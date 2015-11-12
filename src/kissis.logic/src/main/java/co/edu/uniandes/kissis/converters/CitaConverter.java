@@ -29,9 +29,9 @@ public abstract class CitaConverter {
             dto.setId(entity.getId());
             dto.setHora(entity.getHora()+ "");
             dto.setFecha(entity.getFecha().toString());
-            dto.setDoctor(DoctorConverter.refEntity2DTO(entity.getDoctor()));
-            dto.setPaciente(PacienteConverter.refEntity2DTO(entity.getPaciente()));
-            dto.setConsultorio(ConsultorioConverter.refEntity2DTO(entity.getConsultorio()));
+            dto.setDoctor(DoctorConverter.basicEntity2DTO(entity.getDoctor()));
+            dto.setPaciente(PacienteConverter.basicEntity2DTO(entity.getPaciente()));
+            dto.setConsultorio(ConsultorioConverter.basicEntity2DTO(entity.getConsultorio()));
             
             return dto;
         }
@@ -59,9 +59,9 @@ public abstract class CitaConverter {
                 Logger.getLogger(CitaConverter.class.getName()).log(Level.SEVERE, null, ex);
             }
             entity.setFecha(cal);
-            entity.setDoctor(DoctorConverter.refDTO2Entity(dto.getDoctor()));
-            entity.setPaciente(PacienteConverter.refDTO2Entity(dto.getPaciente()));
-            entity.setConsultorio(ConsultorioConverter.refDTO2Entity(dto.getConsultorio()));
+            entity.setDoctor(DoctorConverter.basicDTO2Entity(dto.getDoctor()));
+            entity.setPaciente(PacienteConverter.basicDTO2Entity(dto.getPaciente()));
+            entity.setConsultorio(ConsultorioConverter.basicDTO2Entity(dto.getConsultorio()));
 
             return entity;
         }

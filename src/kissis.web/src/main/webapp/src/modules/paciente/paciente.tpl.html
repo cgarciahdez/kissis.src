@@ -1,22 +1,23 @@
-<div id="header">
+<div id="book-header">
     <nav class="navbar navbar-default navbar-fixed-top" style="height:50px">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="home.html"><img src="SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
+                <a class="navbar-brand" href="home.html"><img src="img/SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.html">Inicio</a></li>
-                    <li><a href="doctores.html">Doctores</a></li>
-                    <li><a href="serviciosPaciente.html">Servicios</a></li>
-                    <li><a href="contactenos.html">Contáctanos</a></li>
+                    <li><a href="#/doctores">Doctores</a></li>
+                    <li><a href="#/pacientes">Pacientes</a><li>
+                    <li><a href="#/admins">Administradores</a></li>
+                    <li><a href="#/especialidades">Especialidades</a></li>
+                    <li><a href="#/consultorios">Consultorios</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><img src="imagenesPaginas/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
+                    <li><img src="img/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Andres Murillo <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Andres Murillo<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="perfilDoctor.html"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
                             <li><a href="index.html"><span class="glyphicon glyphicon-remove"></span> Cerrar Sesion</a></li>
                         </ul>
                     </li>
@@ -24,7 +25,7 @@
             </div>
         </div>
     </nav>
-</div>
+</div>  
 
 <div class="container" style="width:1018px">
 
@@ -63,7 +64,7 @@
         <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div><div class="col-md-5"></div>
         <br>
 
-        <button ng-click="ctrl.editarPerfil" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
+        <button ng-click="ctrl.editarPerfil()" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
 
     </div>
 </div>
@@ -159,6 +160,47 @@
         </div>
     </div><!-- end content -->
 </div>
+    
+<div ng-show="ctrl.verAgendar">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    
+    <div class="col-md-9" style="border-right: 1px solid #90DA11">
+        <h2>Agendar una cita</h2>
+        <p>Posibles citas:</p>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" ng-repeat="cita in citas">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse">ID - {{cita.id}}</a>
+                    </h4>
+                </div>
+                <div id="collapse" class="panel-collapse collapse container">
+                    <div class="col-md-9">
+                        <table style="width:100%">
+                            <tr>
+                                <td><strong>Fecha:</strong></td>
+                                <td>{{cita.fecha}}</td>
+                                <td><strong>Hora:</strong></td>
+                                <td>{{cita.hora}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Doctor:</strong></td>
+                                <td>{{cita.doctor.nombre}} {{cita.doctor.apellido}}</td>
+                                <td><strong>Consultorio:</strong></td>
+                                <td>{{cita.consultorio.id}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-3">
+                        <button onclick="ctrl.agendarCita(cita)" style="margin:8px">Agendar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end content -->
+</div>
 
 <div id="sidebar">
     <div class="col-md-3 sidebar">
@@ -169,7 +211,7 @@
             </tr>
 
             <tr>
-            <a href="agendarCita1.html"><input type="submit" value="Agendar Cita" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+            <a href=""><input ng-click="ctrl.verAgendarCita()" type="submit" value="Agendar Cita" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
             </tr>
 
             <tr>

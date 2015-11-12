@@ -5,6 +5,10 @@
             this.fetchRecords = function () {
                 return $http.get(context);
             };
+            
+            this.fetchCitasLibres = function (){
+                return $http.get(context + "/libres" );
+            };
 
             this.fetchRecord = function (id) {
                 return $http.get(context + "/" + id);
