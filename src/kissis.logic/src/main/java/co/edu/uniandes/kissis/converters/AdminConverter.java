@@ -9,6 +9,8 @@ import java.util.List;
  * @generated
  */
 public abstract class AdminConverter {
+    
+    private AdminConverter(){};
 
     public static AdminDTO basicEntity2DTO(AdminEntity entity) {
         if (entity != null) {

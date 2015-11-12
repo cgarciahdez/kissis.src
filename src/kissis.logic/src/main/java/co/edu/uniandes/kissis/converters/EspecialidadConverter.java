@@ -13,6 +13,7 @@ import java.util.List;
  * @author df.cubillos10
  */
 public abstract class EspecialidadConverter {
+    private EspecialidadConverter(){};
     public static EspecialidadDTO basicEntity2DTO(EspecialidadEntity entity) {
         if (entity != null) {
             EspecialidadDTO dto = new EspecialidadDTO();

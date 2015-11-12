@@ -3,7 +3,6 @@ package co.edu.uniandes.kissis.dtos;
 import co.edu.uniandes.kissis.dtos.ConsultorioDTO;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
 import co.edu.uniandes.kissis.dtos.PacienteDTO;
-import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement 

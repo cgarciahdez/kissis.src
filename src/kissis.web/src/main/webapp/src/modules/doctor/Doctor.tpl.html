@@ -2,21 +2,22 @@
     <nav class="navbar navbar-default navbar-fixed-top" style="height:50px">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="home.html"><img src="SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
+                <a class="navbar-brand" href="home.html"><img src="img/SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.html">Inicio</a></li>
-                    <li><a href="doctores.html">Doctores</a></li>
-                    <li><a href="serviciosPaciente.html">Servicios</a></li>
-                    <li><a href="contactenos.html">Contactenos</a></li>
+                    <li><a href="#/doctores">Doctores</a></li>
+                    <li><a href="#/pacientes">Pacientes</a><li>
+                    <li><a href="#/admins">Administradores</a></li>
+                    <li><a href="#/especialidades">Especialidades</a></li>
+                    <li><a href="#/consultorios">Consultorios</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><img src="imagenesPaginas/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
+                    <li><img src="img/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Alberto Consuegra<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Andres Murillo<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="perfilDoctor.html"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
                             <li><a href="index.html"><span class="glyphicon glyphicon-remove"></span> Cerrar Sesion</a></li>
                         </ul>
                     </li>
@@ -24,7 +25,7 @@
             </div>
         </div>
     </nav>
-</div>
+</div>  
 <div ng-show="ctrl.seleccionarHorarios">
     <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
@@ -70,6 +71,12 @@
 
 
             </style>
+            <script>
+                
+                function alertar(){
+                    alert("Ha agregado sus horarios satisfactoriamente.")
+                }
+            </script>
             <div>
                 <div class="row">
                     <h1 style="color:#90DA11">Ingresar horarios de atenci�n</h1>
@@ -102,7 +109,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <input ng-click='ctrl.saveCitas()' type="submit" value="Enviar">
+                                <input ng-click='ctrl.saveCitas()' onclick="alertar()" type="submit" value="Enviar">
                             </form>
                         </div>
                     </div>
@@ -124,7 +131,7 @@
     <div class="container" style="width:1018px">
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
             <h2>Mi Perfil</h2>
-            <img src ="imagenesPaginas/fotoDePerfil.jpg" alt="Foto de perfil"  style="width:168px;height:105px;">
+            <img src ="img/fotoDePerfil.jpg" alt="Foto de perfil"  style="width:168px;height:105px;">
             <br>
             <br>
             <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div><div class="col-md-5">Alberto</div>

@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class PacienteConverter
 {
-    
+    private PacienteConverter(){};
     public static PacienteDTO refEntity2DTO(PacienteEntity entity) {
         if (entity != null) {
             PacienteDTO dto = new PacienteDTO();

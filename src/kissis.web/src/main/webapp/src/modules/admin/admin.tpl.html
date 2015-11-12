@@ -2,21 +2,22 @@
     <nav class="navbar navbar-default navbar-fixed-top" style="height:50px">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="home.html"><img src="SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
+                <a class="navbar-brand" href="home.html"><img src="img/SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.html">Inicio</a></li>
-                    <li><a href="doctores.html">Doctores</a></li>
-                    <li><a href="serviciosPaciente.html">Servicios</a></li>
-                    <li><a href="contactenos.html">Contactenos</a></li>
+                    <li><a href="#/doctores">Doctores</a></li>
+                    <li><a href="#/pacientes">Pacientes</a><li>
+                    <li><a href="#/admins">Administradores</a></li>
+                    <li><a href="#/especialidades">Especialidades</a></li>
+                    <li><a href="#/consultorios">Consultorios</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><img src="imagenesPaginas/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
+                    <li><img src="img/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Andres Murillo<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="perfilAdmin.html"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
                             <li><a href="index.html"><span class="glyphicon glyphicon-remove"></span> Cerrar Sesion</a></li>
                         </ul>
                     </li>
@@ -49,8 +50,8 @@
                 <div class="caption" >
                     <p><strong>Nombre:</strong> {{record.nombre}}</p>
                     <p><strong>Apellido:</strong> {{record.apellido}}</p>
-                    <p><strong>Tipo de identificación:</strong> {{record.tipoc}}</p>
-                    <p><strong>Numero de Identificación:</strong> {{record.ncedula}}</p>
+                    <p><strong>Tipo de identificaciï¿½n:</strong> {{record.tipoc}}</p>
+                    <p><strong>Numero de Identificaciï¿½n:</strong> {{record.ncedula}}</p>
                     <p><strong>Genero:</strong> {{record.genero}}</p>
                     <p><strong>Fecha de nacimiento:</strong> {{record.fechan}}</p>
                 </div>

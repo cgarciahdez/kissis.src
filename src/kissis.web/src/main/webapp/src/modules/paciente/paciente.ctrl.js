@@ -1,9 +1,10 @@
 (function (ng) {
     var mod = ng.module('pacienteModule');
 
-    mod.controller('pacienteCtrl', ['$scope', 'pacienteService', 
-        function ($scope, svc) {
+    mod.controller('pacienteCtrl', ['$scope', 'pacienteService', 'citaService',
+        function ($scope, svc, citasvc) {
             $scope.currentRecord = {};
+            $scope.citas = [];
             $scope.records = [];
 
             //Variables para el controlador
@@ -11,37 +12,45 @@
             this.editarPerfilVar = false;
             this.verPerfilVar = true;
             this.verCitasVar = false;
-            this.agregarCitaVar = false;
-            
-            var self = this;
+            this.verAgendar = false;
             
             this.verPerfil = function () {
-                self.cargarPerfil();
-                self.editarPerfilVar = false;
-                self.verPerfilVar = true;
-                self.verCitasVar = false;
-                self.agregarCitaVar = false;
+                this.editarPerfilVar = false;
+                this.verPerfilVar = true;
+                this.verCitasVar = false;
+                this.verAgendar = false;
             };
 
-            this.editarPerfil = function (record) {
-                return svc.fetchPaciente(record.id).then(function (response) {
-                    self.editarPerfilVar = true;
-                    self.verPerfilVar = false;
-                    self.verCitasVar = false;
-                    self.agregarCitaVar = false;
+            this.editarPerfil = function () {
+                return svc.fetchPaciente($scope.currentRecord).then(function (response) {
+                    this.editarPerfilVar = true;
+                    this.verPerfilVar = false;
+                    this.verCitasVar = false;
+                    this.verAgendar = false;
                     return response;
                 });
             };
 
             this.verCitas = function () {
                 return svc.fetchCitas($scope.currentRecord).then(function (response) {
-                    $scope.records = response.data;
                     self.editarPerfilVar = false;
                     self.verPerfilVar = false;
                     self.verCitasVar = true;
-                    self.agregarCitaVar = false;
+                    self.verAgendar = false;
                     return response;
                 });
+            };
+            
+            this.verAgendarCita = function() {
+                return citasvc.fetchCitasLibres().then(function (response) {
+                    $scope.citas = response.data;
+                    this.editarPerfilVar = false;
+                    this.verPerfilVar = false;
+                    this.verCitasVar = false;
+                    this.verAgendar = true;
+                    return response;
+                });
+                
             };
             
             this.cargarPerfil = function () {

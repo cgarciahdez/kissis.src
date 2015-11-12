@@ -8,11 +8,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public abstract class CitaConverter {
+    
+    private CitaConverter(){};
  
     
     /**
@@ -27,8 +28,9 @@ public abstract class CitaConverter {
 
             CitaDTO dto = new CitaDTO();
             dto.setId(entity.getId());
-            dto.setHora(entity.getHora()+ "");
-            dto.setFecha(entity.getFecha().toString());
+            dto.setHora(Integer.toString(entity.getHora()));
+            SimpleDateFormat sf = new SimpleDateFormat("dd/mm/yyyy");
+            dto.setFecha(sf.format(entity.getFecha().getTime()));
             dto.setDoctor(DoctorConverter.refEntity2DTO(entity.getDoctor()));
             dto.setPaciente(PacienteConverter.refEntity2DTO(entity.getPaciente()));
             dto.setConsultorio(ConsultorioConverter.refEntity2DTO(entity.getConsultorio()));
