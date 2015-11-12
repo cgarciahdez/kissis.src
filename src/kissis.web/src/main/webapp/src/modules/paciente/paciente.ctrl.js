@@ -11,21 +11,24 @@
             this.editarPerfilVar = false;
             this.verPerfilVar = true;
             this.verCitasVar = false;
-            this.agregarCitaVar = false;            
+            this.agregarCitaVar = false;
+            
+            var self = this;
             
             this.verPerfil = function () {
-                this.editarPerfilVar = false;
-                this.verPerfilVar = true;
-                this.verCitasVar = false;
-                this.agregarCitaVar = false;
+                self.cargarPerfil();
+                self.editarPerfilVar = false;
+                self.verPerfilVar = true;
+                self.verCitasVar = false;
+                self.agregarCitaVar = false;
             };
 
-            this.editarPerfil = function () {
-                return svc.fetchPaciente($scope.currentRecord).then(function (response) {
-                    this.editarPerfilVar = true;
-                    this.verPerfilVar = false;
-                    this.verCitasVar = false;
-                    this.agregarCitaVar = false;
+            this.editarPerfil = function (record) {
+                return svc.fetchPaciente(record.id).then(function (response) {
+                    self.editarPerfilVar = true;
+                    self.verPerfilVar = false;
+                    self.verCitasVar = false;
+                    self.agregarCitaVar = false;
                     return response;
                 });
             };
@@ -33,10 +36,10 @@
             this.verCitas = function () {
                 return svc.fetchCitas($scope.currentRecord).then(function (response) {
                     $scope.records = response.data;
-                    this.editarPerfilVar = false;
-                    this.verPerfilVar = false;
-                    this.verCitasVar = true;
-                    this.agregarCitaVar = false;
+                    self.editarPerfilVar = false;
+                    self.verPerfilVar = false;
+                    self.verCitasVar = true;
+                    self.agregarCitaVar = false;
                     return response;
                 });
             };
@@ -47,9 +50,9 @@
                 });
             };
 
-            this.guardarPerfil = function () {
-                return svc.savePaciente($scope.currentRecord).then(function () {
-                    this.cargarPerfil();
+            this.guardarPerfil = function (record) {
+                return svc.savePaciente(record).then(function () {
+                   self.verPerfil();
                 });
             };
             

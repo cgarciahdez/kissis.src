@@ -63,7 +63,7 @@
         <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div><div class="col-md-5"></div>
         <br>
 
-        <button ng-click="ctrl.editarPerfil" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
+        <button ng-click="ctrl.editarPerfil(currentRecord)" class="btn btn-default" style="float:right;font-family: Tahoma,Geneva,sans-serif">Editar Mi Perfil</button>
 
     </div>
 </div>
@@ -113,9 +113,8 @@
         <br>
         <br>
 
-        <button ng-click="ctrl.guardarPerfil; ctrl.verPerfil;" id="save-paciente" type="submit" form="paciente-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
-        <button ng-click="form.$setPristine();
-            ctrl.verPerfil;" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">Cancelar</button>
+        <button ng-click="ctrl.guardarPerfil(currentRecord)" id="save-paciente" type="submit" form="paciente-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+        <button ng-click="ctrl.verPerfil());" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">Cancelar</button>
     </div><!-- end content -->
 </div>
     
@@ -165,7 +164,7 @@
         <h4 style="text-align:right">Mi Menu</h4>
         <table>
             <tr>
-            <a href="perfilPaciente.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+            <a ng-click="ctrl.verPerfil()"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
             </tr>
 
             <tr>
@@ -173,7 +172,7 @@
             </tr>
 
             <tr>
-            <a href="misCitas.html"><input type="submit" value="Mis Citas" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+            <a ng-click="ctrl.verCitas(currentRecord)"><input type="submit" value="Mis Citas" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
             </tr>
 
             <tr>
