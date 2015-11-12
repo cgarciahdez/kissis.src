@@ -19,5 +19,15 @@
             this.deleteRecord = function (id) {
                 return $http.delete(context + "/" + id);
             };
+            
+             this.fetchCitas = function (currentRecord) {
+                return $http.get(context + "/" + currentRecord.id + "/citas/");
+            };
+            
+            this.deleteCita = function (currentRecord, id) {
+                return $http.delete(context + "/" + currentRecord.id + "/citas/" + id);
+            };
+
+            
         }]);
 })(window.angular);

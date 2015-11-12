@@ -41,7 +41,7 @@ public class DoctorEntity implements Serializable
     public List<CitaEntity> getCitas() {
         return citas;
     }
-
+    
     public void setCitas(List<CitaEntity> citas) {
         this.citas = citas;
     }

@@ -17,6 +17,7 @@
             this.editMode = false;
             this.verPerfil = false;
             this.createMode = true;
+            this.verCitasVar = false;
             this.seleccionarHorarios = false;
             var self = this;
 
@@ -26,7 +27,29 @@
                 self.readOnly = false;
                 self.editMode = false;
                 self.verPerfil = false;
+                self.verCitasVar = false;
                 self.seleccionarHorarios = true;
+            };
+            
+            this.verCitas = function () {
+                return svc.fetchCitas($scope.currentRecord).then(function (response) {
+                    $scope.records = response.data;
+                    
+                self.createMode = false;
+                self.readOnly = false;
+                self.editMode = false;
+                self.verPerfil = false;
+                self.seleccionarHorarios = false;
+                this.verCitasVar = true;
+                    
+                    return response;
+                });
+            };
+            
+            this.cargarCitas = function () {
+                return svc.fetchCitas($scope.currentRecord).then(function (response) {
+                    $scope.records = response.data;
+                });
             };
 
             this.saveCitas = function ()
@@ -69,7 +92,7 @@
 //                    }
 //                }
             };
-
+           
             this.mostrarDoctores = function ()
             {
                 self.createMode = false;

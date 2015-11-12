@@ -19,5 +19,6 @@
             this.deleteRecord = function (id) {
                 return $http.delete(context + "/" + id);
             };
+            
         }]);
 })(window.angular);

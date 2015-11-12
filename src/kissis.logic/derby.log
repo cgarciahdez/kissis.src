@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Tue Nov 03 11:02:55 COT 2015:
- Arrancando Derby versión The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instancia a816c00e-0150-ce16-3d99-0000128f7ea0 
-en el directorio de base de datos C:\Users\template\AppData\Local\Temp\gfembed8649687465955007432tmp\lib\databases\embedded_default  con el cargador de clases sun.misc.Launcher$AppClassLoader@55172fb9
+Wed Nov 11 23:20:46 COT 2015:
+ Arrancando Derby versión The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instancia a816c00e-0150-f9ec-a0db-00000cc36e88 
+en el directorio de base de datos C:\Users\template\AppData\Local\Temp\gfembed5217032928370121447tmp\lib\databases\embedded_default  con el cargador de clases sun.misc.Launcher$AppClassLoader@14dad5dc
 
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_71-b14
-user.dir=C:\Users\template\Desktop\Proyecto Netbeans\kissis.src\src\kissis.logic
+java.runtime.version=1.8.0_51-b16
+user.dir=C:\Users\template\Documents\KissisFinal\kissis.src\src\kissis.logic
 derby.system.home=null
 Cargador de clases de base de datos iniciado - derby.database.classpath=''

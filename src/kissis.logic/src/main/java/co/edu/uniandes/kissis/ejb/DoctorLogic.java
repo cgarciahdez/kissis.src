@@ -2,11 +2,17 @@ package co.edu.uniandes.kissis.ejb;
 
 import co.edu.uniandes.kissis.api.ICitaLogic;
 import co.edu.uniandes.kissis.api.IDoctorLogic;
+import co.edu.uniandes.kissis.converters.CitaConverter;
 import co.edu.uniandes.kissis.converters.DoctorConverter;
 import co.edu.uniandes.kissis.dtos.CitaDTO;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
+import co.edu.uniandes.kissis.entities.CitaEntity;
 import co.edu.uniandes.kissis.entities.DoctorEntity;
+import co.edu.uniandes.kissis.entities.PacienteEntity;
+import co.edu.uniandes.kissis.persistence.CitaPersistence;
 import co.edu.uniandes.kissis.persistence.DoctorPersistence;
+import co.edu.uniandes.kissis.persistence.PacientePersistence;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -14,8 +20,11 @@ import javax.inject.Inject;
 @Stateless
 public class DoctorLogic implements IDoctorLogic 
 {
+     
     @Inject private DoctorPersistence persistence;
     
+    @Inject private CitaPersistence citaPersistence;
+     
     @Inject 
     ICitaLogic citaLogic;
     
@@ -52,13 +61,36 @@ public class DoctorLogic implements IDoctorLogic
         persistence.delete(id);
     }
     
-    public void crearCitas (List<CitaDTO> citas)
+    
+    @Override
+    public void removeCita(Long citaId, Long doctorId)
     {
-        for (CitaDTO c: citas)
-        {
-            citaLogic.createCita(c);           
-        }
+        DoctorEntity doctorEntity = persistence.find(doctorId);
+        CitaEntity cita = citaPersistence.find(citaId);
+        cita.setPaciente(null);
+        doctorEntity.getCitas().remove(cita);
+    }
+     
+    @Override
+    public List<CitaDTO> getCitas(Long doctorId)
+    {
+        return CitaConverter.listEntity2DTO(persistence.find(doctorId).getCitas());
     }
     
+    @Override
+    public CitaDTO getCita(Long doctorId, Long citaId)
+    {
+        List<CitaEntity> citas = persistence.find(doctorId).getCitas();
+        CitaEntity cita = new CitaEntity();
+        cita.setId(citaId);
+        int index = citas.indexOf(cita);
+        
+        if (index >= 0)
+        {
+            return CitaConverter.basicEntity2DTO(citas.get(index));
+        }
+        return null;
+    }
+      
     
 }

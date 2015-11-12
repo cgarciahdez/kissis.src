@@ -1,0 +1,427 @@
+<div id="book-header">
+    <nav class="navbar navbar-default navbar-fixed-top" style="height:50px">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="home.html"><img src="SWCIsantander.png" alt="citas santander" style="width:150px;margin-top:-10px"></a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Inicio</a></li>
+                    <li><a href="doctores.html">Doctores</a></li>
+                    <li><a href="serviciosPaciente.html">Servicios</a></li>
+                    <li><a href="contactenos.html">Contactenos</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><img src="imagenesPaginas/fotoDePerfil.jpg" alt="some_text" style="width:50px;height:40px;margin:4px"></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Alberto Consuegra<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="perfilDoctor.html"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-remove"></span> Cerrar Sesion</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="collapse navbar-collapse" id="doctor-navbar">
+    <button id="ver-citas" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-show="ctrl.verCitasVar"><span class="glyphicon glyphicon-plus"></span>Ver Citas</button>
+ 
+            </div>
+            
+
+
+<div ng-show="ctrl.verCitasVar">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    
+    <div class="col-md-9" style="border-right: 1px solid #90DA11">
+        <h2>Mis Citas</h2>
+        <p>Estas son todas las citas que tiene agendadas</p>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" ng-repeat="record in records">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse">Especialidad - {{record.id}}</a>
+                    </h4>
+                </div>
+                <div id="collapse" class="panel-collapse collapse container">
+                    <div class="col-md-9">
+                        <table style="width:100%">
+                            <tr>
+                                <td><strong>Fecha:</strong></td>
+                                <td>{{record.fecha}}</td>
+                                <td><strong>Hora:</strong></td>
+                                <td>{{record.hora}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Doctor:</strong></td>
+                                <td>Doctor que atiende</td>
+                                <td><strong>Consultorio:</strong></td>
+                                <td>Identificacion del consultorio</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-3">
+                        <button onclick="" style="margin:8px">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end content -->
+</div>
+
+
+<div ng-show="ctrl.seleccionarHorarios">
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <style>
+                .full button span {
+                    background-color: limegreen;
+                    border-radius: 32px;
+                    color: black;
+                }
+
+                .partially button span {
+                    background-color: orange;
+                    border-radius: 32px;
+                    color: black;
+                }
+
+                .btn ,.btn-default{
+                    color: #90DA11;
+                    background-color: white;
+                    border-color: #e3e3e3;
+                }
+                span{
+                    color:#90DA11;   
+                }
+
+                i, strong{
+                    color:black;
+                }
+
+                .btn-default[disabled]{
+                    background-color: #d1d4ca;
+                    border-color: #e3e3e3;
+                    color:black;
+                }
+                .btn-default[disabled]>span{
+                    color:#a0b57b;   
+                }
+
+                th.text-center, div.well th{
+                    background-color: #f2f2f2;
+                    color:black;
+                }
+
+
+            </style>
+            <div>
+                <div class="row">
+                    <h1 style="color:#90DA11">Ingresar horarios de atenci�n</h1>
+                </div>
+                <div class="row" style="text-align:justify;padding:20px">
+                    <p>Porfavor ingrese sus horarios haciendo click en el d�a correspondiente, seleccionando las horas que tendr� disponibles
+                        ese d�a, y haciendo click en el bot�n enviar. Si el horario es el mismo para todas las semanas del mes 
+                        y no desea hacer este proceso d�a por d�a, puede hacer click en el siguiente bot�n e ingresar su horario semanal:</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="display:inline-block; min-height:290px;">
+                            <datepicker datepicker-mode="year" ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container" id="dia" ng-show="variable">
+                            <form>
+                                <table class="table table-bordered" style="width:20%">
+                                    <thead>
+                                        <tr>
+                                            <th>{{nomDia}}</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="time in times">
+                                            <td id="{{$index}}-selected"><input value ="time.horaInicio" type="checkbox" ng-model="time.selected"/></td>
+                                            <td>{{time.horaInicio}}:00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <input ng-click='ctrl.saveCitas()' type="submit" value="Enviar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end content -->
+
+
+
+    </div>
+</div>
+<div ng-show="ctrl.verPerfil">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <h2>Mi Perfil</h2>
+            <img src ="imagenesPaginas/fotoDePerfil.jpg" alt="Foto de perfil"  style="width:168px;height:105px;">
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div><div class="col-md-5">Alberto</div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div><div class="col-md-5">Consuegra</div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Tipo de Identificación:</strong></div><div class="col-md-5">CC</div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>No. de Identificació</strong></div><div class="col-md-5">1143253651</div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Especialidad</strong></div><div class="col-md-5">Optometría</div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Género:</strong></div><div class="col-md-5">Masculino</div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div><div class="col-md-5">16/02/1995</div>
+            <br>
+            <a href="editarInformacionDoctor.html"><input type="submit" value="Editar Mi Perfil" style="float:right;font-family: Tahoma,Geneva,sans-serif"/></a>
+
+            <button ng-click="ctrl.editRecord(currentRecord)" class="btn btn-default">Editar</button>
+            <button ng-click="ctr.deleteRecord(currentRecord)" class="btn btn-default">Eliminar</button>
+
+        </div><!-- end content -->
+
+    </div>
+</div>
+
+
+
+<div ng-show="ctrl.editMode">
+
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <h2>Editar Mi Perfil</h2>
+
+            <img src ="imagenesPaginas/fotoDePerfil.jpg" alt="Foto de perfil" style="width:168px;height:105px;">
+            <a style="color:blue" title="Editar foto de perfil" href ="editarInformacionPaciente.html">Editar foto de perfil</a>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div>
+            <div class="col-md-5"><input type="text" name="nombre" value="Alberto" style="height:25px"></div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div>
+            <div class="col-md-5"><input type="text" name="apellido" value="Consuegra" style="height:25px"></div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Tipo de Identificación:</strong></div>
+            <div class="col-md-5"> <select name="TipoID" id="TipoID" style="height:25px">
+                    <option>Cedula</option>
+                    <option>Cedula de extrangeria</option>
+                    <option>Pasaporte</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>No. de Identificación:</strong></div>
+            <div class="col-md-5"><input type="text" name="noIdentificacion" value="1143253651" style="height:25px"></div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Especialidad:</strong></div>
+            <div class="col-md-5"> <select name="Especialidad" id="Especialidad" style="height:25px">
+                    <option>Medicina General</option>
+                    <option>Audiología</option>
+                    <option>Dermatología</option>
+                    <option>Ginecología</option>
+                    <option>Oftamología</option>
+                    <option>Reumatología</option>
+                    <option>Urología</option>
+                    <option>Pediatría</option>
+                    <option>Ecografía</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Género (F/M):</strong></div>
+            <div class="col-md-5"> <select name="Genero" id="Genero" style="height:25px">
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+
+
+                </select>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-4" style="padding:0px"><strong>Fecha de Nacimiento:</strong></div>
+            <div class="col-md-5"><input type="date" name="dia" readonly value="1995-02-16"></div>
+            <br>
+            <br>
+            <a href="perfilDoctor.html"><input type="submit" value="Guardar" onclick="alert('Información actualizada')" style="float:right;font-family:Tahoma,Geneva,sans-serif"/></a>
+            <a href="perfilDoctor.html"><input type="submit" value="Volver" style="float:left;font-family:Tahoma,Geneva,sans-serif"/></a>
+
+
+
+            <button ng-click="form.$setPristine();
+                        ctrl.fetchRecords();" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">cancel</button>
+
+
+        </div><!-- end content -->
+    </div>
+</div>
+
+
+
+
+<div class="list-group" ng-repeat="record in records">
+    <a ng-click="ctrl.fetchRecord(record);" href="#" class="list-group-item">Doctor {{record.id}}</a>
+</div>
+
+
+
+<div ng-show="ctrl.createMode">
+
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+
+            <h2>Agregar Medico</h2>
+            <form novalidate name="form" id="book-form" role="form" ng-submit="form.$valid && ctrl.saveRecord()">
+                <fieldset>
+
+
+                    <div class="col-md-4" style="padding:0px"><strong>Nombre:</strong></div>
+                    <div class="col-md-5"><input type="text" name="nombreDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.nombre" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><strong>Apellido:</strong></div>
+                    <div class="col-md-5"><input type="text" name="apellidoDoctor" style="height:25px" class="form-control"  ng-model="currentRecord.apellido" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><strong>Tipo de Documento:</strong></div>
+                    <div class="col-md-5"> 
+                        <select name="documento" id="documento" style="height:25px"  class="form-control"  ng-model="currentRecord.tipoId" required>
+                            <option value=""></option>
+                            <option value="Cedula exranjeria">Cedula de extranjeria</option>
+                            <option value ="Cedula ciudadania">Cedula de ciudadania</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><strong>No documento:</strong></div>
+                    <div class="col-md-5"><input type="text" name="documentoDoctor" value="" style="height:25px" class="form-control"  ng-model="currentRecord.idDato" required></div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><strong>Especialidad:</strong></div>
+                    <div class="col-md-5"> 
+                        <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.especialidad" required>
+                            <option value=""></option>
+                            <option value="Medicina General">Medicina General</option>
+                            <option value ="Audiologia">Audiologia</option>
+                            <option value = "Dermatologia">Dermatologia</option>
+                            <option value="Ginecologia">Ginecologia</option>
+                            <option value="Oftalmologia">Oftamologia</option>
+                            <option value="Reumatologia">Reumatologia</option>
+                            <option value="Urologia">Urologia</option>
+                            <option value="Pediatria">Pediatria</option>
+                            <option value="Ecografia">Ecografia</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-4" style="padding:0px"><strong>Genero:</strong></div>
+                    <div class="col-md-5"> <select name="" id="Genero" style="height:25px" class="form-control"  ng-model="currentRecord.genero" required>
+                            <option value="Consultas">Masculino</option>
+                            <option value="Sala de Cirugia">Femenino</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+
+                </fieldset>
+
+
+            </form>
+
+            <button ng-click="ctrl.saveRecord();" id="save-book" type="submit" form="book-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar Medico</button>
+            <button ng-click="form.$setPristine();
+                        ctrl.fetchRecords();" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">cancel</button>
+
+        </div>
+
+    </div>
+</div>
+
+<div ng-show="ctrl.readOnly">
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+    <div class="clear"><br></div>
+
+    <div class="container" style="width:1018px">
+        <div class="col-md-9" style="border-right: 1px solid #90DA11">
+            <h2>Doctores actuales</h2>
+
+            <br>
+            <br>
+
+
+            <div class="list-group" ng-repeat="record in records">
+                <a ng-click="ctrl.fetchRecord(record);" href="" class="list-group-item">Doctor {{record.nombre + record.apellido}} Cedula {{record.idDato}}</a>
+                <button ng-click="ctrl.deleteRecord(record);" id="delete-book" type="submit" form="book-form" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Borrar medico</button> 
+            </div>
+
+            <br>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-3 sidebar"> 
+    <h4 style="text-align:right">Mi Menu</h4>
+    <table>
+        <tr>
+        <a href="perfilDoctor.html"><input type="submit" value="Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a href="editarInformacionDoctor.html"><input type="submit" value="Modificar Mi Perfil" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a ng-click="ctrl.verHorarios()"><input type="submit" value="Seleccionar Horarios" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+
+        <tr>
+        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Crear doctor" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+        <tr>
+        <a href="ingresarHorariosAtencion.html"><input type="submit" value="Ver doctores" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+        </tr>
+    </table>
+</div><!-- end sidebar -->
+
+</div><!-- end main -->
+
+<div class="clear"><br></div>
+
+

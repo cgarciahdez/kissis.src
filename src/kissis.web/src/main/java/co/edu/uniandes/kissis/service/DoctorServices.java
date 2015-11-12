@@ -1,7 +1,9 @@
 package co.edu.uniandes.kissis.service;
 
 import co.edu.uniandes.kissis.api.IDoctorLogic;
+import co.edu.uniandes.kissis.api.ICitaLogic;
 import co.edu.uniandes.kissis.dtos.DoctorDTO;
+import co.edu.uniandes.kissis.dtos.CitaDTO;
 import co.edu.uniandes.kissis.providers.StatusCreated;
 import java.util.List;
 import javax.inject.Inject;
@@ -26,6 +28,9 @@ public class DoctorServices
     
     @Inject
     private IDoctorLogic doctorLogic;
+    
+    @Inject
+    private ICitaLogic citaLogic;
 
     @POST
     @StatusCreated
@@ -46,7 +51,7 @@ public class DoctorServices
     {
         return doctorLogic.getDoctor(id);
     }
-
+    
     @PUT
     @Path("{id: \\d+}")
     public DoctorDTO updateDoctor(@PathParam("id") Long id, DoctorDTO dto)
@@ -60,5 +65,19 @@ public class DoctorServices
     public void deleteBook(@PathParam("id") Long id)
     {
         doctorLogic.deleteDoctor(id);
+    }
+    
+    @GET
+    @Path("{doctorId: \\d+}/citas")
+    public List<CitaDTO> getCitas(@PathParam("doctorId") Long doctorId)
+    {
+        return doctorLogic.getCitas(doctorId);
+    }
+    
+    @DELETE
+    @Path("{doctorId: \\d+}/citas/{citaId: \\d+}")
+    public void deleteCita(@PathParam("doctorId") Long pacienteId,@PathParam("citaId") Long citaId)
+    {
+        doctorLogic.removeCita(citaId, citaId);
     }
 }
