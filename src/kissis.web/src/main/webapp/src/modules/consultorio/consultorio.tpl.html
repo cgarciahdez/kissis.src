@@ -35,7 +35,7 @@
 
         <div class="col-md-9" style="border-right: 1px solid #90DA11">
             <h2>Consultorio #</h2>
-            <a ng-href="{{currentRecord.image}}" target="_blank"><img class="img-responsive" style="height: 270px;width:420px" ng-src="{{currentRecord.image}}" alt="{{currentRecord.image}}"></a>
+            <a ng-href="{{currentRecord.image}}" target="_blank"><img class="img-responsive" style="height: 270px;width:420px" ng-src="{{currentRecord.image}}" alt="{{currentRecord.image}}" id="imagen"></a>
 
             <br>
             <br>
@@ -48,7 +48,7 @@
             <div class="col-md-4" style="padding:0px"><strong>Tipo de Consultorio:</strong></div><div class="col-md-5">{{currentRecord.tipo}}</div>
             <br>
             <br>
-            <div class="col-md-4" style="padding:0px"><strong>Estensión:</strong></div><div class="col-md-5">{{currentRecord.extension}}</div>
+            <div class="col-md-4" style="padding:0px"><strong>Extensión:</strong></div><div id="extension" class="col-md-5">{{currentRecord.extension}}</div>
             <br>
             <br>
             <div class="col-md-4" style="padding:0px"><strong>Tamaño:</strong></div><div class="col-md-5">{{currentRecord.tamanio}}</div>
@@ -57,7 +57,7 @@
 
 
             <button ng-click="ctrl.editRecord(currentRecord)" class="btn btn-default">Editar</button>
-            <button ng-click="ctrl.deleteRecord(currentRecord)" class="btn btn-default">Eliminar</button>
+            <button ng-click="ctrl.deleteRecord(currentRecord)" class="btn btn-default" id="klk">Eliminar</button>
 
         </div><!-- end content -->
 
@@ -76,12 +76,12 @@
                     <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 
                     <div class="col-md-4" style="padding:0px"><strong>Ruta imágen:</strong></div>
-                    <div class="col-md-5"><input type="text" name="consultorioImage" style="height:25px" class="form-control"  ng-model="currentRecord.image" required></div>
+                    <div class="col-md-5"><input type="text" id="consImage" name="consultorioImage" style="height:25px" class="form-control"  ng-model="currentRecord.image" required></div>
                     <br>
                     <br>
                     <div class="col-md-4" style="padding:0px"><strong>Especialidad:</strong></div>
                     <div class="col-md-5"> 
-                        <select name="Especialidad" id="Especialidad" style="height:25px"  class="form-control"  ng-model="currentRecord.especialidad" required>
+                        <select name="Especialidad" id="selectEsp" style="height:25px"  class="form-control"  ng-model="currentRecord.especialidad" required>
                             <option value=""></option>
                             <option value="Medicina General">Medicina General</option>
                             <option value ="Audiologia">Audiología</option>
@@ -107,7 +107,7 @@
                     <br>
                     <br>
                     <div class="col-md-4" style="padding:0px"><strong>Extensión del Consultorio:</strong></div>
-                    <div class="col-md-5"><input type="text" name="noIdentificacion" value="2035" style="height:25px"  class="form-control"  ng-model="currentRecord.extension" required></div>
+                    <div class="col-md-5"><input id="inextension" type="text" name="noIdentificacion" value="2035" style="height:25px"  class="form-control"  ng-model="currentRecord.extension" required></div>
                     <br>
                     <br>
                     <div class="col-md-4" style="padding:0px"><strong>Tamaño:</strong></div>
@@ -121,7 +121,7 @@
                     <br>
 
                 </fieldset>
-                <button type="submit" form="consult-form" id="save-book" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+                <button type="submit" form="consult-form" id="save-cons" class="btn btn-default"><span class="glyphicon glyphicon-save"></span> Guardar</button>
                 <button ng-click="form.$setPristine();
                             ctrl.fetchRecords();" type="submit" class="btn btn-default" value="Cancelar" style="float:left;font-family:Tahoma,Geneva,sans-serif">cancel</button>
 
@@ -148,9 +148,9 @@
 
 
             <div class="list-group" ng-repeat="record in records">
-                <a ng-click="ctrl.fetchRecord(record);"  class="list-group-item">Consultorio {{record.id}}{{record.extension}}</a>
-                <a ng-click="ctrl.deleteRecord(record);"  class="list-group-item"> Borrar</a>
-                <a ng-click="ctrl.editRecord(record);"  class="list-group-item"> Editar</a>                
+                <a ng-click="ctrl.fetchRecord(record);"  id="ver" class="list-group-item">Consultorio {{record.id}}</a>
+                <a ng-click="ctrl.deleteRecord(record);"  class="list-group-item" id="borrarCons"> Borrar</a>
+                <a ng-click="ctrl.editRecord(record);"  class="list-group-item" id="editCons"> Editar</a>                
             </div>
             <br>
 
@@ -172,7 +172,7 @@
                 </tr>
 
                 <tr>
-                <a ng-click="ctrl.createRecord()"><input type="submit" value="Agregar Consultorio" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
+                <a ng-click="ctrl.createRecord()"><input id="createCons" type="submit" value="Agregar Consultorio" style="margin:10px;float:left;font-family:Tahoma,Geneva,sans-serif;width:96%"/></a>
                 </tr>
 
                 <tr>
